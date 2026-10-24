@@ -1,3 +1,4 @@
+import PlanDePruebas from './PlanDePruebas'
 import { useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Html } from '@react-three/drei'
@@ -499,6 +500,8 @@ export default function App() {
         <OrbitControls target={[0, 1.5, 0]} enableDamping minDistance={2}
           maxDistance={28} maxPolarAngle={Math.PI / 2 - 0.015} />
       </Canvas>
+
+      <PlanDePruebas />
     </div>
   )
 }
