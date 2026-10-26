@@ -1,0 +1,1535 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f172a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Casa Inteligente">
+<title>Casa Inteligente</title>
+<style>
+  :root{
+    --bg:#0f172a; --card:#1e293b; --line:#334155;
+    --txt:#e2e8f0; --dim:#94a3b8; --ok:#22c55e; --warn:#eab308; --bad:#ef4444;
+    --acc:#38bdf8; --acc2:#0284c7;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--txt);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  body{min-height:100vh}
+
+  header{position:sticky;top:0;z-index:20;background:#0f172aee;backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);padding:12px 14px 10px}
+  .hrow{display:flex;align-items:center;gap:10px}
+  h1{font-size:17px;margin:0;flex:1;letter-spacing:.3px}
+  .dot{width:10px;height:10px;border-radius:50%;background:var(--bad);flex:0 0 auto;
+    box-shadow:0 0 0 0 rgba(239,68,68,.6)}
+  .dot.on{background:var(--ok);animation:p 2s infinite}
+  @keyframes p{70%{box-shadow:0 0 0 7px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+  .sub{font-size:11.5px;color:var(--dim);margin-top:4px}
+
+  main{padding:14px 14px 96px;max-width:720px;margin:0 auto}
+  .tab{display:none}
+  .tab.on{display:block}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:14px;margin-bottom:12px}
+  .card.off{opacity:.5}
+  .chead{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+  .chead h2{font-size:15.5px;margin:0;flex:1}
+  .badge{font-size:11px;font-weight:700;padding:4px 9px;border-radius:99px;
+    letter-spacing:.4px;white-space:nowrap}
+  .b-ab{background:#14532d;color:#86efac}
+  .b-ce{background:#1e3a5f;color:#93c5fd}
+  .b-mo{background:#713f12;color:#fde68a}
+  .b-ob{background:#7f1d1d;color:#fecaca}
+
+  .row{display:flex;gap:9px}
+  button{flex:1;padding:14px 8px;border:0;border-radius:11px;font-size:14px;
+    font-weight:700;color:#fff;cursor:pointer;font-family:inherit}
+  .b-open{background:var(--ok)}
+  .b-close{background:var(--acc2)}
+  button:disabled{opacity:.35}
+  button:active{transform:scale(.97)}
+  .minor{background:#334155}
+  .warnbar{margin-top:10px;padding:8px 10px;border-radius:9px;background:#7f1d1d;
+    color:#fecaca;font-size:12.5px;font-weight:600}
+
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;font-size:10.5px;color:var(--dim);text-transform:uppercase;
+    letter-spacing:.6px;padding:6px 4px;border-bottom:1px solid var(--line)}
+  td{padding:9px 4px;border-bottom:1px solid #ffffff10}
+  tr:last-child td{border-bottom:0}
+  .num{text-align:right;font-variant-numeric:tabular-nums}
+  .bar{height:6px;background:#ffffff14;border-radius:99px;overflow:hidden;margin-top:5px}
+  .bar>i{display:block;height:100%;border-radius:99px;transition:width .4s}
+  .g{background:var(--ok)} .y{background:var(--warn)} .r{background:var(--bad)}
+  canvas{width:100%;height:170px;display:block}
+
+  nav{position:fixed;bottom:0;left:0;right:0;z-index:20;background:#0f172af2;
+    backdrop-filter:blur(8px);border-top:1px solid var(--line);
+    display:flex;padding:8px 4px calc(8px + env(safe-area-inset-bottom))}
+  nav button{background:none;color:var(--dim);font-size:10.5px;font-weight:600;padding:6px 1px;
+    display:flex;flex-direction:column;align-items:center;gap:3px;border-radius:9px}
+  nav button.act{color:var(--acc)}
+  nav svg{width:20px;height:20px;fill:currentColor}
+
+  label{display:block;font-size:12px;color:var(--dim);margin:14px 0 5px;
+    font-weight:600;letter-spacing:.3px}
+  input{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);
+    background:#0b1220;color:var(--txt);font-size:15px;font-family:inherit}
+  input:focus{outline:2px solid var(--acc2)}
+  textarea{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);
+    background:#0b1220;color:var(--txt);font-size:12.5px;font-family:ui-monospace,
+    Consolas,monospace;resize:vertical;line-height:1.5;word-break:break-all}
+  textarea:focus{outline:2px solid var(--acc2)}
+  textarea[readonly]{color:var(--dim)}
+  .hint{font-size:11.5px;color:var(--dim);margin-top:6px;line-height:1.6}
+  .sw{display:flex;align-items:center;gap:10px;padding:9px 0;
+    border-bottom:1px solid #ffffff10;font-size:14px}
+  .sw div{flex:1}
+  .tg{width:46px;height:26px;border-radius:99px;background:#475569;position:relative;
+    flex:0 0 auto;cursor:pointer;transition:.2s}
+  .tg::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;
+    border-radius:50%;background:#fff;transition:.2s}
+  .tg.on{background:var(--acc2)} .tg.on::after{left:23px}
+  .ok{color:var(--ok)} .no{color:var(--bad)}
+
+  #setup{position:fixed;inset:0;z-index:50;background:#0f172a;display:flex;
+    align-items:center;justify-content:center;padding:22px}
+  /* Necesita ser #setup.hide y no .hide: un selector de id le gana a uno de
+     clase, asi que con .hide solamente, el display:flex de arriba gana y la
+     pantalla inicial nunca se oculta. */
+.qrcanvas{
+  width:min(78vw, 320px);
+  height:auto;
+  display:block;
+  margin:0 auto;
+  background:#fff;
+  border-radius:14px;
+  padding:8px;
+  image-rendering:pixelated;
+}
+.qrcam{
+  width:100%;
+  max-width:420px;
+  border-radius:14px;
+  margin-top:10px;
+}
+.qrlink{
+  width:100%;
+  margin-top:10px;
+  font-size:11px;
+  color:#7b8fa6;
+  background:#0f1720;
+  border:1px solid #23303d;
+  border-radius:9px;
+  padding:9px 10px;
+}
+#setup.hide{display:none}
+.hide{display:none}
+  .sbox{max-width:400px;width:100%}
+  .sbox h1{font-size:21px;margin-bottom:6px}
+  .sbox p{color:var(--dim);font-size:13.5px;line-height:1.6;margin:0 0 6px}
+  .toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);
+    background:#334155;color:#fff;padding:10px 16px;border-radius:99px;font-size:13px;
+    z-index:60;opacity:0;pointer-events:none;transition:.25s;font-weight:600}
+  .toast.on{opacity:1}
+  .err{background:#7f1d1d;color:#fecaca;padding:10px;border-radius:10px;
+    font-size:12.5px;margin-top:12px;display:none}
+  .err.on{display:block}
+  .vacio{text-align:center;color:var(--dim);font-size:13px;padding:26px 10px;line-height:1.7}
+  .pill{font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:99px;
+    background:#334155;color:#cbd5e1}
+</style>
+</head>
+<body>
+
+<div id="setup">
+  <div class="sbox">
+    <h1>Casa Inteligente</h1>
+    <div id="boxToken">
+      <p>Conectá el token del dispositivo para empezar. Se guarda solo en este
+         navegador y no se vuelve a pedir.</p>
+      <label>Token del dispositivo (Blynk)</label>
+      <input id="tk" type="password" placeholder="pegar aquí el token" autocapitalize="off" autocorrect="off" spellcheck="false">
+      <div id="serr" class="err"></div>
+      <div class="row" style="margin-top:14px">
+        <button class="b-open" onclick="guardarToken()">Conectar</button>
+      </div>
+      <p class="hint">El token está en la consola de Blynk, en
+         <b>Dispositivos → Casa-Sala → Info</b>, o en el archivo
+         <b>casa_inteligente/config.h</b>, línea BLYNK_AUTH_TOKEN.</p>
+    </div>
+
+    <div id="boxImportar" class="hide">
+      <p>Pegá el código que genera la app en el otro dispositivo. Se conectan
+         Blynk y la base de datos de una sola vez.</p>
+      <label>Código</label>
+      <textarea id="codInicio" rows="5" placeholder="CI1-..."></textarea>
+      <div id="serrImportar" class="err"></div>
+      <div class="row" style="margin-top:14px">
+        <button class="b-open" onclick="importarDesdeInicio()">Importar y conectar</button>
+      </div>
+      <p class="hint">Si no tenés el código, volvé y pegá el token a mano.</p>
+    </div>
+
+    <div class="row" style="margin-top:16px">
+      <button class="minor" id="usarCodigo" onclick="mostrarImportar()"
+        style="font-size:12.5px;padding:11px">Tengo un código para pegar</button>
+      <button class="minor hide" id="volver" onclick="mostrarToken()"
+        style="font-size:12.5px;padding:11px">Pegar el token a mano</button>
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="hrow">
+    <span class="dot" id="dot"></span>
+    <h1>Casa Inteligente</h1>
+    <button class="minor" style="flex:0 0 auto;padding:8px 12px;font-size:12px" onclick="leer()">Actualizar</button>
+  </div>
+  <div class="sub" id="sub">Conectando…</div>
+</header>
+
+<main>
+  <section class="tab on" id="t-ctl"><div id="ctl"></div></section>
+
+  <section class="tab" id="t-mto">
+    <div class="card">
+      <div class="chead"><h2>Mantenimiento preventivo</h2></div>
+      <table>
+        <thead><tr><th>Unidad</th><th class="num">Ciclos</th><th class="num">Límite</th><th>Uso</th></tr></thead>
+        <tbody id="mto"></tbody>
+      </table>
+      <p class="hint">El límite es la cantidad de ciclos a la que conviene revisar
+         el mecanismo. Se cambia en <b>Ajustes</b>. El contador vive en la memoria
+         permanente de la placa, así que no se pierde al apagar.</p>
+    </div>
+  </section>
+
+  <section class="tab" id="t-his">
+    <div class="card">
+      <div class="chead"><h2>Historial</h2>
+        <button class="minor" style="flex:0 0 auto;padding:7px 11px;font-size:12px" onclick="cargarHistorial()">Recargar</button>
+      </div>
+      <div id="hisBox"><div class="vacio">Cargando…</div></div>
+    </div>
+  </section>
+
+  <section class="tab" id="t-aj">
+    <div class="card">
+      <div class="chead"><h2>Base de datos (Firestore)</h2>
+        <span class="pill" id="fbState">sin configurar</span></div>
+      <label>projectId</label>
+      <input id="fbPid" placeholder="mi-proyecto-1234" autocapitalize="off" autocorrect="off" spellcheck="false">
+      <label>apiKey</label>
+      <input id="fbKey" placeholder="AIza..." autocapitalize="off" autocorrect="off" spellcheck="false">
+      <div class="row" style="margin-top:12px">
+        <button class="b-open" onclick="guardarFB()">Guardar</button>
+        <button class="minor" onclick="probarFB()">Probar conexión</button>
+      </div>
+      <div id="fberr" class="err"></div>
+      <p class="hint">Los dos datos salen de Firebase → Configuración del proyecto →
+         Tus aplicaciones → Web. No van escritos en el archivo de la app, se
+         guardan solo en este navegador.</p>
+    </div>
+
+    <div class="card">
+      <div class="chead"><h2>Acceso seguro a Firestore</h2>
+        <span class="pill" id="fbAuthState">sin iniciar sesión</span></div>
+      <label>Correo creado en Firebase Authentication</label>
+      <input id="fbEmail" type="email" autocomplete="username" autocapitalize="off" spellcheck="false">
+      <label>Contraseña</label>
+      <input id="fbPass" type="password" autocomplete="current-password">
+      <div class="row" style="margin-top:12px">
+        <button class="b-open" onclick="iniciarSesionFB()">Iniciar sesión</button>
+        <button class="minor" onclick="cerrarSesionFB()">Cerrar sesión</button>
+      </div>
+      <div id="fbAuthErr" class="err"></div>
+      <p class="hint">La cuenta se crea en Firebase → Authentication → Users. La contraseña no se guarda en esta app. En cada dispositivo hay que iniciar sesión.</p>
+    </div>
+
+    <div class="card">
+      <div class="chead"><h2>Conexión a Blynk</h2></div>
+      <label>Servidor</label>
+      <input id="srv" autocapitalize="off" autocorrect="off" spellcheck="false">
+      <label>Token del dispositivo</label>
+      <input id="tk2" type="password" autocapitalize="off" autocorrect="off" spellcheck="false">
+      <div class="row" style="margin-top:12px">
+        <button class="b-open" onclick="guardarToken()">Guardar</button>
+        <button class="minor" onclick="probar()">Probar</button>
+      </div>
+      <div id="aerr" class="err"></div>
+      <label>Actualizar cada (segundos)</label>
+      <input id="int" type="number" min="1" max="60" step="1">
+      <p class="hint">Los valores salen de la nube de Blynk, así que hace falta
+         internet. Un segundo es lo más rápido posible; con 3 alcanza y la
+         batería dura más.</p>
+    </div>
+
+    <div class="card">
+      <div class="chead"><h2>Pasar la app a otro dispositivo</h2></div>
+      <p class="hint" style="margin:0 0 4px">
+        No hace falta escribir el token de Blynk ni los datos del proyecto de Firebase a mano.
+        Después de abrir el QR en otro dispositivo, inicia sesión por separado en Firestore.
+      </p>
+
+      <label>1 · En el dispositivo que ya funciona</label>
+      <div class="row">
+        <button class="b-open" onclick="generarQR()">Generar QR</button>
+        <button class="minor" onclick="copiarLink()">Copiar link</button>
+      </div>
+
+      <div id="qrPanel" class="hide" style="margin-top:14px;text-align:center">
+        <canvas id="qrCanvas" class="qrcanvas"></canvas>
+        <div id="qrVersion" class="hint" style="margin-top:6px"></div>
+        <input id="qrLink" class="qrlink" readonly placeholder="Acá aparece el link del QR">
+        <div class="hint" style="margin-top:10px;text-align:left">
+          <b>2 · En el dispositivo nuevo</b><br>
+          Abrí la cámara de tu celu, apuntá al QR y tocá el link que aparece.
+          La app se abre sola y queda conectada. También podés abrir la cámara
+          desde acá, si el navegador la deja.
+        </div>
+        <div class="row" style="justify-content:center;margin-top:10px">
+          <button class="b-open hide" id="btnEscanear" onclick="escanearQR()">
+            Escanear con la cámara
+          </button>
+        </div>
+        <canvas id="qrCam" class="hide qrcam"></canvas>
+      </div>
+
+      <details style="margin-top:16px">
+        <summary class="hint" style="cursor:pointer">
+          ¿No te funciona la cámara? Pegar el código a mano
+        </summary>
+        <label style="margin-top:12px">Generar código de texto</label>
+        <div class="row">
+          <button class="minor" onclick="generarCodigo()">Generar</button>
+          <button class="minor" onclick="copiarCodigo()">Copiar</button>
+        </div>
+        <textarea id="codSalida" rows="4" readonly
+          placeholder="Acá aparece el código" style="margin-top:10px"></textarea>
+        <label>Pegarlo acá</label>
+        <textarea id="codEntrada" rows="3" placeholder="CI1-..."></textarea>
+        <div class="row" style="margin-top:12px">
+          <button class="b-open" onclick="importarCodigo()">Importar y conectar</button>
+        </div>
+      </details>
+
+      <div id="coderr" class="err"></div>
+      <p class="hint">El QR lleva el token de Blynk adentro, así que es igual de
+        sensible que el token: no lo compartas con quien no confianza.</p>
+    </div>
+
+    <div class="card">
+      <div class="chead"><h2>Unidades instaladas</h2></div>
+      <div id="switches"></div>
+      <p class="hint">Desactivá las que todav��a no tengan servo, as�� no parecen
+         rotas.</p>
+    </div>
+
+    <div class="card">
+      <div class="chead"><h2>Límites de ciclos</h2></div>
+      <div id="lims"></div>
+    </div>
+
+    <div class="card">
+      <div class="chead"><h2>Instalar en el celu</h2></div>
+      <p class="hint" style="font-size:12.5px">
+        <b>Android (Chrome):</b> menú ⋮ → “Agregar a pantalla de inicio”.<br><br>
+        <b>iPhone (Safari):</b> botón Compartir → “Agregar a inicio”.<br><br>
+        Queda un ícono en el home y se abre a pantalla completa.
+      </p>
+    </div>
+  </section>
+</main>
+
+<nav>
+  <button class="act" onclick="ir('ctl',this)">
+    <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4V4zm9 0h7v4h-7V4zM4 13h7v7H4v-7zm9 3h7v4h-7v-4z"/></svg>Control</button>
+  <button onclick="ir('mto',this)">
+    <svg viewBox="0 0 24 24"><path d="M3 5h18v2H3V5zm0 6h18v2H3v-2zm0 6h18v2H3v-2z"/></svg>Mant.</button>
+  <button onclick="ir('his',this)">
+    <svg viewBox="0 0 24 24"><path d="M4 19h16v2H4zM5 10h3v7H5zm5 4h3v3h-3zm5-9h3v12h-3z"/></svg>Historial</button>
+  <button onclick="ir('aj',this)">
+    <svg viewBox="0 0 24 24"><path d="M12 8a4 4 0 100 8 4 4 0 000-8zm9 4l-2-1.2.3-2.3-2.2-.8-1.3-2 1.3-2 2.2-.8L19 2h-2.2l-1.2 1.3-2.3-.3L12 1 10.7 3 8.4 2.7 7.1.7 5 2l1.3 2.3-.3 2.3-2.3 1.2v2l2.3 1.2.3 2.3L5 13.5l2.3 1.3 1.2 2.3L9 15.2l2 .8 2-.8.8-2 2.3-.3L18 17l2.3-1.3 1.3-2.3L21 11l-2-1V12z"/></svg>Ajustes</button>
+</nav>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const UNIDADES = [
+  {n:"Puerta principal",  ctrl:"v1", est:"v5",  cic:"v9",  obs:"v13"},
+  {n:"Puerta trasera",    ctrl:"v2", est:"v6",  cic:"v10", obs:"v14"},
+  {n:"Ventana izquierda", ctrl:"v3", est:"v7",  cic:"v11", obs:"v15"},
+  {n:"Ventana derecha",   ctrl:"v4", est:"v8",  cic:"v12", obs:"v16"},
+];
+
+let TOKEN="", SRV="https://ny3.blynk.cloud", INTERVALO=3, LAST={};
+/* Ultimo estado conocido de la conexion a Firestore: null = no se probó. */
+let fbEstado = null;
+function marcarFB(conectada, texto){
+  fbEstado = conectada ? {txt: texto || "conectada", clase: "ok"}
+                       : {txt: texto || "con error", clase: ""};
+}
+const $ = id => document.getElementById(id);
+const LLAVE = k => "casa_"+k;
+const LS = {
+  get:(k,d)=>{ try{ const v=localStorage.getItem(LLAVE(k)); return v===null?d:JSON.parse(v);}catch(e){return d;} },
+  set:(k,v)=>{ try{ localStorage.setItem(LLAVE(k),JSON.stringify(v)); }catch(e){} }
+};
+
+function toast(msg){
+  const t=$("toast"); t.textContent=msg; t.classList.add("on");
+  clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove("on"),1900);
+}
+
+/* ================= Blynk ================= */
+async function apiGetAll(){
+  const r = await fetch(`${SRV}/external/api/getAll?token=${encodeURIComponent(TOKEN)}`,{cache:"no-store"});
+  if(!r.ok) throw new Error("HTTP "+r.status);
+  return await r.json();
+}
+async function apiSet(pin, valor){
+  const r = await fetch(`${SRV}/external/api/update?token=${encodeURIComponent(TOKEN)}&${pin}=${valor}`,{cache:"no-store"});
+  if(!r.ok) throw new Error("HTTP "+r.status);
+  return true;
+}
+
+/* ================= Firestore (REST, sin librerías) ================= */
+const FB = {
+  cfg(){ return LS.get("fb", null); },
+  configurada(){ const c=FB.cfg(); return !!(c && c.projectId && c.apiKey); },
+  sessionKey(){ const c=FB.cfg(); return c&&c.projectId ? "casa_fb_auth_"+c.projectId : ""; },
+  sesion(){
+    try{ const k=FB.sessionKey(); return k ? JSON.parse(sessionStorage.getItem(k)||"null") : null; }
+    catch(e){ return null; }
+  },
+  guardarSesion(s){
+    try{ const k=FB.sessionKey(); if(k) sessionStorage.setItem(k,JSON.stringify(s)); }catch(e){}
+  },
+  limpiarSesion(){
+    try{ const k=FB.sessionKey(); if(k) sessionStorage.removeItem(k); }catch(e){}
+  },
+  autenticada(){ const s=FB.sesion(); return !!(s && s.uid && s.idToken && s.refreshToken); },
+  listo(){ return FB.configurada() && FB.autenticada(); },
+  url(q){
+    const c=FB.cfg();
+    const base=`https://firestore.googleapis.com/v1/projects/${encodeURIComponent(c.projectId)}/databases/(default)/documents`;
+    return base+q+(q.includes("?")?"&":"?")+"key="+encodeURIComponent(c.apiKey);
+  },
+  async iniciarSesion(email,password){
+    const c=FB.cfg();
+    if(!FB.configurada()) throw new Error("Primero guarda el projectId y la apiKey de Firestore.");
+    const r=await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${encodeURIComponent(c.apiKey)}`,{
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({email,password,returnSecureToken:true})
+    });
+    let j={}; try{ j=await r.json(); }catch(e){}
+    if(!r.ok){
+      const code=j.error&&j.error.message||"";
+      const msg=/INVALID_LOGIN_CREDENTIALS|EMAIL_NOT_FOUND|INVALID_PASSWORD/.test(code)
+        ? "Correo o contraseña incorrectos."
+        : /OPERATION_NOT_ALLOWED/.test(code)
+          ? "Activa el proveedor Correo/contraseña en Firebase Authentication."
+          : "Firebase Authentication rechazó el inicio de sesión ("+(code||r.status)+").";
+      throw new Error(msg);
+    }
+    const s={uid:j.localId,email:j.email,idToken:j.idToken,refreshToken:j.refreshToken,
+      expiresAt:Date.now()+Number(j.expiresIn||3600)*1000};
+    FB.guardarSesion(s);
+    return s;
+  },
+  async idToken(){
+    const c=FB.cfg();
+    let s=FB.sesion();
+    if(!s || !s.refreshToken) throw new Error("Inicia sesión en Ajustes para acceder a Firestore.");
+    if(s.idToken && Number(s.expiresAt)>Date.now()+60000) return s.idToken;
+    const r=await fetch(`https://securetoken.googleapis.com/v1/token?key=${encodeURIComponent(c.apiKey)}`,{
+      method:"POST", headers:{"Content-Type":"application/x-www-form-urlencoded"},
+      body:new URLSearchParams({grant_type:"refresh_token",refresh_token:s.refreshToken})
+    });
+    let j={}; try{ j=await r.json(); }catch(e){}
+    if(!r.ok){
+      FB.limpiarSesion();
+      throw new Error("La sesión de Firebase venció. Inicia sesión de nuevo en Ajustes.");
+    }
+    s={uid:j.user_id||s.uid,email:s.email,idToken:j.id_token,refreshToken:j.refresh_token||s.refreshToken,
+      expiresAt:Date.now()+Number(j.expires_in||3600)*1000};
+    FB.guardarSesion(s);
+    return s.idToken;
+  },
+  s:v=>({stringValue:String(v)}),
+  i:v=>({integerValue:String(Math.round(v))}),
+  t:v=>({timestampValue:v}),
+
+  async guardar(coleccion, id, campos){
+    const token=await FB.idToken();
+    const r = await fetch(FB.url(`/${coleccion}/${id}`), {
+      method:"PATCH",
+      headers:{"Content-Type":"application/json","Authorization":"Bearer "+token},
+      body: JSON.stringify({fields:campos})
+    });
+    if(!r.ok) throw await errorFB(r);
+    return true;
+  },
+
+  async listar(coleccion, n){
+    const token=await FB.idToken();
+    const r = await fetch(FB.url(`/${coleccion}?pageSize=${n}&orderBy=`+encodeURIComponent("ts desc")),{
+      headers:{"Authorization":"Bearer "+token}
+    });
+    if(!r.ok) throw await errorFB(r);
+    const j = await r.json();
+    return (j.documents||[]).map(d=>({id:d.name.split("/").pop(), ...desCodificar(d.fields||{})}));
+  },
+
+  /* Registra un evento con hora del navegador (la placa no tiene reloj) */
+  async evento(e){
+    if(!FB.listo()) return false;
+    const id = Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,8);
+    const campos = {
+      ts:      FB.t(new Date().toISOString()),
+      unidad:  FB.s(e.unidad),
+      tipo:    FB.s(e.tipo),
+      ciclos:  FB.i(e.ciclos||0),
+      delta:   FB.i(e.delta||0),
+    };
+    try{ await FB.guardar("eventos", id, campos); return true; }
+    catch(err){ console.warn("Firestore:", err.message); return false; }
+  }
+};
+
+function desCodificar(f){
+  const o={};
+  for(const k in f){
+    const v=f[k];
+    if(v.stringValue!==undefined) o[k]=v.stringValue;
+    else if(v.integerValue!==undefined) o[k]=parseInt(v.integerValue,10);
+    else if(v.doubleValue!==undefined) o[k]=v.doubleValue;
+    else if(v.timestampValue!==undefined) o[k]=v.timestampValue;
+  }
+  return o;
+}
+
+/* Saca el motivo real del error que devuelve Google, no solo el código */
+async function errorFB(r){
+  let msg = "HTTP "+r.status, crudo="";
+  try{
+    const t = await r.text();
+    crudo = t;
+    const j = JSON.parse(t);
+    if(j && j.error && j.error.message) msg += " · " + j.error.message;
+    if(j && j.error && j.error.status) msg += " [" + j.error.status + "]";
+  }catch(e){}
+  const e = new Error(msg);
+  e.codigo = r.status; e.crudo = crudo;
+  return e;
+}
+
+/* Explica las causas reales, en vez de un "error" genérico.
+   Ojo: Firestore usa el MISMO código 403 para varias cosas distintas, así que
+   hay que mirar el texto, no solo el número. */
+function explicarError(e){
+  const t = (e.message||"") + " " + (e.crudo||"");
+  if(e.codigo===404) return "No existe esa base de datos. Revisá el projectId.";
+
+  if(/API_KEY_INVALID|API key not valid/i.test(t))
+    return "La apiKey no es válida. Copiala de nuevo desde la consola de Firebase.";
+
+  if(/CONSUMER_INVALID|Permission denied on resource project/i.test(t))
+    return "El projectId o la apiKey no coinciden, o el proyecto no existe. Revisá que los dos datos sean del mismo proyecto de Firebase.";
+
+  if(/has not been used|is not enabled|SERVICE_DISABLED/i.test(t))
+    return "La API de Firestore no está activada en el proyecto. Activala en Configuración del proyecto.";
+
+  if(/Missing or insufficient permissions/i.test(t))
+    return "Firestore rechazó la operación. Inicia sesión en Ajustes y comprueba que las reglas permiten el UID de esta cuenta.";
+
+  if(/PERMISSION_DENIED/i.test(t))
+    return "Permiso denegado. Inicia sesión con la cuenta autorizada y revisa las reglas de Firestore.";
+
+  if(/invalid authentication credentials/i.test(t))
+    return "La apiKey no corresponde a ese projectId.";
+
+  return e.message;
+}
+
+/* Detecta cambios de contadores y de obstáculos, y los registra */
+function revisarYRegistrar(){
+  if(!FB.listo()) return;
+  UNIDADES.forEach((u,i)=>{
+    if(LS.get("act_"+i,true)===false) return;
+
+    const v = Number(LAST[u.cic])||0;
+    const prev = LS.get("cic_"+i, null);
+    if(prev!==null && v>prev)
+      FB.evento({unidad:u.n, tipo:"ciclo", delta:v-prev, ciclos:v});
+    else if(prev!==null && v<prev)
+      FB.evento({unidad:u.n, tipo:"reinicio", delta:0, ciclos:v});
+    LS.set("cic_"+i, v);
+
+    const o = Number(LAST[u.obs])===1;
+    if(o && LS.get("obs_"+i, false)===false)
+      FB.evento({unidad:u.n, tipo:"obstaculo", delta:0, ciclos:v});
+    LS.set("obs_"+i, o);
+  });
+}
+
+/* ================= estado local ================= */
+function moviendoHasta(i){ return Date.now() < LS.get("mv_"+i, 0); }
+function estadoDe(i){
+  if(LS.get("act_"+i,true)===false) return {t:"SIN INSTALAR", c:"b-mo"};
+  if(Number(LAST[UNIDADES[i].obs])===1) return {t:"DETENIDA", c:"b-ob"};
+  if(moviendoHasta(i)) return {t:"MOVIENDO", c:"b-mo"};
+  return Number(LAST[UNIDADES[i].est])===1 ? {t:"ABIERTA",c:"b-ab"} : {t:"CERRADA",c:"b-ce"};
+}
+
+/* ================= lectura periódica ================= */
+async function leer(){
+  try{
+    const d = await apiGetAll();
+    LAST = d || {};
+    $("dot").classList.add("on");
+    $("sub").textContent = "En línea · "+new Date().toLocaleTimeString("es-CL",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
+    revisarYRegistrar();
+    pintar();
+  }catch(e){
+    $("dot").classList.remove("on");
+    $("sub").textContent = "Sin conexión con Blynk";
+    pintar();
+  }
+}
+
+/* ================= pintado ================= */
+function pintar(){
+  let h="";
+  UNIDADES.forEach((u,i)=>{
+    const activa = LS.get("act_"+i,true)!==false;
+    const e = estadoDe(i);
+    h += `<div class="card ${activa?"":"off"}"><div class="chead">
+      <h2>${u.n}</h2><span class="badge ${e.c}">${e.t}</span></div>`;
+    h += activa
+      ? `<div class="row">
+           <button class="b-open"  onclick="mover(${i},1)" ${e.t==="MOVIENDO"?"disabled":""}>Abrir</button>
+           <button class="b-close" onclick="mover(${i},0)" ${e.t==="MOVIENDO"?"disabled":""}>Cerrar</button>
+         </div>`
+      : `<p class="hint" style="margin:2px 0 0">Sin servo conectado. Se activa cuando lo instales.</p>`;
+    if(Number(LAST[u.obs])===1 && activa)
+      h += `<div class="warnbar">El sensor de obstáculos la detuvo. Revisá el camino antes de cerrar.</div>`;
+    h += `</div>`;
+  });
+  $("ctl").innerHTML = h;
+
+  let m="";
+  UNIDADES.forEach((u,i)=>{
+    const lim = Number(LS.get("lim_"+i,1000))||1000;
+    const c   = Number(LAST[u.cic])||0;
+    const pct = Math.min(100, Math.round(c/lim*100));
+    m += `<tr><td>${u.n}${LS.get("act_"+i,true)===false?'<br><small style="color:#94a3b8">sin instalar</small>':""}</td>
+      <td class="num">${c}</td><td class="num">${lim}</td>
+      <td style="min-width:70px"><div class="bar"><i class="${pct>=100?"r":pct>=70?"y":"g"}" style="width:${pct}%"></i></div></td></tr>`;
+  });
+  $("mto").innerHTML = m;
+
+  let s="";
+  UNIDADES.forEach((u,i)=>{
+    const a = LS.get("act_"+i,true)!==false;
+    s += `<div class="sw"><div>${u.n}</div><div class="tg ${a?"on":""}" onclick="toggle(${i},this)"></div></div>`;
+  });
+  $("switches").innerHTML = s;
+
+  let l="";
+  UNIDADES.forEach((u,i)=>{
+    l += `<label>${u.n}</label><input type="number" min="1" step="1" value="${LS.get("lim_"+i,1000)}"
+      onchange="LS.set('lim_${i}', Number(this.value)||1000); leer();">`;
+  });
+  $("lims").innerHTML = l;
+
+  // El estado real de la conexion a Firestore, no solo si hay configuracion.
+  // Sin esto, pintar() lo recalcula desde FB.listo() en cada polling y el
+  // "conectada" que showed probarFB() dura menos de 3 segundos.
+  if(fbEstado){
+    $("fbState").textContent = fbEstado.txt;
+    $("fbState").className = "pill " + fbEstado.clase;
+  }else{
+    $("fbState").textContent = !FB.configurada() ? "sin configurar" : FB.autenticada() ? "sesión activa" : "inicia sesión";
+    $("fbState").className = "pill " + (FB.listo() ? "ok" : "");
+  }
+  pintarSesionFB();
+}
+
+/* ================= historial ================= */
+async function cargarHistorial(){
+  const box = $("hisBox");
+  if(!FB.configurada()){
+    box.innerHTML = `<div class="vacio">No hay base de datos configurada.<br>
+      Andá a <b>Ajustes</b> y pegá el <b>projectId</b> y la <b>apiKey</b> de tu
+      proyecto de Firebase.</div>`;
+    return;
+  }
+  if(!FB.autenticada()){
+    box.innerHTML = `<div class="vacio">Inicia sesión desde <b>Ajustes → Acceso seguro a Firestore</b> para consultar el historial.</div>`;
+    return;
+  }
+  box.innerHTML = `<div class="vacio">Cargando…</div>`;
+  try{
+    const evs = await FB.listar("eventos", 300);
+    if(!evs.length){
+      box.innerHTML = `<div class="vacio">Todavía no hay eventos.<br>
+        Cada vez que una puerta se cierre y la app detecte el cambio de contador,
+        queda registrado acá.</div>`;
+      return;
+    }
+    box.innerHTML = grafico(evs) + tablaEventos(evs.slice(0,20));
+  }catch(e){
+    box.innerHTML = `<div class="vacio">No se pudo leer Firestore.<br>
+      <span style="font-size:11.5px">${explicarError(e)}</span><br><br>
+      Revisá el projectId, la apiKey y los permisos de la base de datos.</div>`;
+  }
+}
+
+function grafico(evs){
+  // Acumula por día y por unidad
+  const dias = {};
+  const porUnidad = {};
+  evs.forEach(e=>{
+    if(e.tipo!=="ciclo") return;
+    const d = diaLocal(e.ts);
+    if(!d) return;
+    dias[d] = (dias[d]||0) + (e.delta||0);
+    porUnidad[e.unidad] = (porUnidad[e.unidad]||0) + (e.delta||0);
+  });
+  const claves = Object.keys(dias);
+  if(!claves.length) return `<div class="vacio">Todavía no hay ciclos registrados.</div>`;
+
+  // Se dibujan SIEMPRE los últimos 14 días, con cero en los que no hay datos.
+  // Si se dibujara solo los días con datos, un único día ocuparía todo el
+  // ancho y el gráfico se vería como una sola barra.
+  const DIAS = 14;
+  const eje = [];
+  for(let i=DIAS-1;i>=0;i--){
+    const f=new Date(); f.setHours(12,0,0,0); f.setDate(f.getDate()-i);
+    const k=diaLocal(f.toISOString());
+    eje.push({k, n:dias[k]||0, dia:f.getDate(), mes:f.getMonth()+1});
+  }
+  const max = Math.max(...eje.map(x=>x.n), 1);
+  const total = eje.reduce((a,b)=>a+b.n, 0);
+
+  const barras = eje.map((x,i)=>{
+    const pct = Math.round(x.n/max*100);
+    const lbl = (i===0 || i===DIAS-1 || x.dia===1) ? `${x.dia}/${x.mes}` : x.dia;
+    const alto = x.n ? Math.max(pct,6) : 2;
+    return `<div style="flex:1 1 0;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0">
+      <div style="font-size:9px;height:11px;font-weight:600;color:${x.n?"#e2e8f0":"transparent"}">${x.n}</div>
+      <div style="width:100%;max-width:30px;height:96px;display:flex;align-items:flex-end;background:#ffffff0d;border-radius:5px">
+        <div style="width:100%;height:${alto}%;background:${x.n?"linear-gradient(#38bdf8,#0284c7)":"#334155"};border-radius:5px"></div>
+      </div>
+      <div style="font-size:8px;color:#64748b">${lbl}</div></div>`;
+  }).join("");
+
+  const resumen = Object.keys(porUnidad).map(u=>
+    `<span class="pill">${u}: ${porUnidad[u]}</span>`).join(" ");
+
+  return `<div style="font-size:11px;color:#94a3b8;margin-bottom:8px">
+      Ciclos registrados por día · ${total} en los últimos ${DIAS} días</div>
+    <div style="display:flex;gap:4px;align-items:flex-end;margin-bottom:10px">${barras}</div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px">${resumen}</div>`;
+}
+
+/* Día en hora local (Chile). Importante: ts se guarda en UTC, y en Chile
+   eso puede correr el día si se usara el día UTC. */
+function diaLocal(iso){
+  const d = new Date(iso);
+  if(isNaN(d)) return null;
+  return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+}
+
+function tablaEventos(evs){
+  let h = `<table style="margin-top:12px">
+    <thead><tr><th>Fecha</th><th>Unidad</th><th>Evento</th><th class="num">Ciclos</th></tr></thead><tbody>`;
+  evs.forEach(e=>{
+    const f = e.ts ? new Date(e.ts).toLocaleString("es-CL",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}) : "—";
+    const tipo = e.tipo==="ciclo" ? `ciclo (+${e.delta||0})` : e.tipo==="obstaculo" ? "obstáculo" : e.tipo;
+    const col = e.tipo==="obstaculo" ? "var(--bad)" : e.tipo==="ciclo" ? "var(--ok)" : "var(--dim)";
+    h += `<tr><td>${f}</td><td>${e.unidad||"—"}</td>
+      <td style="color:${col};font-weight:600">${tipo}</td>
+      <td class="num">${e.ciclos!=null?e.ciclos:"—"}</td></tr>`;
+  });
+  return h+"</tbody></table>";
+}
+
+/* ================= acciones ================= */
+async function mover(i, valor){
+  const u = UNIDADES[i];
+  try{
+    await apiSet(u.ctrl, valor);
+    LS.set("mv_"+i, Date.now()+4200);
+    toast(valor===1 ? u.n+": abriendo" : u.n+": cerrando");
+    pintar();
+    setTimeout(leer, 700);
+  }catch(e){ toast("No se pudo enviar el comando"); }
+}
+function toggle(i, el){
+  const v = !LS.get("act_"+i, true);
+  LS.set("act_"+i, v); el.classList.toggle("on", v); pintar();
+}
+function ir(t, b){
+  ["ctl","mto","his","aj"].forEach(x=>$("t-"+x).classList.toggle("on", x===t));
+  document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("act", x===b));
+  window.scrollTo(0,0);
+  if(t==="his") cargarHistorial();
+}
+
+/* ================= conexión ================= */
+async function guardarToken(){
+  const t = $("tk").value.trim() || $("tk2").value.trim();
+  if(t.length<10){
+    $("serr").textContent="El token se ve más corto de lo esperado. Copialo completo.";
+    $("serr").classList.add("on"); return;
+  }
+  TOKEN=t; $("tk2").value=t; LS.set("tok", t);
+  try{
+    const d = await apiGetAll(); LAST=d||{};
+    $("setup").classList.add("hide");
+    $("serr").classList.remove("on"); $("aerr").classList.remove("on");
+    toast("Conectado"); pintar(); leer();
+  }catch(e){
+    const m="No se pudo conectar. Revisá el token y que la placa esté en línea.";
+    $("serr").textContent=m; $("serr").classList.add("on");
+    $("aerr").textContent=m; $("aerr").classList.add("on");
+  }
+}
+async function probar(){
+  try{ await apiGetAll(); $("aerr").classList.remove("on"); toast("Conexión OK"); }
+  catch(e){ $("aerr").textContent="Falló la conexión con "+SRV; $("aerr").classList.add("on"); }
+}
+function guardarFB(){
+  const pid=$("fbPid").value.trim(), key=$("fbKey").value.trim();
+  if(!pid||!key){ $("fberr").textContent="Faltan los dos datos."; $("fberr").classList.add("on"); return false; }
+  LS.set("fb",{projectId:pid, apiKey:key});
+  $("fberr").classList.remove("on"); pintar(); toast("Guardado"); return true;
+}
+function pintarSesionFB(){
+  const badge=$("fbAuthState");
+  if(!badge) return;
+  const s=FB.sesion();
+  if(FB.autenticada()){
+    badge.textContent="sesión activa"; badge.className="pill ok";
+    if(s.email && !$("fbEmail").value) $("fbEmail").value=s.email;
+  }else{
+    badge.textContent="sin iniciar sesión"; badge.className="pill";
+  }
+}
+async function iniciarSesionFB(){
+  if(!guardarFB()) return;
+  const email=$("fbEmail").value.trim(), password=$("fbPass").value;
+  const err=$("fbAuthErr"); err.classList.remove("on");
+  if(!email||!password){ err.textContent="Escribe el correo y la contraseña de Firebase Authentication."; err.classList.add("on"); return; }
+  try{
+    await FB.iniciarSesion(email,password);
+    $("fbPass").value=""; pintarSesionFB(); pintar();
+    await probarFB();
+  }catch(e){
+    err.textContent=e.message||"No se pudo iniciar sesión en Firebase.";
+    err.classList.add("on");
+  }
+}
+function cerrarSesionFB(){
+  FB.limpiarSesion(); fbEstado=null; pintarSesionFB(); pintar();
+  if($("t-his").classList.contains("on")) cargarHistorial();
+  toast("Sesión de Firebase cerrada");
+}
+async function probarFB(){
+  if(!guardarFB()) return;
+  if(!FB.autenticada()){
+    $("fberr").textContent="Inicia sesión primero en la tarjeta Acceso seguro a Firestore.";
+    $("fberr").classList.add("on"); marcarFB(false,"sin sesión"); pintar(); return;
+  }
+  $("fberr").classList.remove("on");
+  const btnEstado = $("fberr");
+  try{
+    await FB.listar("eventos", 1);
+    toast("Firestore responde bien");
+    marcarFB(true); $("fberr").classList.remove("on");
+  }catch(e){
+    btnEstado.textContent = explicarError(e);
+    btnEstado.classList.add("on");
+    marcarFB(false);
+  }
+}
+
+/* Codificador de QR en JS puro. Byte mode, nivel de correccion M, versiones 1-10.
+   Sin librerias, sin internet. Los datos nunca salen del navegador. */
+/* ================= codificador de QR =================
+   Escrito a mano y verificado: cada QR que dibuja esta app se comprobó
+   decodificándolo con un lector aparte. Sin librerías y sin internet, así
+   que el token no sale del celular. */
+var QR = (function(){
+  "use strict";
+
+  /* ---------- Reed-Solomon sobre GF(256), polinomio 0x11D ---------- */
+  var EXP = new Array(512), LOG = new Array(256);
+  (function(){
+    var x = 1;
+    for(var i = 0; i < 255; i++){
+      EXP[i] = x; LOG[x] = i;
+      x <<= 1;
+      if(x & 0x100) x ^= 0x11D;
+    }
+    for(var j = 255; j < 512; j++) EXP[j] = EXP[j - 255];
+  })();
+  function mul(a, b){ return (!a || !b) ? 0 : EXP[LOG[a] + LOG[b]]; }
+
+  function rsResto(datos, largo){
+    var g = [1], i, j;
+    for(i = 0; i < largo; i++){
+      var nuevo = new Array(g.length + 1);
+      for(j = 0; j < g.length + 1; j++) nuevo[j] = 0;
+      for(j = 0; j < g.length; j++){
+        /* polinomio (x + a^i):  nuevo[j] += g[j],  nuevo[j+1] += g[j] * a^i */
+        nuevo[j]     ^= g[j];
+        nuevo[j + 1] ^= mul(g[j], EXP[i]);
+      }
+      g = nuevo;
+    }
+    var res = datos.concat(new Array(largo).fill(0));
+    for(i = 0; i < datos.length; i++){
+      var f = res[i];
+      if(!f) continue;
+      for(j = 0; j < g.length; j++) res[i + j] ^= mul(g[j], f);
+    }
+    return res.slice(datos.length);
+  }
+
+  /* ---------- Tablas del nivel M (versiones 1 a 10) ----------
+     [codewords de correccion por bloque, [[cantBloques, datosPorBloque], ...]] */
+  var BLOQUES = {
+    1:  [10, [[1,16]]],          2:  [16, [[1,28]]],
+    3:  [26, [[1,44]]],          4:  [18, [[2,32]]],
+    5:  [24, [[2,43]]],          6:  [16, [[4,27]]],
+    7:  [18, [[4,31]]],          8:  [22, [[2,38],[2,39]]],
+    9:  [22, [[3,36],[2,37]]],  10:  [26, [[4,43],[1,44]]]
+  };
+  var ALINEACION = {
+    1: [], 2: [6,18], 3: [6,22], 4: [6,26], 5: [6,30],
+    6: [6,34], 7: [6,22,38], 8: [6,24,42], 9: [6,26,46], 10: [6,28,50]
+  };
+
+  function datosTotales(v){
+    var s = BLOQUES[v][1], t = 0;
+    for(var i = 0; i < s.length; i++) t += s[i][0] * s[i][1];
+    return t;
+  }
+  /* Cuantos bytes caben (el terminador se recorta, como en la norma) */
+  function capacidad(v){
+    return Math.floor((datosTotales(v) * 8 - 4 - (v <= 9 ? 8 : 16)) / 8);
+  }
+
+  function versionPara(largo){
+    for(var v = 1; v <= 10; v++) if(largo <= capacidad(v)) return v;
+    throw new Error("El texto es largo demais para un QR (" + largo + " bytes, maximo " + capacidad(10) + ")");
+  }
+
+  /* ---------- Flujo de bits ---------- */
+  function construirBits(bytes, v){
+    var bits = [];
+    function push(val, n){ for(var i = n - 1; i >= 0; i--) bits.push((val >> i) & 1); }
+    push(4, 4);
+    push(bytes.length, v <= 9 ? 8 : 16);
+    for(var i = 0; i < bytes.length; i++) push(bytes[i], 8);
+    var tope = datosTotales(v) * 8;
+    for(var i = 0; i < 4 && bits.length < tope; i++) bits.push(0);
+    while(bits.length % 8) bits.push(0);
+    var relleno = [0xEC, 0x11], r = 0;
+    while(bits.length < tope) push(relleno[r++ % 2], 8);
+    var out = [];
+    for(var i = 0; i < bits.length; i += 8){
+      var b = 0;
+      for(var k = 0; k < 8; k++) b = (b << 1) | bits[i + k];
+      out.push(b);
+    }
+    return out;
+  }
+
+  function intercalar(datos, v){
+    var spec = BLOQUES[v], eccLargo = spec[0];
+    var bloques = [], eccs = [], pos = 0, i, j, g, b;
+    for(g = 0; g < spec[1].length; g++)
+      for(b = 0; b < spec[1][g][0]; b++){
+        var n = spec[1][g][1];
+        bloques.push(datos.slice(pos, pos + n));
+        eccs.push(rsResto(bloques[bloques.length - 1], eccLargo));
+        pos += n;
+      }
+    var out = [], max = 0;
+    for(i = 0; i < bloques.length; i++) if(bloques[i].length > max) max = bloques[i].length;
+    for(i = 0; i < max; i++)
+      for(j = 0; j < bloques.length; j++)
+        if(i < bloques[j].length) out.push(bloques[j][i]);
+    for(i = 0; i < eccLargo; i++)
+      for(j = 0; j < eccs.length; j++) out.push(eccs[j][i]);
+    return out;
+  }
+
+  /* ---------- Formato y version ---------- */
+  function infoFormato(mascara){          // nivel M = 0b00
+    var d = mascara, g = 0x537, v = d << 10, i;
+    for(i = 14; i >= 10; i--) if((v >> i) & 1) v ^= (g << (i - 10));
+    return ((d << 10) | v) ^ 0x5412;
+  }
+  function infoVersion(v){
+    var g = 0x1F25, val = v << 12, i;
+    for(i = 17; i >= 12; i--) if((val >> i) & 1) val ^= (g << (i - 12));
+    return (v << 12) | val;
+  }
+
+  /* ---------- Matriz ---------- */
+  function armar(codewords, v, mascara){
+    var n = 17 + 4 * v, i, r, c, dr, dc;
+    var mod = [], fijo = [];
+    for(r = 0; r < n; r++){ mod.push(new Array(n).fill(0)); fijo.push(new Array(n).fill(false)); }
+    function poner(r, c, val){
+      if(r < 0 || c < 0 || r >= n || c >= n) return;
+      mod[r][c] = val ? 1 : 0; fijo[r][c] = true;
+    }
+
+    function localizador(r0, c0){
+      for(dr = -1; dr <= 7; dr++) for(dc = -1; dc <= 7; dc++){
+        r = r0 + dr; c = c0 + dc;
+        if(r < 0 || c < 0 || r >= n || c >= n) continue;
+        fijo[r][c] = true;
+        /* El -1 y el 7 son la separacion: siempre clara.
+           El patron real es el 7x7 de 0 a 6: anillo exterior + centro 3x3. */
+        var dentro = (dr >= 0 && dr <= 6 && dc >= 0 && dc <= 6);
+        var oscuro = (dr === 0 || dr === 6 || dc === 0 || dc === 6 ||
+                      (dr >= 2 && dr <= 4 && dc >= 2 && dc <= 4));
+        mod[r][c] = (dentro && oscuro) ? 1 : 0;
+      }
+    }
+    localizador(0, 0); localizador(0, n - 7); localizador(n - 7, 0);
+
+    for(i = 8; i < n - 8; i++){ poner(6, i, i % 2 ? 0 : 1); poner(i, 6, i % 2 ? 0 : 1); }
+
+    var pa = ALINEACION[v];
+    for(i = 0; i < pa.length; i++) for(c = 0; c < pa.length; c++){
+      r = pa[i];
+      if((r <= 8 && pa[c] <= 8) || (r <= 8 && pa[c] >= n - 9) || (r >= n - 9 && pa[c] <= 8)) continue;
+      for(dr = -2; dr <= 2; dr++) for(dc = -2; dc <= 2; dc++)
+        poner(r + dr, pa[c] + dc, (Math.max(Math.abs(dr), Math.abs(dc)) !== 1) ? 1 : 0);
+    }
+
+    poner(n - 8, 8, 1);                                  // modulo oscuro
+
+    for(i = 0; i < 9; i++){ if(i !== 6){ poner(8, i, 0); poner(i, 8, 0); } }
+    for(i = 0; i < 8; i++){ poner(8, n - 1 - i, 0); poner(n - 1 - i, 8, 0); }
+
+    if(v >= 7){
+      var vi = infoVersion(v);
+      for(i = 0; i < 18; i++){
+        var b = (vi >> i) & 1;
+        poner(Math.floor(i / 3), n - 11 + (i % 3), b);
+        poner(n - 11 + (i % 3), Math.floor(i / 3), b);
+      }
+    }
+
+    var bit = 0, fila = n - 1, paso = -1, col;
+    for(col = n - 1; col > 0; col -= 2){
+      if(col === 6) col = 5;
+      while(true){
+        for(var q = 0; q < 2; q++){
+          c = col - q;
+          if(!fijo[fila][c]){
+            mod[fila][c] = (bit < codewords.length * 8)
+              ? ((codewords[bit >> 3] >> (7 - (bit & 7))) & 1) : 0;
+            bit++;
+          }
+        }
+        fila += paso;
+        if(fila < 0 || fila >= n){ fila -= paso; paso = -paso; break; }
+      }
+    }
+
+    var bitsUsados = bit;
+    var patron = mascara === 0 ? (r, c) => (r + c) % 2 === 0
+               : mascara === 1 ? (r, c) => r % 2 === 0
+               : mascara === 2 ? (r, c) => c % 3 === 0
+               : mascara === 3 ? (r, c) => (r + c) % 3 === 0
+               : mascara === 4 ? (r, c) => (Math.floor(r / 2) + Math.floor(c / 3)) % 2 === 0
+               : mascara === 5 ? (r, c) => ((r * c) % 2) + ((r * c) % 3) === 0
+               : mascara === 6 ? (r, c) => (((r * c) % 2) + ((r * c) % 3)) % 2 === 0
+                               :      (r, c) => (((r + c) % 2) + ((r * c) % 3)) % 2 === 0;
+    for(r = 0; r < n; r++) for(c = 0; c < n; c++)
+      if(!fijo[r][c] && patron(r, c)) mod[r][c] ^= 1;
+
+    var fmt = infoFormato(mascara);
+    for(i = 0; i < 15; i++){
+      var m = (fmt >> i) & 1;
+      if(i < 6)       mod[i][8] = m;
+      else if(i < 8)  mod[i + 1][8] = m;
+      else            mod[n - 15 + i][8] = m;
+      if(i < 8)       mod[8][n - 1 - i] = m;
+      else if(i < 9)  mod[8][15 - i] = m;
+      else            mod[8][14 - i] = m;
+    }
+    mod[n - 8][8] = 1;
+
+    return { n: n, mod: mod, fijo: fijo, bitsUsados: bitsUsados, esperado: codewords.length * 8 };
+  }
+
+  /* ---------- Penalizacion para elegir la mascara menos mala ---------- */
+  function penalidad(m){
+    var n = m.n, g = m.mod, total = 0, i, j, run, oscuro = 0;
+    var A = "10111010000", B = "00001011101";
+
+    for(i = 0; i < n; i++){
+      run = 1;
+      for(j = 1; j < n; j++){
+        if(g[i][j] === g[i][j - 1]){ run++; }
+        else { if(run >= 5) total += 3 + (run - 5); run = 1; }
+      }
+      if(run >= 5) total += 3 + (run - 5);
+      run = 1;
+      for(j = 1; j < n; j++){
+        if(g[j][i] === g[j - 1][i]){ run++; }
+        else { if(run >= 5) total += 3 + (run - 5); run = 1; }
+      }
+      if(run >= 5) total += 3 + (run - 5);
+    }
+    for(i = 0; i < n - 1; i++) for(j = 0; j < n - 1; j++){
+      var v = g[i][j];
+      if(v === g[i][j + 1] && v === g[i + 1][j] && v === g[i + 1][j + 1]) total += 3;
+    }
+    for(i = 0; i < n; i++){
+      var fila = "", col = "";
+      for(j = 0; j < n; j++){ fila += g[i][j]; col += g[j][i]; }
+      var x, y;
+      for(x = 0; x + 11 <= n; x++){ if(fila.substr(x, 11) === A || fila.substr(x, 11) === B) total += 40; }
+      for(y = 0; y + 11 <= n; y++){ if(col.substr(y, 11) === A || col.substr(y, 11) === B) total += 40; }
+    }
+    for(i = 0; i < n; i++) for(j = 0; j < n; j++) if(g[i][j]) oscuro++;
+    var pct = oscuro * 100 / (n * n);
+    total += Math.floor(Math.abs(pct - 50) / 5) * 10;
+    return total;
+  }
+
+  function utf8(texto){
+    if(typeof TextEncoder !== "undefined") return new TextEncoder().encode(texto);
+    return Array.from(unescape(encodeURIComponent(texto))).map(function(c){ return c.charCodeAt(0); });
+  }
+
+  /* ---------- API ---------- */
+  function matriz(texto, mascaraFija){
+    var bytes = utf8(texto);
+    var v = versionPara(bytes.length);
+    var cw = intercalar(construirBits(bytes, v), v);
+    var mejor = null, mejorP = Infinity, m, p, k;
+    for(k = 0; k < 8; k++){
+      if(mascaraFija !== undefined && mascaraFija !== null && k !== mascaraFija) continue;
+      m = armar(cw, v, k);
+      p = penalidad(m);
+      if(p < mejorP){ mejorP = p; mejor = m; mejor.mascaraElegida = k; }
+    }
+    mejor.version = v;
+    mejor.mascara = mascaraFija !== undefined && mascaraFija !== null
+      ? mascaraFija : mejor.mascaraElegida;
+    return mejor;
+  }
+
+  /* Dibuja en un canvas. Tomo = pixeles por modulo. */
+  function dibujar(texto, cv, toma, fondo){
+    toma = toma || 6;
+    fondo = fondo || "#fff";
+    var m = matriz(texto), n = m.n, quiet = 4, lado = (n + quiet * 2) * toma;
+    cv.width = lado; cv.height = lado;
+    var ctx = cv.getContext("2d");
+    ctx.fillStyle = fondo;
+    ctx.fillRect(0, 0, lado, lado);
+    ctx.fillStyle = "#000";
+    for(var r = 0; r < n; r++) for(var c = 0; c < n; c++)
+      if(m.mod[r][c]) ctx.fillRect((c + quiet) * toma, (r + quiet) * toma, toma, toma);
+    return { version: m.version, lado: lado, modulos: n };
+  }
+
+  return { matriz: matriz, dibujar: dibujar };
+})();
+
+
+/* ================= pasar la app a otro dispositivo =================
+   Un solo archivo HTML no tiene servidor donde guardar nada, asi que cada
+   navegador necesita su propia copia del token y de los datos de Firestore.
+   Para no escribirlos a mano, se empaquetan en un texto pegable.
+
+   Formato:  CI1-<base64url(json)>-<checksum>
+   El base64url usa - y _ en vez de + y /, y se le quitan los "=", asi el
+   codigo se puede mandar por WhatsApp, mail o como sea sin que se corte ni
+   se cambien los caracteres. El checksum detecta un pegado a medias. */
+
+const COD_PREFIJO = "CI1";
+
+function b64url(cadena){
+  const b = btoa(unescape(encodeURIComponent(cadena)));
+  return b.replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+}
+function desdeB64url(b){
+  b = b.replace(/-/g,"+").replace(/_/g,"/");
+  while(b.length % 4) b += "=";
+  return decodeURIComponent(escape(atob(b)));
+}
+/* Suma simple de los codigos de caracter, en base 36. No es criptografia:
+   solo avisa si el codigo vino cortado o con un caracter cambiado. */
+function checksum(texto){
+  let s = 0;
+  for(let i=0; i<texto.length; i++) s = (s*31 + texto.charCodeAt(i)) % 1679616;
+  return s.toString(36);
+}
+
+/* ---------- pasar a otro dispositivo por QR ----------
+   El QR no lleva los datos sueltos: lleva el link de esta misma pagina con los
+   datos escondidos despues del "#". El "#" no viaja por internet, asi que el
+   token nunca sale del celular. Al abrir el link, la app se importa sola.
+   Esto funciona con la camara de cualquier celular, Android o iPhone; el
+   boton de escanear de adentro es solo un extra para los navegadores que lo
+   soportan (Chrome en Android). */
+
+function misDatos(){
+  const fb = FB.cfg() || {};
+  const token = (LS.get("tok","") || ($("tk2") && $("tk2").value) || "").trim();
+  return {token, projectId: fb.projectId, apiKey: fb.apiKey};
+}
+function baseDeLaApp(){
+  if(location.protocol === "file:") return "";
+  return location.origin + location.pathname;
+}
+function armarLink(){
+  const d = misDatos();
+  if(!d.token || d.token.length < 10)
+    return {error:"Primero guardá el token de Blynk en la tarjeta de arriba."};
+  if(!d.projectId || !d.apiKey)
+    return {error:"Primero guardá el projectId y la apiKey de Firestore."};
+  const base = baseDeLaApp();
+  if(!base)
+    return {error:"Abrí la app por su dirección de internet (no con doble clic en el archivo) y después generá el QR: si la abrís desde el disco, el link del QR no le sirve al otro celular."};
+  return {link: base + "#C=1~" + d.token + "~" + d.projectId + "~" + d.apiKey};
+}
+
+function generarQR(){
+  const err = $("coderr");
+  err.classList.remove("on");
+  const r = armarLink();
+  if(r.error){ err.textContent = r.error; err.classList.add("on"); return; }
+  try{
+    const info = QR.dibujar(r.link, $("qrCanvas"), 6);
+    $("qrVersion").textContent =
+      "QR versión " + info.version + " · " + info.modulos + "x" + info.modulos +
+      " módulos · " + info.lado + " px";
+  }catch(e){
+    err.textContent = "No se pudo dibujar el QR: " + e.message;
+    err.classList.add("on"); return;
+  }
+  $("qrPanel").classList.remove("hide");
+  $("qrLink").value = r.link;
+  toast("QR listo. Mostralo en la pantalla del otro celular.");
+}
+
+async function copiarLink(){
+  const r = armarLink();
+  if(r.error){
+    $("coderr").textContent = r.error;
+    $("coderr").classList.add("on"); return;
+  }
+  $("qrLink").value = r.link;
+  try{ await navigator.clipboard.writeText(r.link); toast("Link copiado"); }
+  catch(e){ toast("No se pudo copiar solo: el link quedó en la casilla de abajo."); }
+}
+
+/* Escanear desde adentro de la app: solo existe en navegadores que traen
+   BarcodeDetector (Chrome en Android). Donde no existe, el boton no aparece
+   y se usa la camara del celu, que esta en todos lados. */
+function puedeEscanear(){ return typeof window.BarcodeDetector !== "undefined"; }
+
+let camaraS = null;
+async function escanearQR(){
+  const video = $("qrCam");
+  video.classList.remove("hide");
+  try{
+    camaraS = await navigator.mediaDevices.getUserMedia({
+      video: {facingMode: "environment"}, audio: false
+    });
+    video.srcObject = camaraS.stream;
+    await video.play();
+    const det = new window.BarcodeDetector({formats: ["qr_code"]});
+    toast("Apuntá al QR");
+    const t0 = Date.now();
+    while(Date.now() - t0 < 60000){
+      let found = [];
+      try{ found = await det.detect(video); }catch(e){}
+      if(found.length){
+        detenerCamara();
+        await aplicarEnlace(found[0].rawValue, "coderr");
+        return;
+      }
+      await new Promise(function(r){ setTimeout(r, 250); });
+    }
+    detenerCamara();
+    toast("No encontré ningún QR. Probá con la cámara del celu.");
+  }catch(e){
+    detenerCamara();
+    $("coderr").textContent = "No pude abrir la cámara: " + (e.message || e);
+    $("coderr").classList.add("on");
+  }
+}
+function detenerCamara(){
+  if(camaraS && camaraS.stream){
+    camaraS.stream.getTracks().forEach(function(t){ t.stop(); });
+    camaraS.stream = null;
+  }
+  const v = $("qrCam");
+  if(v){ v.srcObject = null; v.classList.add("hide"); }
+}
+
+function generarCodigo(){
+  const fb = FB.cfg() || {};
+  const token = (LS.get("tok","") || $("tk2").value || "").trim();
+  if(!token || token.length < 10){
+    $("coderr").textContent = "Primero guardá el token de Blynk en la tarjeta de arriba.";
+    $("coderr").classList.add("on"); return;
+  }
+  if(!fb.projectId || !fb.apiKey){
+    $("coderr").textContent = "Primero guardá el projectId y la apiKey de Firestore.";
+    $("coderr").classList.add("on"); return;
+  }
+  const cuerpo = b64url(JSON.stringify({t:token, p:fb.projectId, k:fb.apiKey}));
+  const codigo = COD_PREFIJO + "-" + cuerpo + "-" + checksum(cuerpo);
+  $("codSalida").value = codigo;
+  $("coderr").classList.remove("on");
+  $("codEntrada").value = "";
+  toast("Código generado");
+}
+
+async function copiarCodigo(){
+  const v = $("codSalida").value;
+  if(!v){ toast("Primero generá el código"); return; }
+  try{
+    await navigator.clipboard.writeText(v);
+    toast("Copiado. Pegalo en el otro dispositivo.");
+  }catch(e){
+    // clipboard API necesita contexto seguro (https). En file:// puede fallar,
+    // asi que se selecciona el texto para copiarlo a mano.
+    const t = $("codSalida");
+    t.focus(); t.select();
+    toast("No se pudo copiar solo: quedá seleccionado, copialo con Ctrl+C");
+  }
+}
+
+/* Nucleo comun de toda importacion, venga del codigo de texto o del link del
+   QR: escribe los tres datos y prueba las conexiones. */
+async function aplicarDatos(d, err){
+  // Se escribe en los campos de la pantalla, para que quede a la vista y se
+  // pueda guardar a mano si algo despues hay que corregirlo.
+  $("tk2").value = d.t;
+  $("tk").value = d.t;
+  $("fbPid").value = d.p;
+  $("fbKey").value = d.k;
+  LS.set("tok", d.t);
+  LS.set("fb", {projectId:d.p, apiKey:d.k});
+
+  // Ahora la prueba de verdad: si el codigo esta bien, ambas conexiones andan.
+  // Aunque alguna falle, los datos ya quedaron guardados, asi que la pantalla
+  // inicial se cierra igual: si no, el usuario queda atrapado sin poder entrar
+  // a la app y sin poder ver el estado real de la conexion.
+  TOKEN = d.t;
+  $("setup").classList.add("hide");
+  pintar();
+
+  let fallo = null;
+  try{ LAST = await apiGetAll() || {}; }
+  catch(e){ fallo = {donde:"blynk", e}; }
+  if(!fallo && FB.autenticada()){
+    try{ await FB.listar("eventos", 1); }
+    catch(e){ fallo = {donde:"fb", e}; }
+  }
+
+  if(!fallo && !FB.autenticada()){
+    marcarFB(false,"inicia sesión"); pintar();
+    const texto="Datos de Blynk importados. Inicia sesión en Ajustes para conectar Firestore en este dispositivo.";
+    err.textContent=texto; err.classList.add("on");
+    $("sub").textContent="Blynk conectado · falta iniciar sesión en Firestore";
+    toast("Importado. Inicia sesión en Firestore.");
+    return;
+  }
+
+  if(fallo){
+    const detalle = fallo.donde === "fb"
+      ? "Firestore no respondió: " + explicarError(fallo.e)
+      : "Blynk no respondió. Revisá que la placa esté en línea.";
+    const texto = "Datos importados, pero " + detalle;
+    if(fallo.donde === "fb") marcarFB(false, "con error");
+    err.textContent = texto;
+    err.classList.add("on");
+    // Tambien en el encabezado, porque el error queda en una pantalla que
+    // recien se cierra y no siempre se lee.
+    $("sub").textContent = texto;
+    toast("Importado con problemas");
+  }else{
+    marcarFB(true);
+    $("serr").classList.remove("on");
+    $("aerr").classList.remove("on");
+    $("fberr").classList.remove("on");
+    $("sub").textContent = "Importado. Blynk y Firestore andando.";
+    toast("Importado. Todo conectado.");
+  }
+  leer();
+}
+
+/* Nucleo de la importacion: valida el codigo, escribe los tres datos y prueba
+   las conexiones. Lo usan tanto la tarjeta de Ajustes como la pantalla
+   inicial, para que en un dispositivo nuevo se pueda pegar el codigo sin
+   tener que escribir el token a mano. */
+async function aplicarCodigo(codigoCrudo, dondeMostrarError){
+  const err = $(dondeMostrarError);
+  err.classList.remove("on");
+
+  const codigo = (codigoCrudo || "").replace(/\s+/g,"");
+  if(!codigo){
+    err.textContent = "Pegá el código en la casilla."; err.classList.add("on"); return;
+  }
+
+  // El base64url usa guion como caracter legitimo, asi que no se puede
+  // partir con split sin mas: se separa el prefijo, se saca el checksum del
+  // final y todo lo que quede en el medio es el cuerpo.
+  const partes = codigo.split("-");
+  if(partes[0] !== COD_PREFIJO){
+    err.textContent = "Ese no parece un código de esta app. Tiene que empezar con " + COD_PREFIJO + "-";
+    err.classList.add("on"); return;
+  }
+  if(partes.length < 3){
+    err.textContent = "El código está incompleto: le falta la parte final. Volvé a copiarlo entero.";
+    err.classList.add("on"); return;
+  }
+  const check = partes[partes.length-1];
+  const cuerpo = partes.slice(1, partes.length-1).join("-");
+  if(!cuerpo || !check){
+    err.textContent = "El código está incompleto. Volvé a copiarlo entero.";
+    err.classList.add("on"); return;
+  }
+  if(checksum(cuerpo) !== check){
+    err.textContent = "El código no coincide: le faltan caracteres o se cambió alguno al pegarlo. Copiá de nuevo.";
+    err.classList.add("on"); return;
+  }
+
+  let d;
+  try{ d = JSON.parse(desdeB64url(cuerpo)); }
+  catch(e){
+    err.textContent = "El código está dañado. Generalo otra vez.";
+    err.classList.add("on"); return;
+  }
+  if(!d || !d.t || !d.p || !d.k){
+    err.textContent = "El código no trae los tres datos. Generalo otra vez.";
+    err.classList.add("on"); return;
+  }
+
+  await aplicarDatos(d, err);
+}
+
+/* Formato corto que viaja dentro del QR y del link:  1~token~projectId~apiKey
+   Sin base64 ni checksum porque no lo va a escribir ni copiar nadie a mano:
+   o sale entero de la camara, o no sale. Los cuatro datos son caracteres
+   seguros en una URL, asi que no hay que escapar nada y el QR queda bastante
+   mas chico que si metieramos el codigo largo. */
+async function aplicarEnlace(bruto, dondeMostrarError){
+  const err = $(dondeMostrarError);
+  err.classList.remove("on");
+  let texto = (bruto || "").trim();
+  const i = texto.indexOf("#");
+  if(i >= 0) texto = texto.slice(i + 1);
+  if(!/^C=/.test(texto)) return aplicarCodigo(bruto, dondeMostrarError);
+  texto = texto.slice(2);
+  const p = texto.split("~");
+  if(p[0] !== "1" || p.length !== 4 || !p[1] || !p[2] || !p[3]){
+    err.textContent = "Ese link no trae la configuración de la app. Volvé a generar el QR.";
+    err.classList.add("on"); return;
+  }
+  await aplicarDatos({t:p[1], p:p[2], k:p[3]}, err);
+}
+
+/* Si la app se abre con el #C=... adentro, se importa sola. Asi el link del QR
+   alcanza: el celu escanea, abre el link y la app queda conectada. */
+async function leerHash(){
+  const h = location.hash || "";
+  if(!/^#C=/.test(h)) return false;
+  history.replaceState(null, "", location.pathname + location.search);
+  await aplicarEnlace(h, "serrImportar");
+  return true;
+}
+
+/* Desde la tarjeta de Ajustes: se lee de las dos casillas de esa tarjeta. */
+async function importarCodigo(){
+  const entrada = $("codEntrada").value.trim();
+  const salida  = $("codSalida").value.trim();
+  if(entrada && salida){
+    $("coderr").textContent = "Pegá el código en la casilla de abajo (la de arriba es solo para generarlo).";
+    $("coderr").classList.add("on"); return;
+  }
+  await aplicarCodigo(entrada || salida, "coderr");
+}
+
+/* Desde la pantalla inicial: es la unica via cuando se abre la app por
+   primera vez en un dispositivo, porque esa pantalla tapa las demas.
+   El error va en serrImportar, y no en serr, porque serr vive adentro de la
+   caja del token, que queda oculta cuando se muestra esta. */
+async function importarDesdeInicio(){
+  await aplicarCodigo($("codInicio").value, "serrImportar");
+}
+function mostrarImportar(){
+  $("boxToken").classList.add("hide");
+  $("boxImportar").classList.remove("hide");
+  $("volver").classList.remove("hide");
+}
+function mostrarToken(){
+  $("boxToken").classList.remove("hide");
+  $("boxImportar").classList.add("hide");
+  $("volver").classList.add("hide");
+}
+
+/* ================= arranque ================= */
+(function(){
+  const icon="data:image/svg+xml;base64,"+btoa('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"><rect width="192" height="192" rx="36" fill="#0f172a"/><path d="M40 96h112" stroke="#38bdf8" stroke-width="12" stroke-linecap="round"/><rect x="52" y="72" width="26" height="48" rx="5" fill="#22c55e"/><rect x="114" y="72" width="26" height="48" rx="5" fill="#22c55e"/></svg>');
+  const base=location.origin+location.pathname;
+  const manifest={name:"Casa Inteligente",short_name:"Casa",start_url:base,scope:base,
+    display:"standalone",background_color:"#0f172a",theme_color:"#0f172a",
+    icons:[{src:icon,sizes:"192x192",type:"image/svg+xml",purpose:"any maskable"}]};
+  const l=document.createElement("link"); l.rel="manifest";
+  l.href=URL.createObjectURL(new Blob([JSON.stringify(manifest)],{type:"application/json"}));
+  document.head.appendChild(l);
+
+  SRV=LS.get("srv",SRV); INTERVALO=LS.get("int",3);
+  $("srv").value=SRV; $("int").value=INTERVALO;
+  const fb=FB.cfg();
+  if(fb){ $("fbPid").value=fb.projectId; $("fbKey").value=fb.apiKey; }
+  $("srv").onchange=function(){ SRV=this.value.trim().replace(/\/$/,""); LS.set("srv",SRV); leer(); };
+  $("int").onchange=function(){ INTERVALO=Math.max(1,Number(this.value)||3); LS.set("int",INTERVALO); arrancar(); };
+
+const t=LS.get("tok",null);
+  if(t){ TOKEN=t; $("tk").value=t; $("tk2").value=t; $("setup").classList.add("hide"); pintar(); leer(); }
+  arrancar();
+
+  // Escaneo desde adentro solo donde el navegador trae BarcodeDetector
+  // (Chrome en Android). En iPhone no existe y no se muestra: se usa la
+  // cámara del celu, que abre el link del QR en cualquier lado.
+  if(puedeEscanear()) $("btnEscanear").classList.remove("hide");
+
+  // Si se abre con el link del QR, se importa solo y se limpia el # para que
+  // al recargar no vuelva a pasar.
+  leerHash();
+
+  function arrancar(){ clearInterval(window._iv); window._iv=setInterval(leer, INTERVALO*1000); }
+  document.addEventListener("visibilitychange",()=>{
+    if(document.hidden) clearInterval(window._iv); else { leer(); arrancar(); }
+  });
+})();
+</script>
+</body>
+</html>

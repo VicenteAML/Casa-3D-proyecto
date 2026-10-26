@@ -1,0 +1,4644 @@
+solid Base
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 0.00000 -10.00000
+      vertex 0.00000 300.00000 -10.00000
+      vertex 300.00000 300.00000 -10.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 0.00000 -10.00000
+      vertex 300.00000 300.00000 -10.00000
+      vertex 300.00000 0.00000 -10.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 0.00000 0.00000
+      vertex 300.00000 0.00000 0.00000
+      vertex 300.00000 300.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 0.00000 0.00000
+      vertex 300.00000 300.00000 0.00000
+      vertex 0.00000 300.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 -10.00000
+      vertex 300.00000 0.00000 -10.00000
+      vertex 300.00000 0.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 -10.00000
+      vertex 300.00000 0.00000 0.00000
+      vertex 0.00000 0.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 300.00000 -10.00000
+      vertex 0.00000 300.00000 0.00000
+      vertex 300.00000 300.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 300.00000 -10.00000
+      vertex 300.00000 300.00000 0.00000
+      vertex 300.00000 300.00000 -10.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 -10.00000
+      vertex 0.00000 0.00000 0.00000
+      vertex 0.00000 300.00000 0.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 -10.00000
+      vertex 0.00000 300.00000 0.00000
+      vertex 0.00000 300.00000 -10.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 0.00000 -10.00000
+      vertex 300.00000 300.00000 -10.00000
+      vertex 300.00000 300.00000 0.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 0.00000 -10.00000
+      vertex 300.00000 300.00000 0.00000
+      vertex 300.00000 0.00000 0.00000
+    endloop
+  endfacet
+endsolid Base
+solid Techo Desmontable
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex -5.00000 -5.00000 180.00000
+      vertex -5.00000 305.00000 180.00000
+      vertex 305.00000 305.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex -5.00000 -5.00000 180.00000
+      vertex 305.00000 305.00000 180.00000
+      vertex 305.00000 -5.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex -5.00000 -5.00000 192.00000
+      vertex 305.00000 -5.00000 192.00000
+      vertex 305.00000 305.00000 192.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex -5.00000 -5.00000 192.00000
+      vertex 305.00000 305.00000 192.00000
+      vertex -5.00000 305.00000 192.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex -5.00000 -5.00000 180.00000
+      vertex 305.00000 -5.00000 180.00000
+      vertex 305.00000 -5.00000 192.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex -5.00000 -5.00000 180.00000
+      vertex 305.00000 -5.00000 192.00000
+      vertex -5.00000 -5.00000 192.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex -5.00000 305.00000 180.00000
+      vertex -5.00000 305.00000 192.00000
+      vertex 305.00000 305.00000 192.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex -5.00000 305.00000 180.00000
+      vertex 305.00000 305.00000 192.00000
+      vertex 305.00000 305.00000 180.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex -5.00000 -5.00000 180.00000
+      vertex -5.00000 -5.00000 192.00000
+      vertex -5.00000 305.00000 192.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex -5.00000 -5.00000 180.00000
+      vertex -5.00000 305.00000 192.00000
+      vertex -5.00000 305.00000 180.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 305.00000 -5.00000 180.00000
+      vertex 305.00000 305.00000 180.00000
+      vertex 305.00000 305.00000 192.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 305.00000 -5.00000 180.00000
+      vertex 305.00000 305.00000 192.00000
+      vertex 305.00000 -5.00000 192.00000
+    endloop
+  endfacet
+endsolid Techo Desmontable
+solid Pared Frontal A1
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 0.00000 0.00000
+      vertex 0.00000 8.00000 0.00000
+      vertex 115.00000 8.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 0.00000 0.00000
+      vertex 115.00000 8.00000 0.00000
+      vertex 115.00000 0.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 0.00000 80.00000
+      vertex 115.00000 0.00000 80.00000
+      vertex 115.00000 8.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 0.00000 80.00000
+      vertex 115.00000 8.00000 80.00000
+      vertex 0.00000 8.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 0.00000
+      vertex 115.00000 0.00000 0.00000
+      vertex 115.00000 0.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 0.00000
+      vertex 115.00000 0.00000 80.00000
+      vertex 0.00000 0.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 8.00000 0.00000
+      vertex 0.00000 8.00000 80.00000
+      vertex 115.00000 8.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 8.00000 0.00000
+      vertex 115.00000 8.00000 80.00000
+      vertex 115.00000 8.00000 0.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 0.00000
+      vertex 0.00000 0.00000 80.00000
+      vertex 0.00000 8.00000 80.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 0.00000
+      vertex 0.00000 8.00000 80.00000
+      vertex 0.00000 8.00000 0.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 115.00000 0.00000 0.00000
+      vertex 115.00000 8.00000 0.00000
+      vertex 115.00000 8.00000 80.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 115.00000 0.00000 0.00000
+      vertex 115.00000 8.00000 80.00000
+      vertex 115.00000 0.00000 80.00000
+    endloop
+  endfacet
+endsolid Pared Frontal A1
+solid Pared Frontal A5
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 185.00000 0.00000 0.00000
+      vertex 185.00000 8.00000 0.00000
+      vertex 300.00000 8.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 185.00000 0.00000 0.00000
+      vertex 300.00000 8.00000 0.00000
+      vertex 300.00000 0.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 185.00000 0.00000 80.00000
+      vertex 300.00000 0.00000 80.00000
+      vertex 300.00000 8.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 185.00000 0.00000 80.00000
+      vertex 300.00000 8.00000 80.00000
+      vertex 185.00000 8.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 185.00000 0.00000 0.00000
+      vertex 300.00000 0.00000 0.00000
+      vertex 300.00000 0.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 185.00000 0.00000 0.00000
+      vertex 300.00000 0.00000 80.00000
+      vertex 185.00000 0.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 185.00000 8.00000 0.00000
+      vertex 185.00000 8.00000 80.00000
+      vertex 300.00000 8.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 185.00000 8.00000 0.00000
+      vertex 300.00000 8.00000 80.00000
+      vertex 300.00000 8.00000 0.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 185.00000 0.00000 0.00000
+      vertex 185.00000 0.00000 80.00000
+      vertex 185.00000 8.00000 80.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 185.00000 0.00000 0.00000
+      vertex 185.00000 8.00000 80.00000
+      vertex 185.00000 8.00000 0.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 0.00000 0.00000
+      vertex 300.00000 8.00000 0.00000
+      vertex 300.00000 8.00000 80.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 0.00000 0.00000
+      vertex 300.00000 8.00000 80.00000
+      vertex 300.00000 0.00000 80.00000
+    endloop
+  endfacet
+endsolid Pared Frontal A5
+solid Pared Frontal B1
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 0.00000 80.00000
+      vertex 0.00000 8.00000 80.00000
+      vertex 25.00000 8.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 0.00000 80.00000
+      vertex 25.00000 8.00000 80.00000
+      vertex 25.00000 0.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 0.00000 100.00000
+      vertex 25.00000 0.00000 100.00000
+      vertex 25.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 0.00000 100.00000
+      vertex 25.00000 8.00000 100.00000
+      vertex 0.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 80.00000
+      vertex 25.00000 0.00000 80.00000
+      vertex 25.00000 0.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 80.00000
+      vertex 25.00000 0.00000 100.00000
+      vertex 0.00000 0.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 8.00000 80.00000
+      vertex 0.00000 8.00000 100.00000
+      vertex 25.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 8.00000 80.00000
+      vertex 25.00000 8.00000 100.00000
+      vertex 25.00000 8.00000 80.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 80.00000
+      vertex 0.00000 0.00000 100.00000
+      vertex 0.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 80.00000
+      vertex 0.00000 8.00000 100.00000
+      vertex 0.00000 8.00000 80.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 25.00000 0.00000 80.00000
+      vertex 25.00000 8.00000 80.00000
+      vertex 25.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 25.00000 0.00000 80.00000
+      vertex 25.00000 8.00000 100.00000
+      vertex 25.00000 0.00000 100.00000
+    endloop
+  endfacet
+endsolid Pared Frontal B1
+solid Pared Frontal B3
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 65.00000 0.00000 80.00000
+      vertex 65.00000 8.00000 80.00000
+      vertex 115.00000 8.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 65.00000 0.00000 80.00000
+      vertex 115.00000 8.00000 80.00000
+      vertex 115.00000 0.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 65.00000 0.00000 100.00000
+      vertex 115.00000 0.00000 100.00000
+      vertex 115.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 65.00000 0.00000 100.00000
+      vertex 115.00000 8.00000 100.00000
+      vertex 65.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 65.00000 0.00000 80.00000
+      vertex 115.00000 0.00000 80.00000
+      vertex 115.00000 0.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 65.00000 0.00000 80.00000
+      vertex 115.00000 0.00000 100.00000
+      vertex 65.00000 0.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 65.00000 8.00000 80.00000
+      vertex 65.00000 8.00000 100.00000
+      vertex 115.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 65.00000 8.00000 80.00000
+      vertex 115.00000 8.00000 100.00000
+      vertex 115.00000 8.00000 80.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 65.00000 0.00000 80.00000
+      vertex 65.00000 0.00000 100.00000
+      vertex 65.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 65.00000 0.00000 80.00000
+      vertex 65.00000 8.00000 100.00000
+      vertex 65.00000 8.00000 80.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 115.00000 0.00000 80.00000
+      vertex 115.00000 8.00000 80.00000
+      vertex 115.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 115.00000 0.00000 80.00000
+      vertex 115.00000 8.00000 100.00000
+      vertex 115.00000 0.00000 100.00000
+    endloop
+  endfacet
+endsolid Pared Frontal B3
+solid Pared Frontal B5
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 185.00000 0.00000 80.00000
+      vertex 185.00000 8.00000 80.00000
+      vertex 300.00000 8.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 185.00000 0.00000 80.00000
+      vertex 300.00000 8.00000 80.00000
+      vertex 300.00000 0.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 185.00000 0.00000 100.00000
+      vertex 300.00000 0.00000 100.00000
+      vertex 300.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 185.00000 0.00000 100.00000
+      vertex 300.00000 8.00000 100.00000
+      vertex 185.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 185.00000 0.00000 80.00000
+      vertex 300.00000 0.00000 80.00000
+      vertex 300.00000 0.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 185.00000 0.00000 80.00000
+      vertex 300.00000 0.00000 100.00000
+      vertex 185.00000 0.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 185.00000 8.00000 80.00000
+      vertex 185.00000 8.00000 100.00000
+      vertex 300.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 185.00000 8.00000 80.00000
+      vertex 300.00000 8.00000 100.00000
+      vertex 300.00000 8.00000 80.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 185.00000 0.00000 80.00000
+      vertex 185.00000 0.00000 100.00000
+      vertex 185.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 185.00000 0.00000 80.00000
+      vertex 185.00000 8.00000 100.00000
+      vertex 185.00000 8.00000 80.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 0.00000 80.00000
+      vertex 300.00000 8.00000 80.00000
+      vertex 300.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 0.00000 80.00000
+      vertex 300.00000 8.00000 100.00000
+      vertex 300.00000 0.00000 100.00000
+    endloop
+  endfacet
+endsolid Pared Frontal B5
+solid Pared Frontal C1
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 0.00000 100.00000
+      vertex 0.00000 8.00000 100.00000
+      vertex 25.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 0.00000 100.00000
+      vertex 25.00000 8.00000 100.00000
+      vertex 25.00000 0.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 0.00000 120.00000
+      vertex 25.00000 0.00000 120.00000
+      vertex 25.00000 8.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 0.00000 120.00000
+      vertex 25.00000 8.00000 120.00000
+      vertex 0.00000 8.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 100.00000
+      vertex 25.00000 0.00000 100.00000
+      vertex 25.00000 0.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 100.00000
+      vertex 25.00000 0.00000 120.00000
+      vertex 0.00000 0.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 8.00000 100.00000
+      vertex 0.00000 8.00000 120.00000
+      vertex 25.00000 8.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 8.00000 100.00000
+      vertex 25.00000 8.00000 120.00000
+      vertex 25.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 100.00000
+      vertex 0.00000 0.00000 120.00000
+      vertex 0.00000 8.00000 120.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 100.00000
+      vertex 0.00000 8.00000 120.00000
+      vertex 0.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 25.00000 0.00000 100.00000
+      vertex 25.00000 8.00000 100.00000
+      vertex 25.00000 8.00000 120.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 25.00000 0.00000 100.00000
+      vertex 25.00000 8.00000 120.00000
+      vertex 25.00000 0.00000 120.00000
+    endloop
+  endfacet
+endsolid Pared Frontal C1
+solid Pared Frontal C3
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 65.00000 0.00000 100.00000
+      vertex 65.00000 8.00000 100.00000
+      vertex 300.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 65.00000 0.00000 100.00000
+      vertex 300.00000 8.00000 100.00000
+      vertex 300.00000 0.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 65.00000 0.00000 120.00000
+      vertex 300.00000 0.00000 120.00000
+      vertex 300.00000 8.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 65.00000 0.00000 120.00000
+      vertex 300.00000 8.00000 120.00000
+      vertex 65.00000 8.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 65.00000 0.00000 100.00000
+      vertex 300.00000 0.00000 100.00000
+      vertex 300.00000 0.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 65.00000 0.00000 100.00000
+      vertex 300.00000 0.00000 120.00000
+      vertex 65.00000 0.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 65.00000 8.00000 100.00000
+      vertex 65.00000 8.00000 120.00000
+      vertex 300.00000 8.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 65.00000 8.00000 100.00000
+      vertex 300.00000 8.00000 120.00000
+      vertex 300.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 65.00000 0.00000 100.00000
+      vertex 65.00000 0.00000 120.00000
+      vertex 65.00000 8.00000 120.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 65.00000 0.00000 100.00000
+      vertex 65.00000 8.00000 120.00000
+      vertex 65.00000 8.00000 100.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 0.00000 100.00000
+      vertex 300.00000 8.00000 100.00000
+      vertex 300.00000 8.00000 120.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 0.00000 100.00000
+      vertex 300.00000 8.00000 120.00000
+      vertex 300.00000 0.00000 120.00000
+    endloop
+  endfacet
+endsolid Pared Frontal C3
+solid Pared Frontal D1
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 0.00000 120.00000
+      vertex 0.00000 8.00000 120.00000
+      vertex 300.00000 8.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 0.00000 120.00000
+      vertex 300.00000 8.00000 120.00000
+      vertex 300.00000 0.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 0.00000 180.00000
+      vertex 300.00000 0.00000 180.00000
+      vertex 300.00000 8.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 0.00000 180.00000
+      vertex 300.00000 8.00000 180.00000
+      vertex 0.00000 8.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 120.00000
+      vertex 300.00000 0.00000 120.00000
+      vertex 300.00000 0.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 120.00000
+      vertex 300.00000 0.00000 180.00000
+      vertex 0.00000 0.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 8.00000 120.00000
+      vertex 0.00000 8.00000 180.00000
+      vertex 300.00000 8.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 8.00000 120.00000
+      vertex 300.00000 8.00000 180.00000
+      vertex 300.00000 8.00000 120.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 120.00000
+      vertex 0.00000 0.00000 180.00000
+      vertex 0.00000 8.00000 180.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 120.00000
+      vertex 0.00000 8.00000 180.00000
+      vertex 0.00000 8.00000 120.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 0.00000 120.00000
+      vertex 300.00000 8.00000 120.00000
+      vertex 300.00000 8.00000 180.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 0.00000 120.00000
+      vertex 300.00000 8.00000 180.00000
+      vertex 300.00000 0.00000 180.00000
+    endloop
+  endfacet
+endsolid Pared Frontal D1
+solid Pared Trasera A1
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 292.00000 0.00000
+      vertex 0.00000 300.00000 0.00000
+      vertex 115.00000 300.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 292.00000 0.00000
+      vertex 115.00000 300.00000 0.00000
+      vertex 115.00000 292.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 292.00000 80.00000
+      vertex 115.00000 292.00000 80.00000
+      vertex 115.00000 300.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 292.00000 80.00000
+      vertex 115.00000 300.00000 80.00000
+      vertex 0.00000 300.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 292.00000 0.00000
+      vertex 115.00000 292.00000 0.00000
+      vertex 115.00000 292.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 292.00000 0.00000
+      vertex 115.00000 292.00000 80.00000
+      vertex 0.00000 292.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 300.00000 0.00000
+      vertex 0.00000 300.00000 80.00000
+      vertex 115.00000 300.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 300.00000 0.00000
+      vertex 115.00000 300.00000 80.00000
+      vertex 115.00000 300.00000 0.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 292.00000 0.00000
+      vertex 0.00000 292.00000 80.00000
+      vertex 0.00000 300.00000 80.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 292.00000 0.00000
+      vertex 0.00000 300.00000 80.00000
+      vertex 0.00000 300.00000 0.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 115.00000 292.00000 0.00000
+      vertex 115.00000 300.00000 0.00000
+      vertex 115.00000 300.00000 80.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 115.00000 292.00000 0.00000
+      vertex 115.00000 300.00000 80.00000
+      vertex 115.00000 292.00000 80.00000
+    endloop
+  endfacet
+endsolid Pared Trasera A1
+solid Pared Trasera A3
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 185.00000 292.00000 0.00000
+      vertex 185.00000 300.00000 0.00000
+      vertex 300.00000 300.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 185.00000 292.00000 0.00000
+      vertex 300.00000 300.00000 0.00000
+      vertex 300.00000 292.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 185.00000 292.00000 80.00000
+      vertex 300.00000 292.00000 80.00000
+      vertex 300.00000 300.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 185.00000 292.00000 80.00000
+      vertex 300.00000 300.00000 80.00000
+      vertex 185.00000 300.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 185.00000 292.00000 0.00000
+      vertex 300.00000 292.00000 0.00000
+      vertex 300.00000 292.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 185.00000 292.00000 0.00000
+      vertex 300.00000 292.00000 80.00000
+      vertex 185.00000 292.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 185.00000 300.00000 0.00000
+      vertex 185.00000 300.00000 80.00000
+      vertex 300.00000 300.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 185.00000 300.00000 0.00000
+      vertex 300.00000 300.00000 80.00000
+      vertex 300.00000 300.00000 0.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 185.00000 292.00000 0.00000
+      vertex 185.00000 292.00000 80.00000
+      vertex 185.00000 300.00000 80.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 185.00000 292.00000 0.00000
+      vertex 185.00000 300.00000 80.00000
+      vertex 185.00000 300.00000 0.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 292.00000 0.00000
+      vertex 300.00000 300.00000 0.00000
+      vertex 300.00000 300.00000 80.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 292.00000 0.00000
+      vertex 300.00000 300.00000 80.00000
+      vertex 300.00000 292.00000 80.00000
+    endloop
+  endfacet
+endsolid Pared Trasera A3
+solid Pared Trasera B1
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 292.00000 80.00000
+      vertex 0.00000 300.00000 80.00000
+      vertex 115.00000 300.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 292.00000 80.00000
+      vertex 115.00000 300.00000 80.00000
+      vertex 115.00000 292.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 292.00000 100.00000
+      vertex 115.00000 292.00000 100.00000
+      vertex 115.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 292.00000 100.00000
+      vertex 115.00000 300.00000 100.00000
+      vertex 0.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 292.00000 80.00000
+      vertex 115.00000 292.00000 80.00000
+      vertex 115.00000 292.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 292.00000 80.00000
+      vertex 115.00000 292.00000 100.00000
+      vertex 0.00000 292.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 300.00000 80.00000
+      vertex 0.00000 300.00000 100.00000
+      vertex 115.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 300.00000 80.00000
+      vertex 115.00000 300.00000 100.00000
+      vertex 115.00000 300.00000 80.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 292.00000 80.00000
+      vertex 0.00000 292.00000 100.00000
+      vertex 0.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 292.00000 80.00000
+      vertex 0.00000 300.00000 100.00000
+      vertex 0.00000 300.00000 80.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 115.00000 292.00000 80.00000
+      vertex 115.00000 300.00000 80.00000
+      vertex 115.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 115.00000 292.00000 80.00000
+      vertex 115.00000 300.00000 100.00000
+      vertex 115.00000 292.00000 100.00000
+    endloop
+  endfacet
+endsolid Pared Trasera B1
+solid Pared Trasera B3
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 185.00000 292.00000 80.00000
+      vertex 185.00000 300.00000 80.00000
+      vertex 235.00000 300.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 185.00000 292.00000 80.00000
+      vertex 235.00000 300.00000 80.00000
+      vertex 235.00000 292.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 185.00000 292.00000 100.00000
+      vertex 235.00000 292.00000 100.00000
+      vertex 235.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 185.00000 292.00000 100.00000
+      vertex 235.00000 300.00000 100.00000
+      vertex 185.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 185.00000 292.00000 80.00000
+      vertex 235.00000 292.00000 80.00000
+      vertex 235.00000 292.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 185.00000 292.00000 80.00000
+      vertex 235.00000 292.00000 100.00000
+      vertex 185.00000 292.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 185.00000 300.00000 80.00000
+      vertex 185.00000 300.00000 100.00000
+      vertex 235.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 185.00000 300.00000 80.00000
+      vertex 235.00000 300.00000 100.00000
+      vertex 235.00000 300.00000 80.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 185.00000 292.00000 80.00000
+      vertex 185.00000 292.00000 100.00000
+      vertex 185.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 185.00000 292.00000 80.00000
+      vertex 185.00000 300.00000 100.00000
+      vertex 185.00000 300.00000 80.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 235.00000 292.00000 80.00000
+      vertex 235.00000 300.00000 80.00000
+      vertex 235.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 235.00000 292.00000 80.00000
+      vertex 235.00000 300.00000 100.00000
+      vertex 235.00000 292.00000 100.00000
+    endloop
+  endfacet
+endsolid Pared Trasera B3
+solid Pared Trasera B5
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 275.00000 292.00000 80.00000
+      vertex 275.00000 300.00000 80.00000
+      vertex 300.00000 300.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 275.00000 292.00000 80.00000
+      vertex 300.00000 300.00000 80.00000
+      vertex 300.00000 292.00000 80.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 275.00000 292.00000 100.00000
+      vertex 300.00000 292.00000 100.00000
+      vertex 300.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 275.00000 292.00000 100.00000
+      vertex 300.00000 300.00000 100.00000
+      vertex 275.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 275.00000 292.00000 80.00000
+      vertex 300.00000 292.00000 80.00000
+      vertex 300.00000 292.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 275.00000 292.00000 80.00000
+      vertex 300.00000 292.00000 100.00000
+      vertex 275.00000 292.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 275.00000 300.00000 80.00000
+      vertex 275.00000 300.00000 100.00000
+      vertex 300.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 275.00000 300.00000 80.00000
+      vertex 300.00000 300.00000 100.00000
+      vertex 300.00000 300.00000 80.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 275.00000 292.00000 80.00000
+      vertex 275.00000 292.00000 100.00000
+      vertex 275.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 275.00000 292.00000 80.00000
+      vertex 275.00000 300.00000 100.00000
+      vertex 275.00000 300.00000 80.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 292.00000 80.00000
+      vertex 300.00000 300.00000 80.00000
+      vertex 300.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 292.00000 80.00000
+      vertex 300.00000 300.00000 100.00000
+      vertex 300.00000 292.00000 100.00000
+    endloop
+  endfacet
+endsolid Pared Trasera B5
+solid Pared Trasera C1
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 292.00000 100.00000
+      vertex 0.00000 300.00000 100.00000
+      vertex 235.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 292.00000 100.00000
+      vertex 235.00000 300.00000 100.00000
+      vertex 235.00000 292.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 292.00000 120.00000
+      vertex 235.00000 292.00000 120.00000
+      vertex 235.00000 300.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 292.00000 120.00000
+      vertex 235.00000 300.00000 120.00000
+      vertex 0.00000 300.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 292.00000 100.00000
+      vertex 235.00000 292.00000 100.00000
+      vertex 235.00000 292.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 292.00000 100.00000
+      vertex 235.00000 292.00000 120.00000
+      vertex 0.00000 292.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 300.00000 100.00000
+      vertex 0.00000 300.00000 120.00000
+      vertex 235.00000 300.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 300.00000 100.00000
+      vertex 235.00000 300.00000 120.00000
+      vertex 235.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 292.00000 100.00000
+      vertex 0.00000 292.00000 120.00000
+      vertex 0.00000 300.00000 120.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 292.00000 100.00000
+      vertex 0.00000 300.00000 120.00000
+      vertex 0.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 235.00000 292.00000 100.00000
+      vertex 235.00000 300.00000 100.00000
+      vertex 235.00000 300.00000 120.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 235.00000 292.00000 100.00000
+      vertex 235.00000 300.00000 120.00000
+      vertex 235.00000 292.00000 120.00000
+    endloop
+  endfacet
+endsolid Pared Trasera C1
+solid Pared Trasera C5
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 275.00000 292.00000 100.00000
+      vertex 275.00000 300.00000 100.00000
+      vertex 300.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 275.00000 292.00000 100.00000
+      vertex 300.00000 300.00000 100.00000
+      vertex 300.00000 292.00000 100.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 275.00000 292.00000 120.00000
+      vertex 300.00000 292.00000 120.00000
+      vertex 300.00000 300.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 275.00000 292.00000 120.00000
+      vertex 300.00000 300.00000 120.00000
+      vertex 275.00000 300.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 275.00000 292.00000 100.00000
+      vertex 300.00000 292.00000 100.00000
+      vertex 300.00000 292.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 275.00000 292.00000 100.00000
+      vertex 300.00000 292.00000 120.00000
+      vertex 275.00000 292.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 275.00000 300.00000 100.00000
+      vertex 275.00000 300.00000 120.00000
+      vertex 300.00000 300.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 275.00000 300.00000 100.00000
+      vertex 300.00000 300.00000 120.00000
+      vertex 300.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 275.00000 292.00000 100.00000
+      vertex 275.00000 292.00000 120.00000
+      vertex 275.00000 300.00000 120.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 275.00000 292.00000 100.00000
+      vertex 275.00000 300.00000 120.00000
+      vertex 275.00000 300.00000 100.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 292.00000 100.00000
+      vertex 300.00000 300.00000 100.00000
+      vertex 300.00000 300.00000 120.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 292.00000 100.00000
+      vertex 300.00000 300.00000 120.00000
+      vertex 300.00000 292.00000 120.00000
+    endloop
+  endfacet
+endsolid Pared Trasera C5
+solid Pared Trasera D1
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 292.00000 120.00000
+      vertex 0.00000 300.00000 120.00000
+      vertex 300.00000 300.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 292.00000 120.00000
+      vertex 300.00000 300.00000 120.00000
+      vertex 300.00000 292.00000 120.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 292.00000 180.00000
+      vertex 300.00000 292.00000 180.00000
+      vertex 300.00000 300.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 292.00000 180.00000
+      vertex 300.00000 300.00000 180.00000
+      vertex 0.00000 300.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 292.00000 120.00000
+      vertex 300.00000 292.00000 120.00000
+      vertex 300.00000 292.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 292.00000 120.00000
+      vertex 300.00000 292.00000 180.00000
+      vertex 0.00000 292.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 300.00000 120.00000
+      vertex 0.00000 300.00000 180.00000
+      vertex 300.00000 300.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 300.00000 120.00000
+      vertex 300.00000 300.00000 180.00000
+      vertex 300.00000 300.00000 120.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 292.00000 120.00000
+      vertex 0.00000 292.00000 180.00000
+      vertex 0.00000 300.00000 180.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 292.00000 120.00000
+      vertex 0.00000 300.00000 180.00000
+      vertex 0.00000 300.00000 120.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 292.00000 120.00000
+      vertex 300.00000 300.00000 120.00000
+      vertex 300.00000 300.00000 180.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 292.00000 120.00000
+      vertex 300.00000 300.00000 180.00000
+      vertex 300.00000 292.00000 180.00000
+    endloop
+  endfacet
+endsolid Pared Trasera D1
+solid Pared Izquierda A1
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 0.00000 0.00000
+      vertex 0.00000 300.00000 0.00000
+      vertex 8.00000 300.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 0.00000 0.00000
+      vertex 8.00000 300.00000 0.00000
+      vertex 8.00000 0.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 0.00000 60.00000
+      vertex 8.00000 0.00000 60.00000
+      vertex 8.00000 300.00000 60.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 0.00000 60.00000
+      vertex 8.00000 300.00000 60.00000
+      vertex 0.00000 300.00000 60.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 0.00000
+      vertex 8.00000 0.00000 0.00000
+      vertex 8.00000 0.00000 60.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 0.00000
+      vertex 8.00000 0.00000 60.00000
+      vertex 0.00000 0.00000 60.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 300.00000 0.00000
+      vertex 0.00000 300.00000 60.00000
+      vertex 8.00000 300.00000 60.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 300.00000 0.00000
+      vertex 8.00000 300.00000 60.00000
+      vertex 8.00000 300.00000 0.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 0.00000
+      vertex 0.00000 0.00000 60.00000
+      vertex 0.00000 300.00000 60.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 0.00000
+      vertex 0.00000 300.00000 60.00000
+      vertex 0.00000 300.00000 0.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 8.00000 0.00000 0.00000
+      vertex 8.00000 300.00000 0.00000
+      vertex 8.00000 300.00000 60.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 8.00000 0.00000 0.00000
+      vertex 8.00000 300.00000 60.00000
+      vertex 8.00000 0.00000 60.00000
+    endloop
+  endfacet
+endsolid Pared Izquierda A1
+solid Pared Izquierda B1
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 0.00000 60.00000
+      vertex 0.00000 110.00000 60.00000
+      vertex 8.00000 110.00000 60.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 0.00000 60.00000
+      vertex 8.00000 110.00000 60.00000
+      vertex 8.00000 0.00000 60.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 0.00000 110.00000
+      vertex 8.00000 0.00000 110.00000
+      vertex 8.00000 110.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 0.00000 110.00000
+      vertex 8.00000 110.00000 110.00000
+      vertex 0.00000 110.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 60.00000
+      vertex 8.00000 0.00000 60.00000
+      vertex 8.00000 0.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 60.00000
+      vertex 8.00000 0.00000 110.00000
+      vertex 0.00000 0.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 110.00000 60.00000
+      vertex 0.00000 110.00000 110.00000
+      vertex 8.00000 110.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 110.00000 60.00000
+      vertex 8.00000 110.00000 110.00000
+      vertex 8.00000 110.00000 60.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 60.00000
+      vertex 0.00000 0.00000 110.00000
+      vertex 0.00000 110.00000 110.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 60.00000
+      vertex 0.00000 110.00000 110.00000
+      vertex 0.00000 110.00000 60.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 8.00000 0.00000 60.00000
+      vertex 8.00000 110.00000 60.00000
+      vertex 8.00000 110.00000 110.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 8.00000 0.00000 60.00000
+      vertex 8.00000 110.00000 110.00000
+      vertex 8.00000 0.00000 110.00000
+    endloop
+  endfacet
+endsolid Pared Izquierda B1
+solid Pared Izquierda B3
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 190.00000 60.00000
+      vertex 0.00000 300.00000 60.00000
+      vertex 8.00000 300.00000 60.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 190.00000 60.00000
+      vertex 8.00000 300.00000 60.00000
+      vertex 8.00000 190.00000 60.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 190.00000 110.00000
+      vertex 8.00000 190.00000 110.00000
+      vertex 8.00000 300.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 190.00000 110.00000
+      vertex 8.00000 300.00000 110.00000
+      vertex 0.00000 300.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 190.00000 60.00000
+      vertex 8.00000 190.00000 60.00000
+      vertex 8.00000 190.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 190.00000 60.00000
+      vertex 8.00000 190.00000 110.00000
+      vertex 0.00000 190.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 300.00000 60.00000
+      vertex 0.00000 300.00000 110.00000
+      vertex 8.00000 300.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 300.00000 60.00000
+      vertex 8.00000 300.00000 110.00000
+      vertex 8.00000 300.00000 60.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 190.00000 60.00000
+      vertex 0.00000 190.00000 110.00000
+      vertex 0.00000 300.00000 110.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 190.00000 60.00000
+      vertex 0.00000 300.00000 110.00000
+      vertex 0.00000 300.00000 60.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 8.00000 190.00000 60.00000
+      vertex 8.00000 300.00000 60.00000
+      vertex 8.00000 300.00000 110.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 8.00000 190.00000 60.00000
+      vertex 8.00000 300.00000 110.00000
+      vertex 8.00000 190.00000 110.00000
+    endloop
+  endfacet
+endsolid Pared Izquierda B3
+solid Pared Izquierda C1
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 0.00000 110.00000
+      vertex 0.00000 300.00000 110.00000
+      vertex 8.00000 300.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 0.00000 0.00000 110.00000
+      vertex 8.00000 300.00000 110.00000
+      vertex 8.00000 0.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 0.00000 180.00000
+      vertex 8.00000 0.00000 180.00000
+      vertex 8.00000 300.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 0.00000 0.00000 180.00000
+      vertex 8.00000 300.00000 180.00000
+      vertex 0.00000 300.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 110.00000
+      vertex 8.00000 0.00000 110.00000
+      vertex 8.00000 0.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 110.00000
+      vertex 8.00000 0.00000 180.00000
+      vertex 0.00000 0.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 300.00000 110.00000
+      vertex 0.00000 300.00000 180.00000
+      vertex 8.00000 300.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 0.00000 300.00000 110.00000
+      vertex 8.00000 300.00000 180.00000
+      vertex 8.00000 300.00000 110.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 110.00000
+      vertex 0.00000 0.00000 180.00000
+      vertex 0.00000 300.00000 180.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 0.00000 0.00000 110.00000
+      vertex 0.00000 300.00000 180.00000
+      vertex 0.00000 300.00000 110.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 8.00000 0.00000 110.00000
+      vertex 8.00000 300.00000 110.00000
+      vertex 8.00000 300.00000 180.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 8.00000 0.00000 110.00000
+      vertex 8.00000 300.00000 180.00000
+      vertex 8.00000 0.00000 180.00000
+    endloop
+  endfacet
+endsolid Pared Izquierda C1
+solid Pared Derecha A1
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 292.00000 0.00000 0.00000
+      vertex 292.00000 300.00000 0.00000
+      vertex 300.00000 300.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 292.00000 0.00000 0.00000
+      vertex 300.00000 300.00000 0.00000
+      vertex 300.00000 0.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 292.00000 0.00000 60.00000
+      vertex 300.00000 0.00000 60.00000
+      vertex 300.00000 300.00000 60.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 292.00000 0.00000 60.00000
+      vertex 300.00000 300.00000 60.00000
+      vertex 292.00000 300.00000 60.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 292.00000 0.00000 0.00000
+      vertex 300.00000 0.00000 0.00000
+      vertex 300.00000 0.00000 60.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 292.00000 0.00000 0.00000
+      vertex 300.00000 0.00000 60.00000
+      vertex 292.00000 0.00000 60.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 292.00000 300.00000 0.00000
+      vertex 292.00000 300.00000 60.00000
+      vertex 300.00000 300.00000 60.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 292.00000 300.00000 0.00000
+      vertex 300.00000 300.00000 60.00000
+      vertex 300.00000 300.00000 0.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 292.00000 0.00000 0.00000
+      vertex 292.00000 0.00000 60.00000
+      vertex 292.00000 300.00000 60.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 292.00000 0.00000 0.00000
+      vertex 292.00000 300.00000 60.00000
+      vertex 292.00000 300.00000 0.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 0.00000 0.00000
+      vertex 300.00000 300.00000 0.00000
+      vertex 300.00000 300.00000 60.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 0.00000 0.00000
+      vertex 300.00000 300.00000 60.00000
+      vertex 300.00000 0.00000 60.00000
+    endloop
+  endfacet
+endsolid Pared Derecha A1
+solid Pared Derecha B1
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 292.00000 0.00000 60.00000
+      vertex 292.00000 110.00000 60.00000
+      vertex 300.00000 110.00000 60.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 292.00000 0.00000 60.00000
+      vertex 300.00000 110.00000 60.00000
+      vertex 300.00000 0.00000 60.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 292.00000 0.00000 110.00000
+      vertex 300.00000 0.00000 110.00000
+      vertex 300.00000 110.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 292.00000 0.00000 110.00000
+      vertex 300.00000 110.00000 110.00000
+      vertex 292.00000 110.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 292.00000 0.00000 60.00000
+      vertex 300.00000 0.00000 60.00000
+      vertex 300.00000 0.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 292.00000 0.00000 60.00000
+      vertex 300.00000 0.00000 110.00000
+      vertex 292.00000 0.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 292.00000 110.00000 60.00000
+      vertex 292.00000 110.00000 110.00000
+      vertex 300.00000 110.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 292.00000 110.00000 60.00000
+      vertex 300.00000 110.00000 110.00000
+      vertex 300.00000 110.00000 60.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 292.00000 0.00000 60.00000
+      vertex 292.00000 0.00000 110.00000
+      vertex 292.00000 110.00000 110.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 292.00000 0.00000 60.00000
+      vertex 292.00000 110.00000 110.00000
+      vertex 292.00000 110.00000 60.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 0.00000 60.00000
+      vertex 300.00000 110.00000 60.00000
+      vertex 300.00000 110.00000 110.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 0.00000 60.00000
+      vertex 300.00000 110.00000 110.00000
+      vertex 300.00000 0.00000 110.00000
+    endloop
+  endfacet
+endsolid Pared Derecha B1
+solid Pared Derecha B3
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 292.00000 190.00000 60.00000
+      vertex 292.00000 300.00000 60.00000
+      vertex 300.00000 300.00000 60.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 292.00000 190.00000 60.00000
+      vertex 300.00000 300.00000 60.00000
+      vertex 300.00000 190.00000 60.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 292.00000 190.00000 110.00000
+      vertex 300.00000 190.00000 110.00000
+      vertex 300.00000 300.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 292.00000 190.00000 110.00000
+      vertex 300.00000 300.00000 110.00000
+      vertex 292.00000 300.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 292.00000 190.00000 60.00000
+      vertex 300.00000 190.00000 60.00000
+      vertex 300.00000 190.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 292.00000 190.00000 60.00000
+      vertex 300.00000 190.00000 110.00000
+      vertex 292.00000 190.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 292.00000 300.00000 60.00000
+      vertex 292.00000 300.00000 110.00000
+      vertex 300.00000 300.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 292.00000 300.00000 60.00000
+      vertex 300.00000 300.00000 110.00000
+      vertex 300.00000 300.00000 60.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 292.00000 190.00000 60.00000
+      vertex 292.00000 190.00000 110.00000
+      vertex 292.00000 300.00000 110.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 292.00000 190.00000 60.00000
+      vertex 292.00000 300.00000 110.00000
+      vertex 292.00000 300.00000 60.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 190.00000 60.00000
+      vertex 300.00000 300.00000 60.00000
+      vertex 300.00000 300.00000 110.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 190.00000 60.00000
+      vertex 300.00000 300.00000 110.00000
+      vertex 300.00000 190.00000 110.00000
+    endloop
+  endfacet
+endsolid Pared Derecha B3
+solid Pared Derecha C1
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 292.00000 0.00000 110.00000
+      vertex 292.00000 300.00000 110.00000
+      vertex 300.00000 300.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 292.00000 0.00000 110.00000
+      vertex 300.00000 300.00000 110.00000
+      vertex 300.00000 0.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 292.00000 0.00000 180.00000
+      vertex 300.00000 0.00000 180.00000
+      vertex 300.00000 300.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 292.00000 0.00000 180.00000
+      vertex 300.00000 300.00000 180.00000
+      vertex 292.00000 300.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 292.00000 0.00000 110.00000
+      vertex 300.00000 0.00000 110.00000
+      vertex 300.00000 0.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 292.00000 0.00000 110.00000
+      vertex 300.00000 0.00000 180.00000
+      vertex 292.00000 0.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 292.00000 300.00000 110.00000
+      vertex 292.00000 300.00000 180.00000
+      vertex 300.00000 300.00000 180.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 292.00000 300.00000 110.00000
+      vertex 300.00000 300.00000 180.00000
+      vertex 300.00000 300.00000 110.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 292.00000 0.00000 110.00000
+      vertex 292.00000 0.00000 180.00000
+      vertex 292.00000 300.00000 180.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 292.00000 0.00000 110.00000
+      vertex 292.00000 300.00000 180.00000
+      vertex 292.00000 300.00000 110.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 0.00000 110.00000
+      vertex 300.00000 300.00000 110.00000
+      vertex 300.00000 300.00000 180.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 300.00000 0.00000 110.00000
+      vertex 300.00000 300.00000 180.00000
+      vertex 300.00000 0.00000 180.00000
+    endloop
+  endfacet
+endsolid Pared Derecha C1
+solid Hoja Puerta Principal
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 117.00000 1.20000 1.50000
+      vertex 117.00000 6.80000 1.50000
+      vertex 183.00000 6.80000 1.50000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 117.00000 1.20000 1.50000
+      vertex 183.00000 6.80000 1.50000
+      vertex 183.00000 1.20000 1.50000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 117.00000 1.20000 99.00000
+      vertex 183.00000 1.20000 99.00000
+      vertex 183.00000 6.80000 99.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 117.00000 1.20000 99.00000
+      vertex 183.00000 6.80000 99.00000
+      vertex 117.00000 6.80000 99.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 117.00000 1.20000 1.50000
+      vertex 183.00000 1.20000 1.50000
+      vertex 183.00000 1.20000 99.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 117.00000 1.20000 1.50000
+      vertex 183.00000 1.20000 99.00000
+      vertex 117.00000 1.20000 99.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 117.00000 6.80000 1.50000
+      vertex 117.00000 6.80000 99.00000
+      vertex 183.00000 6.80000 99.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 117.00000 6.80000 1.50000
+      vertex 183.00000 6.80000 99.00000
+      vertex 183.00000 6.80000 1.50000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 117.00000 1.20000 1.50000
+      vertex 117.00000 1.20000 99.00000
+      vertex 117.00000 6.80000 99.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 117.00000 1.20000 1.50000
+      vertex 117.00000 6.80000 99.00000
+      vertex 117.00000 6.80000 1.50000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 183.00000 1.20000 1.50000
+      vertex 183.00000 6.80000 1.50000
+      vertex 183.00000 6.80000 99.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 183.00000 1.20000 1.50000
+      vertex 183.00000 6.80000 99.00000
+      vertex 183.00000 1.20000 99.00000
+    endloop
+  endfacet
+endsolid Hoja Puerta Principal
+solid Hoja Puerta Trasera
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 117.00000 293.20000 1.50000
+      vertex 117.00000 298.80000 1.50000
+      vertex 183.00000 298.80000 1.50000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 117.00000 293.20000 1.50000
+      vertex 183.00000 298.80000 1.50000
+      vertex 183.00000 293.20000 1.50000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 117.00000 293.20000 99.00000
+      vertex 183.00000 293.20000 99.00000
+      vertex 183.00000 298.80000 99.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 117.00000 293.20000 99.00000
+      vertex 183.00000 298.80000 99.00000
+      vertex 117.00000 298.80000 99.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 117.00000 293.20000 1.50000
+      vertex 183.00000 293.20000 1.50000
+      vertex 183.00000 293.20000 99.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 117.00000 293.20000 1.50000
+      vertex 183.00000 293.20000 99.00000
+      vertex 117.00000 293.20000 99.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 117.00000 298.80000 1.50000
+      vertex 117.00000 298.80000 99.00000
+      vertex 183.00000 298.80000 99.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 117.00000 298.80000 1.50000
+      vertex 183.00000 298.80000 99.00000
+      vertex 183.00000 298.80000 1.50000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 117.00000 293.20000 1.50000
+      vertex 117.00000 293.20000 99.00000
+      vertex 117.00000 298.80000 99.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 117.00000 293.20000 1.50000
+      vertex 117.00000 298.80000 99.00000
+      vertex 117.00000 298.80000 1.50000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 183.00000 293.20000 1.50000
+      vertex 183.00000 298.80000 1.50000
+      vertex 183.00000 298.80000 99.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 183.00000 293.20000 1.50000
+      vertex 183.00000 298.80000 99.00000
+      vertex 183.00000 293.20000 99.00000
+    endloop
+  endfacet
+endsolid Hoja Puerta Trasera
+solid Hoja Ventana Izquierda
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 1.20000 111.50000 61.50000
+      vertex 1.20000 188.50000 61.50000
+      vertex 6.80000 188.50000 61.50000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 1.20000 111.50000 61.50000
+      vertex 6.80000 188.50000 61.50000
+      vertex 6.80000 111.50000 61.50000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 1.20000 111.50000 108.50000
+      vertex 6.80000 111.50000 108.50000
+      vertex 6.80000 188.50000 108.50000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 1.20000 111.50000 108.50000
+      vertex 6.80000 188.50000 108.50000
+      vertex 1.20000 188.50000 108.50000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 1.20000 111.50000 61.50000
+      vertex 6.80000 111.50000 61.50000
+      vertex 6.80000 111.50000 108.50000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 1.20000 111.50000 61.50000
+      vertex 6.80000 111.50000 108.50000
+      vertex 1.20000 111.50000 108.50000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 1.20000 188.50000 61.50000
+      vertex 1.20000 188.50000 108.50000
+      vertex 6.80000 188.50000 108.50000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 1.20000 188.50000 61.50000
+      vertex 6.80000 188.50000 108.50000
+      vertex 6.80000 188.50000 61.50000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 1.20000 111.50000 61.50000
+      vertex 1.20000 111.50000 108.50000
+      vertex 1.20000 188.50000 108.50000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 1.20000 111.50000 61.50000
+      vertex 1.20000 188.50000 108.50000
+      vertex 1.20000 188.50000 61.50000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 6.80000 111.50000 61.50000
+      vertex 6.80000 188.50000 61.50000
+      vertex 6.80000 188.50000 108.50000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 6.80000 111.50000 61.50000
+      vertex 6.80000 188.50000 108.50000
+      vertex 6.80000 111.50000 108.50000
+    endloop
+  endfacet
+endsolid Hoja Ventana Izquierda
+solid Hoja Ventana Derecha
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 293.20000 111.50000 61.50000
+      vertex 293.20000 188.50000 61.50000
+      vertex 298.80000 188.50000 61.50000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 293.20000 111.50000 61.50000
+      vertex 298.80000 188.50000 61.50000
+      vertex 298.80000 111.50000 61.50000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 293.20000 111.50000 108.50000
+      vertex 298.80000 111.50000 108.50000
+      vertex 298.80000 188.50000 108.50000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 293.20000 111.50000 108.50000
+      vertex 298.80000 188.50000 108.50000
+      vertex 293.20000 188.50000 108.50000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 293.20000 111.50000 61.50000
+      vertex 298.80000 111.50000 61.50000
+      vertex 298.80000 111.50000 108.50000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 293.20000 111.50000 61.50000
+      vertex 298.80000 111.50000 108.50000
+      vertex 293.20000 111.50000 108.50000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 293.20000 188.50000 61.50000
+      vertex 293.20000 188.50000 108.50000
+      vertex 298.80000 188.50000 108.50000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 293.20000 188.50000 61.50000
+      vertex 298.80000 188.50000 108.50000
+      vertex 298.80000 188.50000 61.50000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 293.20000 111.50000 61.50000
+      vertex 293.20000 111.50000 108.50000
+      vertex 293.20000 188.50000 108.50000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 293.20000 111.50000 61.50000
+      vertex 293.20000 188.50000 108.50000
+      vertex 293.20000 188.50000 61.50000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 298.80000 111.50000 61.50000
+      vertex 298.80000 188.50000 61.50000
+      vertex 298.80000 188.50000 108.50000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 298.80000 111.50000 61.50000
+      vertex 298.80000 188.50000 108.50000
+      vertex 298.80000 111.50000 108.50000
+    endloop
+  endfacet
+endsolid Hoja Ventana Derecha
+solid Vidrio Ventana Decorativa Frontal
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 26.50000 2.00000 81.50000
+      vertex 26.50000 6.00000 81.50000
+      vertex 63.50000 6.00000 81.50000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 26.50000 2.00000 81.50000
+      vertex 63.50000 6.00000 81.50000
+      vertex 63.50000 2.00000 81.50000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 26.50000 2.00000 118.50000
+      vertex 63.50000 2.00000 118.50000
+      vertex 63.50000 6.00000 118.50000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 26.50000 2.00000 118.50000
+      vertex 63.50000 6.00000 118.50000
+      vertex 26.50000 6.00000 118.50000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 26.50000 2.00000 81.50000
+      vertex 63.50000 2.00000 81.50000
+      vertex 63.50000 2.00000 118.50000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 26.50000 2.00000 81.50000
+      vertex 63.50000 2.00000 118.50000
+      vertex 26.50000 2.00000 118.50000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 26.50000 6.00000 81.50000
+      vertex 26.50000 6.00000 118.50000
+      vertex 63.50000 6.00000 118.50000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 26.50000 6.00000 81.50000
+      vertex 63.50000 6.00000 118.50000
+      vertex 63.50000 6.00000 81.50000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 26.50000 2.00000 81.50000
+      vertex 26.50000 2.00000 118.50000
+      vertex 26.50000 6.00000 118.50000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 26.50000 2.00000 81.50000
+      vertex 26.50000 6.00000 118.50000
+      vertex 26.50000 6.00000 81.50000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 63.50000 2.00000 81.50000
+      vertex 63.50000 6.00000 81.50000
+      vertex 63.50000 6.00000 118.50000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 63.50000 2.00000 81.50000
+      vertex 63.50000 6.00000 118.50000
+      vertex 63.50000 2.00000 118.50000
+    endloop
+  endfacet
+endsolid Vidrio Ventana Decorativa Frontal
+solid Vidrio Ventana Decorativa Trasera
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 236.50000 294.00000 81.50000
+      vertex 236.50000 298.00000 81.50000
+      vertex 273.50000 298.00000 81.50000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 236.50000 294.00000 81.50000
+      vertex 273.50000 298.00000 81.50000
+      vertex 273.50000 294.00000 81.50000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 236.50000 294.00000 118.50000
+      vertex 273.50000 294.00000 118.50000
+      vertex 273.50000 298.00000 118.50000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 236.50000 294.00000 118.50000
+      vertex 273.50000 298.00000 118.50000
+      vertex 236.50000 298.00000 118.50000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 236.50000 294.00000 81.50000
+      vertex 273.50000 294.00000 81.50000
+      vertex 273.50000 294.00000 118.50000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 236.50000 294.00000 81.50000
+      vertex 273.50000 294.00000 118.50000
+      vertex 236.50000 294.00000 118.50000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 236.50000 298.00000 81.50000
+      vertex 236.50000 298.00000 118.50000
+      vertex 273.50000 298.00000 118.50000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 236.50000 298.00000 81.50000
+      vertex 273.50000 298.00000 118.50000
+      vertex 273.50000 298.00000 81.50000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 236.50000 294.00000 81.50000
+      vertex 236.50000 294.00000 118.50000
+      vertex 236.50000 298.00000 118.50000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 236.50000 294.00000 81.50000
+      vertex 236.50000 298.00000 118.50000
+      vertex 236.50000 298.00000 81.50000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 273.50000 294.00000 81.50000
+      vertex 273.50000 298.00000 81.50000
+      vertex 273.50000 298.00000 118.50000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 273.50000 294.00000 81.50000
+      vertex 273.50000 298.00000 118.50000
+      vertex 273.50000 294.00000 118.50000
+    endloop
+  endfacet
+endsolid Vidrio Ventana Decorativa Trasera
+solid Servo Puerta Principal
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 186.00000 10.00000 95.00000
+      vertex 186.00000 32.00000 95.00000
+      vertex 209.00000 32.00000 95.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 186.00000 10.00000 95.00000
+      vertex 209.00000 32.00000 95.00000
+      vertex 209.00000 10.00000 95.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 186.00000 10.00000 119.00000
+      vertex 209.00000 10.00000 119.00000
+      vertex 209.00000 32.00000 119.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 186.00000 10.00000 119.00000
+      vertex 209.00000 32.00000 119.00000
+      vertex 186.00000 32.00000 119.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 186.00000 10.00000 95.00000
+      vertex 209.00000 10.00000 95.00000
+      vertex 209.00000 10.00000 119.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 186.00000 10.00000 95.00000
+      vertex 209.00000 10.00000 119.00000
+      vertex 186.00000 10.00000 119.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 186.00000 32.00000 95.00000
+      vertex 186.00000 32.00000 119.00000
+      vertex 209.00000 32.00000 119.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 186.00000 32.00000 95.00000
+      vertex 209.00000 32.00000 119.00000
+      vertex 209.00000 32.00000 95.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 186.00000 10.00000 95.00000
+      vertex 186.00000 10.00000 119.00000
+      vertex 186.00000 32.00000 119.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 186.00000 10.00000 95.00000
+      vertex 186.00000 32.00000 119.00000
+      vertex 186.00000 32.00000 95.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 209.00000 10.00000 95.00000
+      vertex 209.00000 32.00000 95.00000
+      vertex 209.00000 32.00000 119.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 209.00000 10.00000 95.00000
+      vertex 209.00000 32.00000 119.00000
+      vertex 209.00000 10.00000 119.00000
+    endloop
+  endfacet
+endsolid Servo Puerta Principal
+solid Servo Puerta Trasera
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 88.00000 268.00000 95.00000
+      vertex 88.00000 290.00000 95.00000
+      vertex 111.00000 290.00000 95.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 88.00000 268.00000 95.00000
+      vertex 111.00000 290.00000 95.00000
+      vertex 111.00000 268.00000 95.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 88.00000 268.00000 119.00000
+      vertex 111.00000 268.00000 119.00000
+      vertex 111.00000 290.00000 119.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 88.00000 268.00000 119.00000
+      vertex 111.00000 290.00000 119.00000
+      vertex 88.00000 290.00000 119.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 88.00000 268.00000 95.00000
+      vertex 111.00000 268.00000 95.00000
+      vertex 111.00000 268.00000 119.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 88.00000 268.00000 95.00000
+      vertex 111.00000 268.00000 119.00000
+      vertex 88.00000 268.00000 119.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 88.00000 290.00000 95.00000
+      vertex 88.00000 290.00000 119.00000
+      vertex 111.00000 290.00000 119.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 88.00000 290.00000 95.00000
+      vertex 111.00000 290.00000 119.00000
+      vertex 111.00000 290.00000 95.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 88.00000 268.00000 95.00000
+      vertex 88.00000 268.00000 119.00000
+      vertex 88.00000 290.00000 119.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 88.00000 268.00000 95.00000
+      vertex 88.00000 290.00000 119.00000
+      vertex 88.00000 290.00000 95.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 111.00000 268.00000 95.00000
+      vertex 111.00000 290.00000 95.00000
+      vertex 111.00000 290.00000 119.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 111.00000 268.00000 95.00000
+      vertex 111.00000 290.00000 119.00000
+      vertex 111.00000 268.00000 119.00000
+    endloop
+  endfacet
+endsolid Servo Puerta Trasera
+solid Servo Ventana Izquierda
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 10.00000 115.00000 110.00000
+      vertex 10.00000 138.00000 110.00000
+      vertex 32.00000 138.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 10.00000 115.00000 110.00000
+      vertex 32.00000 138.00000 110.00000
+      vertex 32.00000 115.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 10.00000 115.00000 134.00000
+      vertex 32.00000 115.00000 134.00000
+      vertex 32.00000 138.00000 134.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 10.00000 115.00000 134.00000
+      vertex 32.00000 138.00000 134.00000
+      vertex 10.00000 138.00000 134.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 10.00000 115.00000 110.00000
+      vertex 32.00000 115.00000 110.00000
+      vertex 32.00000 115.00000 134.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 10.00000 115.00000 110.00000
+      vertex 32.00000 115.00000 134.00000
+      vertex 10.00000 115.00000 134.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 10.00000 138.00000 110.00000
+      vertex 10.00000 138.00000 134.00000
+      vertex 32.00000 138.00000 134.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 10.00000 138.00000 110.00000
+      vertex 32.00000 138.00000 134.00000
+      vertex 32.00000 138.00000 110.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 10.00000 115.00000 110.00000
+      vertex 10.00000 115.00000 134.00000
+      vertex 10.00000 138.00000 134.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 10.00000 115.00000 110.00000
+      vertex 10.00000 138.00000 134.00000
+      vertex 10.00000 138.00000 110.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 32.00000 115.00000 110.00000
+      vertex 32.00000 138.00000 110.00000
+      vertex 32.00000 138.00000 134.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 32.00000 115.00000 110.00000
+      vertex 32.00000 138.00000 134.00000
+      vertex 32.00000 115.00000 134.00000
+    endloop
+  endfacet
+endsolid Servo Ventana Izquierda
+solid Servo Ventana Derecha
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 268.00000 115.00000 110.00000
+      vertex 268.00000 138.00000 110.00000
+      vertex 290.00000 138.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 268.00000 115.00000 110.00000
+      vertex 290.00000 138.00000 110.00000
+      vertex 290.00000 115.00000 110.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 268.00000 115.00000 134.00000
+      vertex 290.00000 115.00000 134.00000
+      vertex 290.00000 138.00000 134.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 268.00000 115.00000 134.00000
+      vertex 290.00000 138.00000 134.00000
+      vertex 268.00000 138.00000 134.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 268.00000 115.00000 110.00000
+      vertex 290.00000 115.00000 110.00000
+      vertex 290.00000 115.00000 134.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 268.00000 115.00000 110.00000
+      vertex 290.00000 115.00000 134.00000
+      vertex 268.00000 115.00000 134.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 268.00000 138.00000 110.00000
+      vertex 268.00000 138.00000 134.00000
+      vertex 290.00000 138.00000 134.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 268.00000 138.00000 110.00000
+      vertex 290.00000 138.00000 134.00000
+      vertex 290.00000 138.00000 110.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 268.00000 115.00000 110.00000
+      vertex 268.00000 115.00000 134.00000
+      vertex 268.00000 138.00000 134.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 268.00000 115.00000 110.00000
+      vertex 268.00000 138.00000 134.00000
+      vertex 268.00000 138.00000 110.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 290.00000 115.00000 110.00000
+      vertex 290.00000 138.00000 110.00000
+      vertex 290.00000 138.00000 134.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 290.00000 115.00000 110.00000
+      vertex 290.00000 138.00000 134.00000
+      vertex 290.00000 115.00000 134.00000
+    endloop
+  endfacet
+endsolid Servo Ventana Derecha
+solid Brazo Servo Puerta Principal
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 209.00000 14.00000 103.00000
+      vertex 209.00000 20.00000 103.00000
+      vertex 226.00000 20.00000 103.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 209.00000 14.00000 103.00000
+      vertex 226.00000 20.00000 103.00000
+      vertex 226.00000 14.00000 103.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 209.00000 14.00000 107.00000
+      vertex 226.00000 14.00000 107.00000
+      vertex 226.00000 20.00000 107.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 209.00000 14.00000 107.00000
+      vertex 226.00000 20.00000 107.00000
+      vertex 209.00000 20.00000 107.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 209.00000 14.00000 103.00000
+      vertex 226.00000 14.00000 103.00000
+      vertex 226.00000 14.00000 107.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 209.00000 14.00000 103.00000
+      vertex 226.00000 14.00000 107.00000
+      vertex 209.00000 14.00000 107.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 209.00000 20.00000 103.00000
+      vertex 209.00000 20.00000 107.00000
+      vertex 226.00000 20.00000 107.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 209.00000 20.00000 103.00000
+      vertex 226.00000 20.00000 107.00000
+      vertex 226.00000 20.00000 103.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 209.00000 14.00000 103.00000
+      vertex 209.00000 14.00000 107.00000
+      vertex 209.00000 20.00000 107.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 209.00000 14.00000 103.00000
+      vertex 209.00000 20.00000 107.00000
+      vertex 209.00000 20.00000 103.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 226.00000 14.00000 103.00000
+      vertex 226.00000 20.00000 103.00000
+      vertex 226.00000 20.00000 107.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 226.00000 14.00000 103.00000
+      vertex 226.00000 20.00000 107.00000
+      vertex 226.00000 14.00000 107.00000
+    endloop
+  endfacet
+endsolid Brazo Servo Puerta Principal
+solid Brazo Servo Puerta Trasera
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 73.00000 280.00000 103.00000
+      vertex 73.00000 286.00000 103.00000
+      vertex 88.00000 286.00000 103.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 73.00000 280.00000 103.00000
+      vertex 88.00000 286.00000 103.00000
+      vertex 88.00000 280.00000 103.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 73.00000 280.00000 107.00000
+      vertex 88.00000 280.00000 107.00000
+      vertex 88.00000 286.00000 107.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 73.00000 280.00000 107.00000
+      vertex 88.00000 286.00000 107.00000
+      vertex 73.00000 286.00000 107.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 73.00000 280.00000 103.00000
+      vertex 88.00000 280.00000 103.00000
+      vertex 88.00000 280.00000 107.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 73.00000 280.00000 103.00000
+      vertex 88.00000 280.00000 107.00000
+      vertex 73.00000 280.00000 107.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 73.00000 286.00000 103.00000
+      vertex 73.00000 286.00000 107.00000
+      vertex 88.00000 286.00000 107.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 73.00000 286.00000 103.00000
+      vertex 88.00000 286.00000 107.00000
+      vertex 88.00000 286.00000 103.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 73.00000 280.00000 103.00000
+      vertex 73.00000 280.00000 107.00000
+      vertex 73.00000 286.00000 107.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 73.00000 280.00000 103.00000
+      vertex 73.00000 286.00000 107.00000
+      vertex 73.00000 286.00000 103.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 88.00000 280.00000 103.00000
+      vertex 88.00000 286.00000 103.00000
+      vertex 88.00000 286.00000 107.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 88.00000 280.00000 103.00000
+      vertex 88.00000 286.00000 107.00000
+      vertex 88.00000 280.00000 107.00000
+    endloop
+  endfacet
+endsolid Brazo Servo Puerta Trasera
+solid Brazo Servo Ventana Izquierda
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 16.00000 138.00000 123.00000
+      vertex 16.00000 155.00000 123.00000
+      vertex 22.00000 155.00000 123.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 16.00000 138.00000 123.00000
+      vertex 22.00000 155.00000 123.00000
+      vertex 22.00000 138.00000 123.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 16.00000 138.00000 127.00000
+      vertex 22.00000 138.00000 127.00000
+      vertex 22.00000 155.00000 127.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 16.00000 138.00000 127.00000
+      vertex 22.00000 155.00000 127.00000
+      vertex 16.00000 155.00000 127.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 16.00000 138.00000 123.00000
+      vertex 22.00000 138.00000 123.00000
+      vertex 22.00000 138.00000 127.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 16.00000 138.00000 123.00000
+      vertex 22.00000 138.00000 127.00000
+      vertex 16.00000 138.00000 127.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 16.00000 155.00000 123.00000
+      vertex 16.00000 155.00000 127.00000
+      vertex 22.00000 155.00000 127.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 16.00000 155.00000 123.00000
+      vertex 22.00000 155.00000 127.00000
+      vertex 22.00000 155.00000 123.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 16.00000 138.00000 123.00000
+      vertex 16.00000 138.00000 127.00000
+      vertex 16.00000 155.00000 127.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 16.00000 138.00000 123.00000
+      vertex 16.00000 155.00000 127.00000
+      vertex 16.00000 155.00000 123.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 22.00000 138.00000 123.00000
+      vertex 22.00000 155.00000 123.00000
+      vertex 22.00000 155.00000 127.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 22.00000 138.00000 123.00000
+      vertex 22.00000 155.00000 127.00000
+      vertex 22.00000 138.00000 127.00000
+    endloop
+  endfacet
+endsolid Brazo Servo Ventana Izquierda
+solid Brazo Servo Ventana Derecha
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 278.00000 138.00000 123.00000
+      vertex 278.00000 155.00000 123.00000
+      vertex 284.00000 155.00000 123.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 278.00000 138.00000 123.00000
+      vertex 284.00000 155.00000 123.00000
+      vertex 284.00000 138.00000 123.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 278.00000 138.00000 127.00000
+      vertex 284.00000 138.00000 127.00000
+      vertex 284.00000 155.00000 127.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 278.00000 138.00000 127.00000
+      vertex 284.00000 155.00000 127.00000
+      vertex 278.00000 155.00000 127.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 278.00000 138.00000 123.00000
+      vertex 284.00000 138.00000 123.00000
+      vertex 284.00000 138.00000 127.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 278.00000 138.00000 123.00000
+      vertex 284.00000 138.00000 127.00000
+      vertex 278.00000 138.00000 127.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 278.00000 155.00000 123.00000
+      vertex 278.00000 155.00000 127.00000
+      vertex 284.00000 155.00000 127.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 278.00000 155.00000 123.00000
+      vertex 284.00000 155.00000 127.00000
+      vertex 284.00000 155.00000 123.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 278.00000 138.00000 123.00000
+      vertex 278.00000 138.00000 127.00000
+      vertex 278.00000 155.00000 127.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 278.00000 138.00000 123.00000
+      vertex 278.00000 155.00000 127.00000
+      vertex 278.00000 155.00000 123.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 284.00000 138.00000 123.00000
+      vertex 284.00000 155.00000 123.00000
+      vertex 284.00000 155.00000 127.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 284.00000 138.00000 123.00000
+      vertex 284.00000 155.00000 127.00000
+      vertex 284.00000 138.00000 127.00000
+    endloop
+  endfacet
+endsolid Brazo Servo Ventana Derecha
+solid Reed Puerta Principal
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 187.00000 9.00000 70.00000
+      vertex 187.00000 17.00000 70.00000
+      vertex 212.00000 17.00000 70.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 187.00000 9.00000 70.00000
+      vertex 212.00000 17.00000 70.00000
+      vertex 212.00000 9.00000 70.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 187.00000 9.00000 78.00000
+      vertex 212.00000 9.00000 78.00000
+      vertex 212.00000 17.00000 78.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 187.00000 9.00000 78.00000
+      vertex 212.00000 17.00000 78.00000
+      vertex 187.00000 17.00000 78.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 187.00000 9.00000 70.00000
+      vertex 212.00000 9.00000 70.00000
+      vertex 212.00000 9.00000 78.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 187.00000 9.00000 70.00000
+      vertex 212.00000 9.00000 78.00000
+      vertex 187.00000 9.00000 78.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 187.00000 17.00000 70.00000
+      vertex 187.00000 17.00000 78.00000
+      vertex 212.00000 17.00000 78.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 187.00000 17.00000 70.00000
+      vertex 212.00000 17.00000 78.00000
+      vertex 212.00000 17.00000 70.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 187.00000 9.00000 70.00000
+      vertex 187.00000 9.00000 78.00000
+      vertex 187.00000 17.00000 78.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 187.00000 9.00000 70.00000
+      vertex 187.00000 17.00000 78.00000
+      vertex 187.00000 17.00000 70.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 212.00000 9.00000 70.00000
+      vertex 212.00000 17.00000 70.00000
+      vertex 212.00000 17.00000 78.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 212.00000 9.00000 70.00000
+      vertex 212.00000 17.00000 78.00000
+      vertex 212.00000 9.00000 78.00000
+    endloop
+  endfacet
+endsolid Reed Puerta Principal
+solid Iman Puerta Principal
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 177.00000 1.50000 70.00000
+      vertex 177.00000 7.50000 70.00000
+      vertex 183.00000 7.50000 70.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 177.00000 1.50000 70.00000
+      vertex 183.00000 7.50000 70.00000
+      vertex 183.00000 1.50000 70.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 177.00000 1.50000 78.00000
+      vertex 183.00000 1.50000 78.00000
+      vertex 183.00000 7.50000 78.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 177.00000 1.50000 78.00000
+      vertex 183.00000 7.50000 78.00000
+      vertex 177.00000 7.50000 78.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 177.00000 1.50000 70.00000
+      vertex 183.00000 1.50000 70.00000
+      vertex 183.00000 1.50000 78.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 177.00000 1.50000 70.00000
+      vertex 183.00000 1.50000 78.00000
+      vertex 177.00000 1.50000 78.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 177.00000 7.50000 70.00000
+      vertex 177.00000 7.50000 78.00000
+      vertex 183.00000 7.50000 78.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 177.00000 7.50000 70.00000
+      vertex 183.00000 7.50000 78.00000
+      vertex 183.00000 7.50000 70.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 177.00000 1.50000 70.00000
+      vertex 177.00000 1.50000 78.00000
+      vertex 177.00000 7.50000 78.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 177.00000 1.50000 70.00000
+      vertex 177.00000 7.50000 78.00000
+      vertex 177.00000 7.50000 70.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 183.00000 1.50000 70.00000
+      vertex 183.00000 7.50000 70.00000
+      vertex 183.00000 7.50000 78.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 183.00000 1.50000 70.00000
+      vertex 183.00000 7.50000 78.00000
+      vertex 183.00000 1.50000 78.00000
+    endloop
+  endfacet
+endsolid Iman Puerta Principal
+solid Reed Puerta Trasera
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 88.00000 283.00000 70.00000
+      vertex 88.00000 291.00000 70.00000
+      vertex 113.00000 291.00000 70.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 88.00000 283.00000 70.00000
+      vertex 113.00000 291.00000 70.00000
+      vertex 113.00000 283.00000 70.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 88.00000 283.00000 78.00000
+      vertex 113.00000 283.00000 78.00000
+      vertex 113.00000 291.00000 78.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 88.00000 283.00000 78.00000
+      vertex 113.00000 291.00000 78.00000
+      vertex 88.00000 291.00000 78.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 88.00000 283.00000 70.00000
+      vertex 113.00000 283.00000 70.00000
+      vertex 113.00000 283.00000 78.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 88.00000 283.00000 70.00000
+      vertex 113.00000 283.00000 78.00000
+      vertex 88.00000 283.00000 78.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 88.00000 291.00000 70.00000
+      vertex 88.00000 291.00000 78.00000
+      vertex 113.00000 291.00000 78.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 88.00000 291.00000 70.00000
+      vertex 113.00000 291.00000 78.00000
+      vertex 113.00000 291.00000 70.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 88.00000 283.00000 70.00000
+      vertex 88.00000 283.00000 78.00000
+      vertex 88.00000 291.00000 78.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 88.00000 283.00000 70.00000
+      vertex 88.00000 291.00000 78.00000
+      vertex 88.00000 291.00000 70.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 113.00000 283.00000 70.00000
+      vertex 113.00000 291.00000 70.00000
+      vertex 113.00000 291.00000 78.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 113.00000 283.00000 70.00000
+      vertex 113.00000 291.00000 78.00000
+      vertex 113.00000 283.00000 78.00000
+    endloop
+  endfacet
+endsolid Reed Puerta Trasera
+solid Iman Puerta Trasera
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 117.00000 292.50000 70.00000
+      vertex 117.00000 298.50000 70.00000
+      vertex 123.00000 298.50000 70.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 117.00000 292.50000 70.00000
+      vertex 123.00000 298.50000 70.00000
+      vertex 123.00000 292.50000 70.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 117.00000 292.50000 78.00000
+      vertex 123.00000 292.50000 78.00000
+      vertex 123.00000 298.50000 78.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 117.00000 292.50000 78.00000
+      vertex 123.00000 298.50000 78.00000
+      vertex 117.00000 298.50000 78.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 117.00000 292.50000 70.00000
+      vertex 123.00000 292.50000 70.00000
+      vertex 123.00000 292.50000 78.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 117.00000 292.50000 70.00000
+      vertex 123.00000 292.50000 78.00000
+      vertex 117.00000 292.50000 78.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 117.00000 298.50000 70.00000
+      vertex 117.00000 298.50000 78.00000
+      vertex 123.00000 298.50000 78.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 117.00000 298.50000 70.00000
+      vertex 123.00000 298.50000 78.00000
+      vertex 123.00000 298.50000 70.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 117.00000 292.50000 70.00000
+      vertex 117.00000 292.50000 78.00000
+      vertex 117.00000 298.50000 78.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 117.00000 292.50000 70.00000
+      vertex 117.00000 298.50000 78.00000
+      vertex 117.00000 298.50000 70.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 123.00000 292.50000 70.00000
+      vertex 123.00000 298.50000 70.00000
+      vertex 123.00000 298.50000 78.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 123.00000 292.50000 70.00000
+      vertex 123.00000 298.50000 78.00000
+      vertex 123.00000 292.50000 78.00000
+    endloop
+  endfacet
+endsolid Iman Puerta Trasera
+solid Reed Ventana Izquierda
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 9.00000 192.00000 84.00000
+      vertex 9.00000 217.00000 84.00000
+      vertex 17.00000 217.00000 84.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 9.00000 192.00000 84.00000
+      vertex 17.00000 217.00000 84.00000
+      vertex 17.00000 192.00000 84.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 9.00000 192.00000 92.00000
+      vertex 17.00000 192.00000 92.00000
+      vertex 17.00000 217.00000 92.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 9.00000 192.00000 92.00000
+      vertex 17.00000 217.00000 92.00000
+      vertex 9.00000 217.00000 92.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 9.00000 192.00000 84.00000
+      vertex 17.00000 192.00000 84.00000
+      vertex 17.00000 192.00000 92.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 9.00000 192.00000 84.00000
+      vertex 17.00000 192.00000 92.00000
+      vertex 9.00000 192.00000 92.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 9.00000 217.00000 84.00000
+      vertex 9.00000 217.00000 92.00000
+      vertex 17.00000 217.00000 92.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 9.00000 217.00000 84.00000
+      vertex 17.00000 217.00000 92.00000
+      vertex 17.00000 217.00000 84.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 9.00000 192.00000 84.00000
+      vertex 9.00000 192.00000 92.00000
+      vertex 9.00000 217.00000 92.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 9.00000 192.00000 84.00000
+      vertex 9.00000 217.00000 92.00000
+      vertex 9.00000 217.00000 84.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 17.00000 192.00000 84.00000
+      vertex 17.00000 217.00000 84.00000
+      vertex 17.00000 217.00000 92.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 17.00000 192.00000 84.00000
+      vertex 17.00000 217.00000 92.00000
+      vertex 17.00000 192.00000 92.00000
+    endloop
+  endfacet
+endsolid Reed Ventana Izquierda
+solid Iman Ventana Izquierda
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 1.50000 184.00000 84.00000
+      vertex 1.50000 190.00000 84.00000
+      vertex 7.50000 190.00000 84.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 1.50000 184.00000 84.00000
+      vertex 7.50000 190.00000 84.00000
+      vertex 7.50000 184.00000 84.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 1.50000 184.00000 92.00000
+      vertex 7.50000 184.00000 92.00000
+      vertex 7.50000 190.00000 92.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 1.50000 184.00000 92.00000
+      vertex 7.50000 190.00000 92.00000
+      vertex 1.50000 190.00000 92.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 1.50000 184.00000 84.00000
+      vertex 7.50000 184.00000 84.00000
+      vertex 7.50000 184.00000 92.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 1.50000 184.00000 84.00000
+      vertex 7.50000 184.00000 92.00000
+      vertex 1.50000 184.00000 92.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 1.50000 190.00000 84.00000
+      vertex 1.50000 190.00000 92.00000
+      vertex 7.50000 190.00000 92.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 1.50000 190.00000 84.00000
+      vertex 7.50000 190.00000 92.00000
+      vertex 7.50000 190.00000 84.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 1.50000 184.00000 84.00000
+      vertex 1.50000 184.00000 92.00000
+      vertex 1.50000 190.00000 92.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 1.50000 184.00000 84.00000
+      vertex 1.50000 190.00000 92.00000
+      vertex 1.50000 190.00000 84.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 7.50000 184.00000 84.00000
+      vertex 7.50000 190.00000 84.00000
+      vertex 7.50000 190.00000 92.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 7.50000 184.00000 84.00000
+      vertex 7.50000 190.00000 92.00000
+      vertex 7.50000 184.00000 92.00000
+    endloop
+  endfacet
+endsolid Iman Ventana Izquierda
+solid Reed Ventana Derecha
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 283.00000 192.00000 84.00000
+      vertex 283.00000 217.00000 84.00000
+      vertex 291.00000 217.00000 84.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 283.00000 192.00000 84.00000
+      vertex 291.00000 217.00000 84.00000
+      vertex 291.00000 192.00000 84.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 283.00000 192.00000 92.00000
+      vertex 291.00000 192.00000 92.00000
+      vertex 291.00000 217.00000 92.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 283.00000 192.00000 92.00000
+      vertex 291.00000 217.00000 92.00000
+      vertex 283.00000 217.00000 92.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 283.00000 192.00000 84.00000
+      vertex 291.00000 192.00000 84.00000
+      vertex 291.00000 192.00000 92.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 283.00000 192.00000 84.00000
+      vertex 291.00000 192.00000 92.00000
+      vertex 283.00000 192.00000 92.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 283.00000 217.00000 84.00000
+      vertex 283.00000 217.00000 92.00000
+      vertex 291.00000 217.00000 92.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 283.00000 217.00000 84.00000
+      vertex 291.00000 217.00000 92.00000
+      vertex 291.00000 217.00000 84.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 283.00000 192.00000 84.00000
+      vertex 283.00000 192.00000 92.00000
+      vertex 283.00000 217.00000 92.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 283.00000 192.00000 84.00000
+      vertex 283.00000 217.00000 92.00000
+      vertex 283.00000 217.00000 84.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 291.00000 192.00000 84.00000
+      vertex 291.00000 217.00000 84.00000
+      vertex 291.00000 217.00000 92.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 291.00000 192.00000 84.00000
+      vertex 291.00000 217.00000 92.00000
+      vertex 291.00000 192.00000 92.00000
+    endloop
+  endfacet
+endsolid Reed Ventana Derecha
+solid Iman Ventana Derecha
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 292.50000 184.00000 84.00000
+      vertex 292.50000 190.00000 84.00000
+      vertex 298.50000 190.00000 84.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 292.50000 184.00000 84.00000
+      vertex 298.50000 190.00000 84.00000
+      vertex 298.50000 184.00000 84.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 292.50000 184.00000 92.00000
+      vertex 298.50000 184.00000 92.00000
+      vertex 298.50000 190.00000 92.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 292.50000 184.00000 92.00000
+      vertex 298.50000 190.00000 92.00000
+      vertex 292.50000 190.00000 92.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 292.50000 184.00000 84.00000
+      vertex 298.50000 184.00000 84.00000
+      vertex 298.50000 184.00000 92.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 292.50000 184.00000 84.00000
+      vertex 298.50000 184.00000 92.00000
+      vertex 292.50000 184.00000 92.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 292.50000 190.00000 84.00000
+      vertex 292.50000 190.00000 92.00000
+      vertex 298.50000 190.00000 92.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 292.50000 190.00000 84.00000
+      vertex 298.50000 190.00000 92.00000
+      vertex 298.50000 190.00000 84.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 292.50000 184.00000 84.00000
+      vertex 292.50000 184.00000 92.00000
+      vertex 292.50000 190.00000 92.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 292.50000 184.00000 84.00000
+      vertex 292.50000 190.00000 92.00000
+      vertex 292.50000 190.00000 84.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 298.50000 184.00000 84.00000
+      vertex 298.50000 190.00000 84.00000
+      vertex 298.50000 190.00000 92.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 298.50000 184.00000 84.00000
+      vertex 298.50000 190.00000 92.00000
+      vertex 298.50000 184.00000 92.00000
+    endloop
+  endfacet
+endsolid Iman Ventana Derecha
+solid Proximidad Puerta Principal
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 90.00000 9.00000 40.00000
+      vertex 90.00000 18.00000 40.00000
+      vertex 105.00000 18.00000 40.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 90.00000 9.00000 40.00000
+      vertex 105.00000 18.00000 40.00000
+      vertex 105.00000 9.00000 40.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 90.00000 9.00000 49.00000
+      vertex 105.00000 9.00000 49.00000
+      vertex 105.00000 18.00000 49.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 90.00000 9.00000 49.00000
+      vertex 105.00000 18.00000 49.00000
+      vertex 90.00000 18.00000 49.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 90.00000 9.00000 40.00000
+      vertex 105.00000 9.00000 40.00000
+      vertex 105.00000 9.00000 49.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 90.00000 9.00000 40.00000
+      vertex 105.00000 9.00000 49.00000
+      vertex 90.00000 9.00000 49.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 90.00000 18.00000 40.00000
+      vertex 90.00000 18.00000 49.00000
+      vertex 105.00000 18.00000 49.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 90.00000 18.00000 40.00000
+      vertex 105.00000 18.00000 49.00000
+      vertex 105.00000 18.00000 40.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 90.00000 9.00000 40.00000
+      vertex 90.00000 9.00000 49.00000
+      vertex 90.00000 18.00000 49.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 90.00000 9.00000 40.00000
+      vertex 90.00000 18.00000 49.00000
+      vertex 90.00000 18.00000 40.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 105.00000 9.00000 40.00000
+      vertex 105.00000 18.00000 40.00000
+      vertex 105.00000 18.00000 49.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 105.00000 9.00000 40.00000
+      vertex 105.00000 18.00000 49.00000
+      vertex 105.00000 9.00000 49.00000
+    endloop
+  endfacet
+endsolid Proximidad Puerta Principal
+solid Proximidad Puerta Trasera
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 195.00000 282.00000 40.00000
+      vertex 195.00000 291.00000 40.00000
+      vertex 210.00000 291.00000 40.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 195.00000 282.00000 40.00000
+      vertex 210.00000 291.00000 40.00000
+      vertex 210.00000 282.00000 40.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 195.00000 282.00000 49.00000
+      vertex 210.00000 282.00000 49.00000
+      vertex 210.00000 291.00000 49.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 195.00000 282.00000 49.00000
+      vertex 210.00000 291.00000 49.00000
+      vertex 195.00000 291.00000 49.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 195.00000 282.00000 40.00000
+      vertex 210.00000 282.00000 40.00000
+      vertex 210.00000 282.00000 49.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 195.00000 282.00000 40.00000
+      vertex 210.00000 282.00000 49.00000
+      vertex 195.00000 282.00000 49.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 195.00000 291.00000 40.00000
+      vertex 195.00000 291.00000 49.00000
+      vertex 210.00000 291.00000 49.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 195.00000 291.00000 40.00000
+      vertex 210.00000 291.00000 49.00000
+      vertex 210.00000 291.00000 40.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 195.00000 282.00000 40.00000
+      vertex 195.00000 282.00000 49.00000
+      vertex 195.00000 291.00000 49.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 195.00000 282.00000 40.00000
+      vertex 195.00000 291.00000 49.00000
+      vertex 195.00000 291.00000 40.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 210.00000 282.00000 40.00000
+      vertex 210.00000 291.00000 40.00000
+      vertex 210.00000 291.00000 49.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 210.00000 282.00000 40.00000
+      vertex 210.00000 291.00000 49.00000
+      vertex 210.00000 282.00000 49.00000
+    endloop
+  endfacet
+endsolid Proximidad Puerta Trasera
+solid Proximidad Ventana Izquierda
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 9.00000 85.00000 66.00000
+      vertex 9.00000 100.00000 66.00000
+      vertex 18.00000 100.00000 66.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 9.00000 85.00000 66.00000
+      vertex 18.00000 100.00000 66.00000
+      vertex 18.00000 85.00000 66.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 9.00000 85.00000 75.00000
+      vertex 18.00000 85.00000 75.00000
+      vertex 18.00000 100.00000 75.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 9.00000 85.00000 75.00000
+      vertex 18.00000 100.00000 75.00000
+      vertex 9.00000 100.00000 75.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 9.00000 85.00000 66.00000
+      vertex 18.00000 85.00000 66.00000
+      vertex 18.00000 85.00000 75.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 9.00000 85.00000 66.00000
+      vertex 18.00000 85.00000 75.00000
+      vertex 9.00000 85.00000 75.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 9.00000 100.00000 66.00000
+      vertex 9.00000 100.00000 75.00000
+      vertex 18.00000 100.00000 75.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 9.00000 100.00000 66.00000
+      vertex 18.00000 100.00000 75.00000
+      vertex 18.00000 100.00000 66.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 9.00000 85.00000 66.00000
+      vertex 9.00000 85.00000 75.00000
+      vertex 9.00000 100.00000 75.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 9.00000 85.00000 66.00000
+      vertex 9.00000 100.00000 75.00000
+      vertex 9.00000 100.00000 66.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 18.00000 85.00000 66.00000
+      vertex 18.00000 100.00000 66.00000
+      vertex 18.00000 100.00000 75.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 18.00000 85.00000 66.00000
+      vertex 18.00000 100.00000 75.00000
+      vertex 18.00000 85.00000 75.00000
+    endloop
+  endfacet
+endsolid Proximidad Ventana Izquierda
+solid Proximidad Ventana Derecha
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 282.00000 85.00000 66.00000
+      vertex 282.00000 100.00000 66.00000
+      vertex 291.00000 100.00000 66.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 282.00000 85.00000 66.00000
+      vertex 291.00000 100.00000 66.00000
+      vertex 291.00000 85.00000 66.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 282.00000 85.00000 75.00000
+      vertex 291.00000 85.00000 75.00000
+      vertex 291.00000 100.00000 75.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 282.00000 85.00000 75.00000
+      vertex 291.00000 100.00000 75.00000
+      vertex 282.00000 100.00000 75.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 282.00000 85.00000 66.00000
+      vertex 291.00000 85.00000 66.00000
+      vertex 291.00000 85.00000 75.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 282.00000 85.00000 66.00000
+      vertex 291.00000 85.00000 75.00000
+      vertex 282.00000 85.00000 75.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 282.00000 100.00000 66.00000
+      vertex 282.00000 100.00000 75.00000
+      vertex 291.00000 100.00000 75.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 282.00000 100.00000 66.00000
+      vertex 291.00000 100.00000 75.00000
+      vertex 291.00000 100.00000 66.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 282.00000 85.00000 66.00000
+      vertex 282.00000 85.00000 75.00000
+      vertex 282.00000 100.00000 75.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 282.00000 85.00000 66.00000
+      vertex 282.00000 100.00000 75.00000
+      vertex 282.00000 100.00000 66.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 291.00000 85.00000 66.00000
+      vertex 291.00000 100.00000 66.00000
+      vertex 291.00000 100.00000 75.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 291.00000 85.00000 66.00000
+      vertex 291.00000 100.00000 75.00000
+      vertex 291.00000 85.00000 75.00000
+    endloop
+  endfacet
+endsolid Proximidad Ventana Derecha
+solid Arduino UNO R4 WiFi
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 30.00000 30.00000 0.00000
+      vertex 30.00000 76.00000 0.00000
+      vertex 99.00000 76.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 30.00000 30.00000 0.00000
+      vertex 99.00000 76.00000 0.00000
+      vertex 99.00000 30.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 30.00000 30.00000 9.00000
+      vertex 99.00000 30.00000 9.00000
+      vertex 99.00000 76.00000 9.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 30.00000 30.00000 9.00000
+      vertex 99.00000 76.00000 9.00000
+      vertex 30.00000 76.00000 9.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 30.00000 30.00000 0.00000
+      vertex 99.00000 30.00000 0.00000
+      vertex 99.00000 30.00000 9.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 30.00000 30.00000 0.00000
+      vertex 99.00000 30.00000 9.00000
+      vertex 30.00000 30.00000 9.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 30.00000 76.00000 0.00000
+      vertex 30.00000 76.00000 9.00000
+      vertex 99.00000 76.00000 9.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 30.00000 76.00000 0.00000
+      vertex 99.00000 76.00000 9.00000
+      vertex 99.00000 76.00000 0.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 30.00000 30.00000 0.00000
+      vertex 30.00000 30.00000 9.00000
+      vertex 30.00000 76.00000 9.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 30.00000 30.00000 0.00000
+      vertex 30.00000 76.00000 9.00000
+      vertex 30.00000 76.00000 0.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 99.00000 30.00000 0.00000
+      vertex 99.00000 76.00000 0.00000
+      vertex 99.00000 76.00000 9.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 99.00000 30.00000 0.00000
+      vertex 99.00000 76.00000 9.00000
+      vertex 99.00000 30.00000 9.00000
+    endloop
+  endfacet
+endsolid Arduino UNO R4 WiFi
+solid Protoboard
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 115.00000 30.00000 0.00000
+      vertex 115.00000 85.00000 0.00000
+      vertex 280.00000 85.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 -1.00000
+    outer loop
+      vertex 115.00000 30.00000 0.00000
+      vertex 280.00000 85.00000 0.00000
+      vertex 280.00000 30.00000 0.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 115.00000 30.00000 10.00000
+      vertex 280.00000 30.00000 10.00000
+      vertex 280.00000 85.00000 10.00000
+    endloop
+  endfacet
+  facet normal 0.00000 0.00000 1.00000
+    outer loop
+      vertex 115.00000 30.00000 10.00000
+      vertex 280.00000 85.00000 10.00000
+      vertex 115.00000 85.00000 10.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 115.00000 30.00000 0.00000
+      vertex 280.00000 30.00000 0.00000
+      vertex 280.00000 30.00000 10.00000
+    endloop
+  endfacet
+  facet normal 0.00000 -1.00000 0.00000
+    outer loop
+      vertex 115.00000 30.00000 0.00000
+      vertex 280.00000 30.00000 10.00000
+      vertex 115.00000 30.00000 10.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 115.00000 85.00000 0.00000
+      vertex 115.00000 85.00000 10.00000
+      vertex 280.00000 85.00000 10.00000
+    endloop
+  endfacet
+  facet normal 0.00000 1.00000 0.00000
+    outer loop
+      vertex 115.00000 85.00000 0.00000
+      vertex 280.00000 85.00000 10.00000
+      vertex 280.00000 85.00000 0.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 115.00000 30.00000 0.00000
+      vertex 115.00000 30.00000 10.00000
+      vertex 115.00000 85.00000 10.00000
+    endloop
+  endfacet
+  facet normal -1.00000 0.00000 0.00000
+    outer loop
+      vertex 115.00000 30.00000 0.00000
+      vertex 115.00000 85.00000 10.00000
+      vertex 115.00000 85.00000 0.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 280.00000 30.00000 0.00000
+      vertex 280.00000 85.00000 0.00000
+      vertex 280.00000 85.00000 10.00000
+    endloop
+  endfacet
+  facet normal 1.00000 0.00000 0.00000
+    outer loop
+      vertex 280.00000 30.00000 0.00000
+      vertex 280.00000 85.00000 10.00000
+      vertex 280.00000 30.00000 10.00000
+    endloop
+  endfacet
+endsolid Protoboard

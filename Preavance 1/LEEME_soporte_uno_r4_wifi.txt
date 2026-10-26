@@ -1,0 +1,33 @@
+SOPORTE ABIERTO PARA ARDUINO UNO R4 WIFI
+
+Archivos
+- soporte_uno_r4_wifi.stl: modelo listo para abrir en un laminador.
+- soporte_uno_r4_wifi.scad: fuente editable de OpenSCAD.
+
+Diseño
+- Base: 96 x 82 mm; placa de 3,2 mm con esquinas achaflanadas y apoyos inferiores de 1,2 mm.
+- Cuatro apoyos elevan la placa 8 mm sobre la base.
+- Los cuatro orificios de la placa se basan en el CAD oficial Arduino ABX00087.
+- Los alojamientos inferiores son para tuercas M3 de 5,8 mm entre caras y hasta 2,8 mm de espesor.
+- Cuatro perforaciones de 4,2 mm en las esquinas sirven para sujetar la base a la maqueta.
+- La base queda abierta y deja accesibles los conectores y pines.
+- El STL se exporto en milimetros y esta listo para importarlo en un laminador.
+
+Montaje sugerido
+- 4 tornillos M3 x 12 mm y 4 tuercas M3 para fijar la placa a los apoyos.
+- Prueba primero un tornillo y una tuerca; el ajuste final puede variar ligeramente según la impresora.
+
+Impresion sugerida
+- Material: PLA.
+- Orientacion: base plana sobre la cama.
+- Altura de capa: 0,20 mm.
+- Perimetros: 3.
+- Relleno: 20 %.
+- Soportes: no deberian ser necesarios.
+- Genera el G-code desde el laminador usando el perfil exacto de la impresora del taller.
+- No se incluye G-code porque depende del modelo de impresora, boquilla y material disponibles.
+
+Fuente de dimensiones
+Paquete CAD oficial Arduino UNO R4 WiFi, modelo ABX00087. Los archivos CAD oficiales estan bajo licencia CC BY-SA 4.0.
+https://docs.arduino.cc/hardware/uno-r4-wifi
+
