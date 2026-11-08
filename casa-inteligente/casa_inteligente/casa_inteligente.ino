@@ -1,17 +1,15 @@
 /*
  * Casa Inteligente IoT - Arduino Uno R4 WiFi + Blynk
- * Configuración física actual: 2 servos, sensor de sonido, LED y display
- * de un dígito. Las entradas reed/IR quedan opcionales para una ampliación.
+ * Configuración física actual: 2 servos y LCD 16x2 por I2C.
+ * Las entradas reed/IR quedan opcionales para una ampliación.
  *
  * El control y el monitoreo van por Blynk (50 datastreams gratis) en vez de
  * Arduino IoT Cloud, cuyo plan gratuito solo permite 5 variables por Thing
  * y este proyecto necesita 16. Ver BLYNK.md para crear el template.
  *
  * Conexiones propuestas para esta configuración:
- *  Servo principal/trasero -> D9/D10
- *  Sensor de sonido AO -> A0; VCC -> 5V; GND -> GND (DO sin conectar)
- *  Display segmentos a-g -> D2-D8; común según sea ánodo/cátodo común
- *  LED verde/rojo -> D11/D12, cada uno con su resistencia en serie
+ *  Servo puerta delantera/trasera -> D9/D10
+ *  LCD I2C: VCC -> 5V; GND -> GND; SDA -> SDA; SCL -> SCL
  */
 
 // config.h va PRIMERO a propósito: la librería Blynk valida que existan
@@ -25,6 +23,9 @@
 #include <BlynkSimpleWifi.h>
 #include <Servo.h>
 #include <EEPROM.h>
+#include <Wire.h>
+#include <hd44780.h>
+#include <hd44780ioClass/hd44780_I2Cexp.h>
 
 // ------------------------------------------------------------------
 // CONSTANTES DE AJUSTE
@@ -38,20 +39,21 @@ const unsigned long AVISO_MS = 30000;   // cada cuánto insistir con el token ma
 const bool IR_DETECTA_NIVEL = LOW;      // HW-201: LOW = hay obstáculo.
                                         // Si tu módulo lee invertido, usa HIGH.
 
-// Componentes añadidos: el display se maneja como cátodo común por defecto.
-// Confirmar el tipo del display antes de conectarlo; para ánodo común cambia
-// DISPLAY_ANODO_COMUN a true. El sensor de sonido se lee por AO para evitar
-// depender del umbral del comparador digital DO.
-const uint8_t PIN_SONIDO = A0;
-const unsigned long BLOQUEO_APLAUSO_MS = 700;
-const int UMBRAL_APLAUSO_AO = 120; // amplitud pico a pico inicial; ajustar mirando el monitor
-const uint8_t PIN_LED_VERDE = 11;
-const uint8_t PIN_LED_ROJO = 12;
-const uint8_t PIN_SEGMENTOS[] = { 2, 3, 4, 5, 6, 7, 8 }; // a,b,c,d,e,f,g
-const bool DISPLAY_ANODO_COMUN = false;
+// LCD de caracteres 16x2 con mochila I2C PCF8574.
+// hd44780_I2Cexp detecta automáticamente la dirección y el mapeo más común.
+const uint8_t LCD_COLUMNAS = 16;
+const uint8_t LCD_FILAS = 2;
+hd44780_I2Cexp lcd;
+const unsigned long LCD_PASO_ANIMACION_MS = 180;
+const unsigned long LCD_PAUSA_NOMBRE_MS = 1500;
+const int LCD_LARGO_NOMBRE = 10; // ambos nombres tienen 10 caracteres
+const int LCD_COLUMNA_CENTRO = (LCD_COLUMNAS - LCD_LARGO_NOMBRE) / 2;
+int lcdColumna = LCD_COLUMNAS;
+unsigned long lcdUltimoPaso = 0;
+unsigned long lcdInicioPausa = 0;
+bool lcdDisponible = false;
+bool lcdEnPausa = false;
 const uint8_t PIN_NO_INSTALADO = 255;
-unsigned long ultimoAplauso = 0;
-unsigned long ultimoReporteSonido = 0;
 
 // Estados de posición
 const uint8_t P_CERRADA = 0;
@@ -92,8 +94,8 @@ struct Unidad {
 };
 
 Unidad unidades[] = {
-  { "puerta_principal",   9, PIN_NO_INSTALADO, PIN_NO_INSTALADO, 180, 0, 0, V1, V5, V9, V13 },
-  { "puerta_trasera",    10, PIN_NO_INSTALADO, PIN_NO_INSTALADO, 180, 0, 2, V2, V6, V10, V14 },
+  { "puerta_principal",   9, PIN_NO_INSTALADO, PIN_NO_INSTALADO,  90, 0, 0, V1, V5, V9, V13 }, // abre 90° desde cerrado
+  { "puerta_trasera",    10, PIN_NO_INSTALADO, PIN_NO_INSTALADO,  90, 0, 2, V2, V6, V10, V14 }, // abre 90° desde cerrado
 };
 const size_t NUM_UNIDADES = sizeof(unidades) / sizeof(unidades[0]);
 
@@ -113,50 +115,45 @@ void syncloud(Unidad& u) {
   Blynk.virtualWrite(u.vsCiclos, u.ciclos);
 }
 
-// Indicadores físicos de la puerta principal. Se muestra 0 cerrada y 1 abierta.
-void actualizarIndicadores(const Unidad& u) {
-  const bool abierta = u.posicion == P_ABIERTA;
-  const bool cerrada = u.posicion == P_CERRADA;
-  digitalWrite(PIN_LED_VERDE, abierta ? HIGH : LOW);
-  digitalWrite(PIN_LED_ROJO, cerrada ? HIGH : LOW);
+// Dibuja un nombre en una fila, ocultando las letras que aún están fuera
+// del área visible del LCD.
+void dibujarNombreLCD(uint8_t fila, const char* nombre, int columnaInicial) {
+  char linea[LCD_COLUMNAS + 1];
+  for (uint8_t i = 0; i < LCD_COLUMNAS; i++) linea[i] = ' ';
+  linea[LCD_COLUMNAS] = '\0';
 
-  // Segmentos en orden a,b,c,d,e,f,g. Durante movimiento/obstáculo se apagan.
-  const bool cero[7] = { true, true, true, true, true, true, false };
-  const bool uno[7]  = { false, true, true, false, false, false, false };
-  for (uint8_t i = 0; i < 7; i++) {
-    const bool encendido = cerrada ? cero[i] : (abierta ? uno[i] : false);
-    const bool nivelAlto = encendido != DISPLAY_ANODO_COMUN;
-    digitalWrite(PIN_SEGMENTOS[i], nivelAlto ? HIGH : LOW);
+  for (int i = 0; nombre[i] != '\0'; i++) {
+    int columna = columnaInicial + i;
+    if (columna >= 0 && columna < LCD_COLUMNAS) linea[columna] = nombre[i];
   }
+
+  lcd.setCursor(0, fila);
+  lcd.print(linea);
 }
 
-// Cada aplauso alterna la puerta principal, siempre con el mismo servo D9.
-void manejarSonido() {
-  int minimo = 1023;
-  int maximo = 0;
-  const unsigned long inicioMuestra = millis();
-  do {
-    const int lectura = analogRead(PIN_SONIDO);
-    if (lectura < minimo) minimo = lectura;
-    if (lectura > maximo) maximo = lectura;
-  } while ((millis() - inicioMuestra) < 20);
+// La animación no usa delay(), para que Blynk y los servos sigan atendiendo.
+void actualizarAnimacionLCD() {
+  if (!lcdDisponible) return;
 
-  const int amplitud = maximo - minimo;
-  if ((millis() - ultimoReporteSonido) >= 500) {
-    ultimoReporteSonido = millis();
-    Serial.print(F("[SONIDO] AO min="));
-    Serial.print(minimo);
-    Serial.print(F(" max="));
-    Serial.print(maximo);
-    Serial.print(F(" pp="));
-    Serial.println(amplitud);
+  unsigned long ahora = millis();
+  if (lcdEnPausa) {
+    if (ahora - lcdInicioPausa < LCD_PAUSA_NOMBRE_MS) return;
+    lcdEnPausa = false;
+    lcdColumna = -LCD_LARGO_NOMBRE; // ambos nombres salen por la izquierda
   }
 
-  if (amplitud >= UMBRAL_APLAUSO_AO &&
-      (millis() - ultimoAplauso) >= BLOQUEO_APLAUSO_MS) {
-    ultimoAplauso = millis();
-    Serial.println(F("[SONIDO] Alternando puerta principal"));
-    ejecutarControl(unidades[0], 2);
+  if (ahora - lcdUltimoPaso < LCD_PASO_ANIMACION_MS) return;
+  lcdUltimoPaso = ahora;
+
+  dibujarNombreLCD(0, "SaturnTech", lcdColumna);
+  dibujarNombreLCD(1, "SmartHouse", lcdColumna);
+
+  if (lcdColumna == LCD_COLUMNA_CENTRO) {
+    lcdEnPausa = true;
+    lcdInicioPausa = ahora;
+  } else {
+    lcdColumna--;
+    if (lcdColumna < -LCD_LARGO_NOMBRE) lcdColumna = LCD_COLUMNAS;
   }
 }
 
@@ -182,7 +179,6 @@ void comandar(Unidad& u, uint8_t destino) {
   u.posicionObjetivo = destino;
   u.posicion = P_MOVIENDO;
   u.ultimoPaso = millis();
-  if (&u == &unidades[0]) actualizarIndicadores(u);
   Blynk.virtualWrite(u.vsObstaculo, 0);
   if (destino == P_CERRADA) u.ultimoIR = millis();
 }
@@ -217,8 +213,6 @@ void manejarReed(Unidad& u) {
   u.posicion = nueva;
   u.anguloActual = (nueva == P_ABIERTA) ? u.anguloAbierto : u.anguloCerrado;
   u.servo.write(u.anguloActual);      // recoloca el brazo tras el movimiento a mano
-  if (&u == &unidades[0]) actualizarIndicadores(u);
-
   Serial.print(u.nombre);
   if (nueva == P_CERRADA) {
     Serial.print(" -> CERRADA (reed). Ciclos: ");
@@ -248,7 +242,6 @@ void manejarMovimiento(Unidad& u) {
     u.irLectura = digitalRead(u.pinIR);
     if (u.irLectura == IR_DETECTA_NIVEL) {
       u.posicion = P_OBSTACULO;          // se detiene donde está ahora
-      if (&u == &unidades[0]) actualizarIndicadores(u);
       Serial.print(u.nombre);
       Serial.println(" -> se detuvo por OBSTACULO");
       syncloud(u);
@@ -272,7 +265,6 @@ void manejarMovimiento(Unidad& u) {
       Serial.print(" -> CERRADA. Ciclos: ");
       Serial.println(u.ciclos);
     }
-    if (&u == &unidades[0]) actualizarIndicadores(u);
     syncloud(u);
   }
 }
@@ -359,11 +351,18 @@ void setup() {
   Serial.begin(9600);
   delay(1500);
 
-  pinMode(PIN_SONIDO, INPUT);
-  analogReadResolution(10);
-  pinMode(PIN_LED_VERDE, OUTPUT);
-  pinMode(PIN_LED_ROJO, OUTPUT);
-  for (uint8_t i = 0; i < 7; i++) pinMode(PIN_SEGMENTOS[i], OUTPUT);
+  const int lcdEstado = lcd.begin(LCD_COLUMNAS, LCD_FILAS);
+  if (lcdEstado == 0) {
+    lcd.backlight();
+    lcd.clear();
+    lcdDisponible = true;
+    lcdColumna = LCD_COLUMNAS;
+    lcdUltimoPaso = millis();
+    Serial.println(F("[LCD] SaturnTech / SmartHouse listo"));
+  } else {
+    Serial.print(F("[LCD] No se pudo iniciar. Codigo: "));
+    Serial.println(lcdEstado);
+  }
 
   for (size_t i = 0; i < NUM_UNIDADES; i++) {
     Unidad& u = unidades[i];
@@ -396,8 +395,6 @@ void setup() {
     Serial.println(u.ciclos);
   }
 
-  actualizarIndicadores(unidades[0]);
-
   // config() solo guarda el token y la dirección del servidor: NO intenta
   // conectarse. La conexión la va haciendo Blynk.run() en segundo plano.
   Blynk.config(BLYNK_AUTH_TOKEN);
@@ -408,10 +405,11 @@ void setup() {
 void loop() {
   Blynk.run();
   mantenerConexion();
-  manejarSonido();
 
   for (size_t i = 0; i < NUM_UNIDADES; i++) {
     manejarReed(unidades[i]);
     manejarMovimiento(unidades[i]);
   }
+
+  actualizarAnimacionLCD();
 }
