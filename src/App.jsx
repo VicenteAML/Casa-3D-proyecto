@@ -1,5 +1,5 @@
 import PlanDePruebas from './PlanDePruebas'
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Html } from '@react-three/drei'
 import * as THREE from 'three'
@@ -185,6 +185,17 @@ const PARTES = [
   { id: 'derecha', nombre: 'Ventana lateral derecha' },
 ]
 const CERRADAS = { delantera: false, trasera: false, izquierda: false, derecha: false }
+
+function leerPreferenciaBlynk(nombre, valorPredeterminado) {
+  if (typeof window === 'undefined') return valorPredeterminado
+  try {
+    const guardado = window.localStorage.getItem(`casa_${nombre}`)
+    if (guardado === null) return valorPredeterminado
+    return JSON.parse(guardado) ?? valorPredeterminado
+  } catch {
+    return valorPredeterminado
+  }
+}
 
 // Componentes de electrónica ilustrativos, no un plano de montaje certificado.
 const POS_ARDUINO = [-1.2, 0.12, -0.4]
@@ -436,9 +447,82 @@ export default function App() {
   const [mostrarTecho, setMostrarTecho] = useState(true)
   const [mostrarCables, setMostrarCables] = useState(true)
   const [estados, setEstados] = useState(CERRADAS)
+  const [blynkToken, setBlynkToken] = useState(() => leerPreferenciaBlynk('tok', ''))
+  const [tokenBlynkBorrador, setTokenBlynkBorrador] = useState(() => leerPreferenciaBlynk('tok', ''))
+  const [servidorBlynk] = useState(() => leerPreferenciaBlynk('srv', 'https://ny3.blynk.cloud'))
+  const [estadoBlynk, setEstadoBlynk] = useState(() =>
+    leerPreferenciaBlynk('tok', '') ? 'Conectando con Blynk…' : 'Token pendiente'
+  )
   const cambiar = (id, valor) => setEstados(actual => ({ ...actual, [id]: valor }))
   const alternar = id => setEstados(actual => ({ ...actual, [id]: !actual[id] }))
-  const todo = valor => setEstados(Object.fromEntries(PARTES.map(p => [p.id, valor])))
+  const esPuertaFisica = id => id === 'delantera' || id === 'trasera'
+  const todo = valor => setEstados(actual => Object.fromEntries(PARTES.map(p => [
+    p.id, blynkToken && esPuertaFisica(p.id) ? actual[p.id] : valor,
+  ])))
+
+  useEffect(() => {
+    if (!blynkToken) return undefined
+
+    let activa = true
+    let temporizador
+    const consultarBlynk = async () => {
+      try {
+        const servidor = String(servidorBlynk || 'https://ny3.blynk.cloud').replace(/\/$/, '')
+        const url = `${servidor}/external/api/getAll?token=${encodeURIComponent(blynkToken)}`
+        const respuesta = await fetch(url, { cache: 'no-store' })
+        let datos = {}
+        try { datos = await respuesta.json() } catch { /* La respuesta puede venir vacía. */ }
+        if (!respuesta.ok || datos?.error) {
+          throw new Error(datos?.error?.message || `HTTP ${respuesta.status}`)
+        }
+
+        if (Object.hasOwn(datos, 'v5') && Object.hasOwn(datos, 'v6')) {
+          setEstados(actual => ({
+            ...actual,
+            delantera: Number(datos.v5) === 1,
+            trasera: Number(datos.v6) === 1,
+          }))
+          setEstadoBlynk('En línea · puertas sincronizadas')
+        } else {
+          setEstadoBlynk('En línea · esperando V5 y V6')
+        }
+      } catch (error) {
+        setEstadoBlynk(`Sin conexión · ${error.message}`)
+      } finally {
+        if (activa) temporizador = window.setTimeout(consultarBlynk, 3000)
+      }
+    }
+
+    consultarBlynk()
+    return () => {
+      activa = false
+      window.clearTimeout(temporizador)
+    }
+  }, [blynkToken, servidorBlynk])
+
+  const conectarBlynk = () => {
+    const token = tokenBlynkBorrador.trim()
+    if (!token) {
+      setEstadoBlynk('Pega el token de dispositivo de Blynk')
+      return
+    }
+    try {
+      window.localStorage.setItem('casa_tok', JSON.stringify(token))
+      window.localStorage.setItem('casa_srv', JSON.stringify(servidorBlynk))
+    } catch {
+      setEstadoBlynk('El navegador no permitió guardar el token')
+    }
+    setBlynkToken(token)
+    setEstadoBlynk('Conectando con Blynk…')
+  }
+
+  const desconectarBlynk = () => {
+    try { window.localStorage.removeItem('casa_tok') } catch { /* Se limpia el estado de la página igualmente. */ }
+    setBlynkToken('')
+    setTokenBlynkBorrador('')
+    setEstadoBlynk('Token pendiente · puertas en modo local')
+  }
+
   const boton = { cursor: 'pointer', background: '#287d4c', color: 'white',
     border: '1px solid #54a577', padding: '8px 10px', borderRadius: 6, fontSize: 13 }
   const fila = { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }
@@ -454,16 +538,44 @@ export default function App() {
           Dos puertas y dos ventanas laterales. Gira con el botón izquierdo,
           desplaza con el derecho y acerca con la rueda.
         </p>
+        <section style={{ marginBottom: 14, padding: 10, borderRadius: 8,
+          background: 'rgba(255,255,255,0.08)' }}>
+          <strong style={{ fontSize: 13 }}>Sincronización con Blynk</strong>
+          <p aria-live="polite" style={{ fontSize: 11, lineHeight: 1.4,
+            color: estadoBlynk.startsWith('En línea') ? '#a7f3c0' : '#d5ddd8', margin: '6px 0 8px' }}>
+            {estadoBlynk}
+          </p>
+          {blynkToken ? (
+            <button style={{ ...boton, width: '100%', background: '#555e62' }}
+              onClick={desconectarBlynk}>Desconectar Blynk</button>
+          ) : (
+            <div style={{ display: 'grid', gap: 7 }}>
+              <input type="password" autoComplete="off" aria-label="Token de dispositivo de Blynk"
+                placeholder="Token de dispositivo" value={tokenBlynkBorrador}
+                onChange={e => setTokenBlynkBorrador(e.target.value)}
+                style={{ boxSizing: 'border-box', width: '100%', padding: 8, borderRadius: 5,
+                  border: '1px solid #87918c', background: '#f6f8f7', color: '#18211c' }} />
+              <button style={boton} onClick={conectarBlynk}>Conectar</button>
+            </div>
+          )}
+          <p style={{ fontSize: 10, lineHeight: 1.4, color: '#cbd5ce', margin: '7px 0 0' }}>
+            La puerta delantera lee V5 y la trasera V6. Se actualizan cada 3 segundos.
+          </p>
+        </section>
         <div style={{ display: 'grid', gap: 13 }}>
           {PARTES.map(p => (
             <div key={p.id}>
               <div style={{ fontSize: 13, marginBottom: 6 }}>
-                {p.nombre} · {estados[p.id] ? 'Orden: abrir' : 'Orden: cerrar'}
+                {p.nombre} · {blynkToken && esPuertaFisica(p.id)
+                  ? (estados[p.id] ? 'ABIERTA · Blynk' : 'CERRADA · Blynk')
+                  : (estados[p.id] ? 'Orden: abrir' : 'Orden: cerrar')}
               </div>
-              <div style={fila}>
-                <button style={boton} onClick={() => cambiar(p.id, true)}>Abrir</button>
-                <button style={boton} onClick={() => cambiar(p.id, false)}>Cerrar</button>
-              </div>
+              {blynkToken && esPuertaFisica(p.id)
+                ? <small style={{ color: '#cbd5ce' }}>Estado recibido de la maqueta física</small>
+                : <div style={fila}>
+                  <button style={boton} onClick={() => cambiar(p.id, true)}>Abrir</button>
+                  <button style={boton} onClick={() => cambiar(p.id, false)}>Cerrar</button>
+                </div>}
             </div>
           ))}
           <div style={{ ...fila, paddingTop: 12, borderTop: '1px solid #738079' }}>
