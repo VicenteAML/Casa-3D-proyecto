@@ -1,39 +1,37 @@
 # Diagrama de conexión — Casa Inteligente IoT (Uno R4 WiFi)
 
-## Montaje actual con sonido, LED y display
+## Cableado vigente
 
-Esta es la asignación del firmware actual: dos servos, sensor de sonido, dos
-LED indicadores y display de un dígito. El aplauso alterna la puerta principal
-(servo D9); la segunda puerta (D10) conserva su control desde Blynk.
+El firmware configura cuatro servos, cuatro entradas IR MH-B y el LCD 16x2 I2C.
+Las pruebas físicas reportadas cubren ambas puertas; valida alcance y sentido de
+detección de cada sensor de ventana antes de presentarlo. Los reed switches
+blancos no se usan.
 
 | Componente | Conexión |
 |---|---|
-| Servo puerta principal | Señal D9; alimentación según el montaje actual |
-| Servo puerta trasera | Señal D10; alimentación según el montaje actual |
-| Sensor de sonido | VCC a 5V, GND a GND, DO a A0; AO sin conectar |
-| Display de un dígito | Segmentos a-g a D2-D8, cada segmento con su resistencia; DP sin conectar |
-| LED verde | D11 → resistencia → ánodo (pata larga); cátodo a GND |
-| LED rojo | D12 → resistencia → ánodo (pata larga); cátodo a GND |
+| Servo puerta principal | Señal D9; VCC al riel de servos; GND común |
+| Servo puerta trasera | Señal D10; VCC al riel de servos; GND común |
+| Servo ventana izquierda | Señal D5; VCC al riel de servos; GND común |
+| Servo ventana derecha | Señal D6; VCC al riel de servos; GND común |
+| Sensor IR puerta principal | VCC 5V; GND común; OUT D2 |
+| Sensor IR puerta trasera | VCC 5V; GND común; OUT D3 |
+| Sensor IR ventana izquierda | VCC 5V; GND común; OUT D12 |
+| Sensor IR ventana derecha | VCC 5V; GND común; OUT D4 |
+| LCD 16x2 I2C | VCC 5V; GND; SDA a SDA; SCL a SCL |
 
-Usar una resistencia de 470 Ω o 1 kΩ en cada segmento del display y en cada
-LED. El pin común del display va a GND si es cátodo común, o a 5V si es ánodo
-común. El código queda configurado por defecto para cátodo común; confirmar el
-modelo del display pequeño antes de conectarlo y ajustar
-`DISPLAY_ANODO_COMUN` si corresponde.
+Los cuatro sensores comparten 5V y GND; cada salida OUT va a su propio pin.
+D2 corresponde a la puerta principal, D3 a la trasera, D12 a la ventana
+izquierda y D4 a la ventana derecha. Mantén GND común entre Arduino y la fuente
+externa de servos; no conectes el positivo de esa fuente al pin 5V del Arduino.
 
-Todos los GND deben compartir el mismo riel. No conectar las patas del display
-por número sin confirmar el pinout físico: los números cambian según el modelo.
-El sketch actual desactiva las entradas reed/IR y las ventanas aún no instaladas
-para liberar D2-D8 y D11-D12.
-
-## Asignación anterior / ampliación futura con reed e IR
+## Pines reservados para ampliaciones futuras
 
 | Dispositivo | Ubicación | Servo (señal) | Reed switch | Sensor IR |
 |-------------|-----------|--------------|-------------|-----------|
-| Puerta principal | fachada frontal | **D9** | **D2** | **D8** |
-| Puerta trasera | fachada posterior | **D10** | **D3** | **D11** |
-| Ventana izquierda | lado izquierdo (si no hay puerta) | **D5** | **D4** | **D12** |
-| Ventana derecha | lado derecho (si no hay puerta) | **D6** | **D7** | **D13** |
+| Puerta principal | fachada frontal | **D9** | no instalado | **D2 (actual)** |
+| Puerta trasera | fachada posterior | **D10** | no instalado | **D3 (actual)** |
+| Ventana izquierda | lado izquierdo | **D5 (actual)** | no instalado | **D12 (actual)** |
+| Ventana derecha | lado derecho | **D6 (actual)** | no instalado | **D4 (actual)** |
 
 - Pines PWM usados por servos: D5, D6, D9, D10.
 - D0/D1 quedan libres (son la serial RX/TX).
@@ -62,11 +60,11 @@ FUENTE B: riel +5V_SERVO        ──  adaptador 5V/2A o más ──  (o porta 
 | Rojo (VCC) | riel **+5V_SERVO** (fuente externa) |
 | Café (GND) | riel GND común |
 
-### Sensor magnético MC-38 (x4) — reed switch normalmente abierto
+### Sensor magnético MC-38 — no instalado en las puertas actuales
 
 | Cable | Conectar a |
 |-------|-----------|
-| Cable 1 | pin digital del reed (D2, D3, D4, D7) |
+| Cable 1 | Pin digital libre asignado en firmware; D4 está ocupado por el IR de la ventana derecha |
 | Cable 2 | GND común |
 
 - En código: `pinMode(pin, INPUT_PULLUP)`.
@@ -74,13 +72,13 @@ FUENTE B: riel +5V_SERVO        ──  adaptador 5V/2A o más ──  (o porta 
 - Imán lejos (puerta ABIERTA) → lee HIGH.
 - Transición LOW→HIGH = apertura, HIGH→LOW = cierre. Un ciclo = apertura + cierre.
 
-### Sensor IR HW-201 (x4) — módulo con 3 pines útiles
+### Sensor IR MH-B — cuatro entradas configuradas en firmware
 
 | Pin módulo | Conectar a |
 |-----------|-----------|
 | VCC | 5V del Arduino |
 | GND | GND común |
-| OUT (DO) | pin digital del IR (D8, D11, D12, D13) |
+| OUT (DO) | principal D2; trasera D3; ventana izquierda D12; ventana derecha D4 |
 
 - No usar el pin AO (salida analógica).
 - Calibrar alcance con el potenciómetro del módulo (giro lento mientras se prueba).
@@ -91,14 +89,12 @@ FUENTE B: riel +5V_SERVO        ──  adaptador 5V/2A o más ──  (o porta 
 ```
                         +5V (Arduino)          GND (común con todo)
                         |                      |
-  HW-201 puerta  D8   <-|OUT                   |
-  HW-201 trasera D11  <-|OUT   VCC -> [+]      VCC/IR -> 5V Arduino
-  HW-201 vent.i  D12  <-|OUT                   GND/IR -> GND común
-  HW-201 vent.d  D13  <-|OUT
+  IR puerta      D2   <-|OUT                   |
+  IR trasera     D3   <-|OUT   VCC -> [+]      VCC/IR -> 5V Arduino
+  IR vent.i      D12  <-|OUT                   GND/IR -> GND común
+  IR vent.d      D4   <-|OUT
                         |
-  MC-38 puerta   D2   <-|-- cable 1   cable 2 -> GND
-  MC-38 trasera  D3   <-|-- cable 1   cable 2 -> GND
-  MC-38 vent.i   D4   <-|-- cable 1   cable 2 -> GND
+  MC-38 puertas  --   no instalados
   MC-38 vent.d   D7   <-|-- cable 1   cable 2 -> GND
                         |
   SERVO puerta   D9   <-|-- naranja   rojo -> [+5V_SERVO]   café -> GND

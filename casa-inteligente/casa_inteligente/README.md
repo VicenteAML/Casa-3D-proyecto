@@ -19,16 +19,19 @@ app **Blynk IoT**.
 
 ## Qué hace el firmware
 
-- **Control actual**: Blynk/app web maneja las dos puertas. Un aplauso alterna
-  la puerta principal con el servo D9; el servo D10 sigue con su control actual.
+- **Control actual**: Blynk/app web maneja dos puertas y dos ventanas con
+  servos en D9, D10, D5 y D6.
 - **Indicadores físicos**: LED verde = abierta; LED rojo = cerrada; display de
   un dígito = `1` abierta y `0` cerrada.
 - **Blynk**: la acción local del aplauso actualiza el estado y el contador que
   ya se publican para la puerta principal. No requiere datastreams nuevos.
 - **Ciclos**: cada cierre completo suma 1 ciclo. Se guardan en EEPROM para
   que no se pierdan al apagar la placa.
-- **Sensores reed/IR y ventanas**: no forman parte de esta configuración
-  física actual; el firmware los deja desactivados hasta que se instalen.
+- **Sensores IR de obstáculos**: puerta principal OUT en D2 (V13), puerta
+  trasera OUT en D3 (V14) y ventana izquierda OUT en D12 (V15). Detienen el
+  cierre; desde la app se confirma «Objeto quitado: continuar con el cierre».
+  El firmware solo reanuda si el sensor ya indica paso libre.
+- **Reed switches y sensores de la ventana derecha**: siguen desactivados.
 
 ## Puesta en marcha
 
@@ -54,12 +57,10 @@ app **Blynk IoT**.
 
 | Pin | Tipo | Significado |
 |---|---|---|
-| V1–V2 | Button (entrada) | abrir/cerrar puerta principal y trasera |
-| V3–V4 | Reservado | ventanas no instaladas en esta configuración |
-| V5–V6 | LED (salida) | estado abierto de cada puerta |
-| V9–V10 | Label (salida) | ciclos de cada puerta |
-| V13–V14 | Reservado | obstáculo IR no instalado en esta configuración |
-| V7–V8, V11–V12, V15–V16 | Reservado | quedan para ampliaciones futuras |
+| V1–V4 | Button (entrada) | abrir/cerrar ambas puertas y ventanas |
+| V5–V8 | LED (salida) | estado abierto de cada unidad |
+| V9–V12 | Label (salida) | ciclos de cada unidad |
+| V13–V16 | LED (salida) | obstáculo de cada unidad; ventana derecha aún sin sensor |
 
 Están asignados en la tabla `unidades[]` del sketch, junto a los pines
 físicos de cada unidad. La tabla completa está en `../BLYNK.md`.

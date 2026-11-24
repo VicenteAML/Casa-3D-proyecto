@@ -1,14 +1,16 @@
 /*
  * Casa Inteligente IoT - Arduino Uno R4 WiFi + Blynk
- * Configuración física actual: 2 servos y LCD 16x2 por I2C.
- * Las entradas reed/IR quedan opcionales para una ampliación.
+ * Configuración física actual: 4 servos, sensores IR en puertas D2/D3 y
+ * ventanas D12/D4, y LCD 16x2 I2C. Los reed siguen sin instalar.
  *
  * El control y el monitoreo van por Blynk (50 datastreams gratis) en vez de
  * Arduino IoT Cloud, cuyo plan gratuito solo permite 5 variables por Thing
  * y este proyecto necesita 16. Ver BLYNK.md para crear el template.
  *
  * Conexiones propuestas para esta configuración:
- *  Servo puerta delantera/trasera -> D9/D10
+ *  Servos puerta principal/trasera y ventanas -> D9/D10/D5/D6
+ *  Sensor IR principal/trasero/ventanas OUT -> D2/D3/D12/D4
+ *  Sensor IR VCC -> 5V; GND -> GND
  *  LCD I2C: VCC -> 5V; GND -> GND; SDA -> SDA; SCL -> SCL
  */
 
@@ -36,8 +38,8 @@ const unsigned long IR_MS = 25;         // frecuencia de lectura del IR al cerra
 const unsigned long REDE_MS = 10000;    // cada cuánto revisar el WiFi
 const uint8_t INTENTOS_POR_RED = 6;     // tras esto, prueba la siguiente red
 const unsigned long AVISO_MS = 30000;   // cada cuánto insistir con el token malo
-const bool IR_DETECTA_NIVEL = LOW;      // HW-201: LOW = hay obstáculo.
-                                        // Si tu módulo lee invertido, usa HIGH.
+const bool IR_DETECTA_NIVEL = LOW;      // Módulo IR tipo MH-B: LOW = obstáculo.
+                                        // Si el LED de detección se comporta al revés, confirmar OUT y ajustar.
 
 // LCD de caracteres 16x2 con mochila I2C PCF8574.
 // hd44780_I2Cexp detecta automáticamente la dirección y el mapeo más común.
@@ -94,8 +96,10 @@ struct Unidad {
 };
 
 Unidad unidades[] = {
-  { "puerta_principal",   9, PIN_NO_INSTALADO, PIN_NO_INSTALADO,  90, 0, 0, V1, V5, V9, V13 }, // abre 90° desde cerrado
-  { "puerta_trasera",    10, PIN_NO_INSTALADO, PIN_NO_INSTALADO,  90, 0, 2, V2, V6, V10, V14 }, // abre 90° desde cerrado
+  { "puerta_principal",   9, PIN_NO_INSTALADO, 2,  90, 0, 0, V1, V5, V9, V13 }, // servo D9, sensor IR OUT D2
+  { "puerta_trasera",    10, PIN_NO_INSTALADO, 3,  90, 0, 2, V2, V6, V10, V14 }, // servo D10, sensor IR OUT D3
+  { "ventana_izquierda",  5, PIN_NO_INSTALADO, 12, 90, 0, 4, V3, V7, V11, V15 }, // servo D5, sensor IR OUT D12
+  { "ventana_derecha",    6, PIN_NO_INSTALADO, 4, 90, 0, 6, V4, V8, V12, V16 }, // servo D6, sensor IR OUT D4
 };
 const size_t NUM_UNIDADES = sizeof(unidades) / sizeof(unidades[0]);
 
@@ -183,8 +187,36 @@ void comandar(Unidad& u, uint8_t destino) {
   if (destino == P_CERRADA) u.ultimoIR = millis();
 }
 
-// Valores que manda la app: 1 = abrir, 0 = cerrar, 2 = invertir el estado.
+// Desde DETENIDA, el valor 1 se reserva para la confirmación web "continuar cierre".
+void reanudarCierre(Unidad& u) {
+  if (u.posicion != P_OBSTACULO) return;
+
+  // No mover mientras la salida del sensor siga indicando obstáculo.
+  if (u.pinIR != PIN_NO_INSTALADO && digitalRead(u.pinIR) == IR_DETECTA_NIVEL) {
+    Serial.print(u.nombre);
+    Serial.println(" -> continuar rechazado: sensor aun detecta obstaculo");
+    Blynk.virtualWrite(u.vsControl, 0); // deja listo el botón para otro intento
+    syncloud(u);
+    return;
+  }
+
+  u.posicionObjetivo = P_CERRADA;
+  u.posicion = P_MOVIENDO;
+  u.ultimoPaso = millis();
+  u.ultimoIR = millis();
+  Serial.print(u.nombre);
+  Serial.println(" -> confirmacion recibida; continuando cierre");
+  Blynk.virtualWrite(u.vsControl, 0);   // restablece el control a "cerrar"
+  Blynk.virtualWrite(u.vsObstaculo, 0);
+}
+
+// Valores normales de la app: 1 = abrir, 0 = cerrar, 2 = invertir.
 void ejecutarControl(Unidad& u, int valor) {
+  if (u.posicion == P_OBSTACULO) {
+    if (valor == 1) reanudarCierre(u);
+    return; // no abrir ni cerrar sin confirmación mientras está detenida
+  }
+
   if (valor == 2) {
     comandar(u, (u.posicion == P_ABIERTA) ? P_CERRADA : P_ABIERTA);
     return;
@@ -275,13 +307,13 @@ void manejarMovimiento(Unidad& u) {
 // ------------------------------------------------------------------
 BLYNK_WRITE(V1) { ejecutarControl(unidades[0], param[0].asInt()); }
 BLYNK_WRITE(V2) { ejecutarControl(unidades[1], param[0].asInt()); }
-BLYNK_WRITE(V3) { /* ventana izquierda aún no instalada */ }
-BLYNK_WRITE(V4) { /* ventana derecha aún no instalada */ }
+BLYNK_WRITE(V3) { ejecutarControl(unidades[2], param[0].asInt()); }
+BLYNK_WRITE(V4) { ejecutarControl(unidades[3], param[0].asInt()); }
 
 // Se dispara cada vez que la placa logra (re)conectarse con Blynk, así que
 // es el momento exacto de refrescar los 16 datastreams en la app.
 BLYNK_CONNECTED() {
-  Serial.println(F("[BLYNK] conectado. Publicando estado de las 2 puertas activas."));
+  Serial.println(F("[BLYNK] conectado. Publicando estado de 4 unidades activas."));
   for (size_t i = 0; i < NUM_UNIDADES; i++) syncloud(unidades[i]);
 }
 

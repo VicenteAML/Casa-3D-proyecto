@@ -20,8 +20,14 @@ El proyecto quedó migrado a Blynk y mantiene los datastreams existentes.
 Para el montaje físico actual se usan dos puertas: `V1`/`V5`/`V9` para la
 puerta principal y `V2`/`V6`/`V10` para la trasera. La acción por sonido
 publica estado y ciclos por esos mismos datastreams; no requiere cambios en
-la consola ni en la app web. Las entradas reed/IR y las ventanas quedan
-desactivadas hasta instalar esos componentes.
+la consola ni en la app web. Los sensores IR están activos en ambas puertas:
+puerta principal OUT en D2 / estado V13; puerta trasera OUT en D3 / estado
+V14. Cada sensor detiene su puerta hasta que la persona revise el paso y
+confirme en la app web con «Objeto quitado: continuar con el cierre». El
+firmware verifica que ese sensor ya no detecte el obstáculo antes de mover el
+servo. La ventana izquierda usa servo D5 y sensor IR OUT D12; la derecha usa
+servo D6 y aún no tiene sensor. Sus estados y ciclos usan los datastreams V7,
+V8, V11 y V12; obstáculos V15 y V16.
 
 ---
 
@@ -83,10 +89,10 @@ Los nombres están en inglés a propósito: el orden de las palabras es
 
 | Inicial | Unidad | Pines |
 |---|---|---|
-| `pp` | puerta principal | servo D9, reed D2, IR D8 |
-| `pt` | puerta trasera | servo D10, reed D3, IR D11 |
-| `vi` | ventana izquierda | servo D5, reed D4, IR D12 |
-| `vd` | ventana derecha | servo D6, reed D7, IR D13 |
+| `pp` | puerta principal | servo D9, reed sin instalar, IR D2 |
+| `pt` | puerta trasera | servo D10, reed sin instalar, IR D3 |
+| `vi` | ventana izquierda | servo D5, reed sin instalar, IR D12 |
+| `vd` | ventana derecha | servo D6, reed e IR sin instalar |
 
 > El Min/Max importa: los widgets de la app (gauge, LED) se configuran
 > automáticamente con esos rangos. Si los dejas vacíos, el LED puede
@@ -212,6 +218,11 @@ Desde el firmware actual, `V1` a `V4` significan:
 Antes el firmware invertía el estado en cada escritura, que era confuso para
 los interruptores del panel web. Ahora el valor manda y el panel muestra
 `ABIERTA` / `CERRADA` / `MOVIENDO` / `DETENIDA`.
+Si una puerta queda `DETENIDA` (V13 para principal, V14 para trasera), la app
+oculta los controles normales y muestra un aviso con el botón «Objeto quitado:
+continuar con el cierre». La confirmación manda `V1=1` o `V2=1`; mientras la
+puerta correspondiente esté detenida, el firmware lo interpreta como reanudar
+el cierre y primero comprueba que su IR ya no detecte el objeto.
 
 ### Pantallas
 
@@ -402,11 +413,13 @@ Placa → Blynk (control y contadores) → la App lee
                               la App lee Firestore → pantalla Historial
 ```
 
-**Limitación honesta:** los eventos se registran **mientras la app está
-abierta**. Como el contador de ciclos vive en la EEPROM de la placa, no se
-pierde ningún ciclo: solo la hora exacta de los que ocurrieron sin nadie
-mirando. Para registro 24/7 haría falta un receptor en la nube (un Cloudflare
-Worker o una Cloud Function) al que la placa le escriba directo.
+**Limitación honesta:** la app debe abrirse al menos una vez después de los
+cambios para detectarlos; la hora del evento será la hora en que el navegador
+lo detecte. Si Firestore falla al guardar, el evento queda en una cola local y
+se reintenta al volver la conexión o la sesión. Como el contador de ciclos vive
+en la EEPROM de la placa, el total no se pierde. Para registro 24/7 sin depender
+del navegador haría falta un receptor en la nube (un Cloudflare Worker o una
+Cloud Function) al que la placa le escriba directo.
 
 ## Qué se registra
 
@@ -429,6 +442,9 @@ Reglas de detección, en `revisarYRegistrar()` de `app/index.html`:
   contador o se reprogramó la placa).
 - Si un sensor de obstáculos pasa a `1`, se registra un `obstaculo`.
 - Las unidades marcadas como "sin instalar" se ignoran.
+- Los eventos detectados se conservan en el navegador hasta que Firestore
+  confirme que quedaron guardados. El mismo ID se reutiliza en cada reintento
+  para evitar documentos duplicados.
 
 ## Configuración
 

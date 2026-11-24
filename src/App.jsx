@@ -1,8 +1,11 @@
 import PlanDePruebas from './PlanDePruebas'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Html } from '@react-three/drei'
 import * as THREE from 'three'
+import ArchitecturePanel from './components/ArchitecturePanel'
+import { PARTES } from './domain/houseModel'
+import { useBlynkHouse } from './application/useBlynkHouse'
 import './index.css'
 
 // Medidas visuales: 7 unidades equivalen a una base de 350 mm.
@@ -178,25 +181,6 @@ function Tejado() {
   )
 }
 
-const PARTES = [
-  { id: 'delantera', nombre: 'Puerta delantera' },
-  { id: 'trasera', nombre: 'Puerta trasera' },
-  { id: 'izquierda', nombre: 'Ventana lateral izquierda' },
-  { id: 'derecha', nombre: 'Ventana lateral derecha' },
-]
-const CERRADAS = { delantera: false, trasera: false, izquierda: false, derecha: false }
-
-function leerPreferenciaBlynk(nombre, valorPredeterminado) {
-  if (typeof window === 'undefined') return valorPredeterminado
-  try {
-    const guardado = window.localStorage.getItem(`casa_${nombre}`)
-    if (guardado === null) return valorPredeterminado
-    return JSON.parse(guardado) ?? valorPredeterminado
-  } catch {
-    return valorPredeterminado
-  }
-}
-
 // Componentes de electrónica ilustrativos, no un plano de montaje certificado.
 const POS_ARDUINO = [-1.2, 0.12, -0.4]
 const POS_PROTO = [0.8, 0.085, -0.4]
@@ -207,14 +191,14 @@ const pDigital = pin => [POS_ARDUINO[0] - 0.52 + pin * 0.075, 0.22, POS_ARDUINO[
 const pGND = [-1.55, 0.22, 0.05]
 const pRail = (i, positivo) => [0.23 + i * 0.23, 0.18, positivo ? 0.08 : 0.15]
 const CONEXIONES = [
-  { id: 'delantera', pin: 3, origen: [0, 0, 3.3], giro: 0, ancho: 1.3, servoY: 0.43,
+  { id: 'delantera', pin: 9, origen: [0, 0, 3.3], giro: 0, ancho: 1.3, servoY: 0.43,
     ruta: [[-1.95, 0.07, 1.2], [-1.95, 0.07, 2.65]] },
-  { id: 'trasera', pin: 5, origen: [0, 0, -3.3], giro: Math.PI, ancho: 1.3, servoY: 0.43,
+  { id: 'trasera', pin: 10, origen: [0, 0, -3.3], giro: Math.PI, ancho: 1.3, servoY: 0.43,
     ruta: [[1.95, 0.07, -1.1], [1.95, 0.07, -2.65]] },
-  { id: 'izquierda', pin: 6, origen: [-3.3, 1.05, 0], giro: -Math.PI / 2, ancho: 2.05, servoY: 0.3,
-    ruta: [[-2.55, 0.07, -1.6], [-2.76, 0.07, -0.927]] },
-  { id: 'derecha', pin: 9, origen: [3.3, 1.05, 0], giro: Math.PI / 2, ancho: 2.05, servoY: 0.3,
-    ruta: [[2.55, 0.07, 1.6], [2.76, 0.07, 0.927]] },
+  { id: 'izquierda', pin: 5, origen: [-2.1, 1.15, 3.3], giro: 0, ancho: 1.3, servoY: 0.3,
+    ruta: [[-2.65, 0.07, -1.25], [-2.65, 0.07, 2.65]] },
+  { id: 'derecha', pin: 6, origen: [2.1, 1.15, 3.3], giro: 0, ancho: 1.3, servoY: 0.3,
+    ruta: [[1.55, 0.07, -1.25], [1.55, 0.07, 2.65]] },
 ]
 
 function Cable({ puntos, color, radio = 0.014 }) {
@@ -334,8 +318,8 @@ function Electronica() {
   const rutas = [
     [[-1.9, 0.1, 1.05], [-1.9, 0.1, 2.65], [-0.552, 0.1, 2.65], [-0.552, 0.1, 2.805]],
     [[1.9, 0.1, -1.3], [1.9, 0.1, -2.65], [0.552, 0.1, -2.65], [0.552, 0.1, -2.805]],
-    [[-2, 0.1, -1.25], [-2.805, 0.1, -1.25], [-2.805, 0.1, -0.927]],
-    [[2, 0.1, 1.25], [2.805, 0.1, 1.25], [2.805, 0.1, 0.927]],
+    [[-2.65, 0.1, -1.25], [-2.65, 0.1, 2.65], [-2.652, 0.1, 2.805]],
+    [[1.55, 0.1, -1.25], [1.55, 0.1, 2.65], [1.548, 0.1, 2.805]],
   ]
   const columnas = [5, 8, 11, 14].map(n => POS_PROTO[0] - 0.73 + n * 0.077)
   return (
@@ -358,7 +342,7 @@ function Electronica() {
       <Cable color={NEGRO} puntos={[pGND, [-1.55, 0.14, 0.34],
         [1.302, 0.14, 0.34], [1.302, 0.18, 0.15]]} />
       <Rotulo position={[-1.55, 0.32, 0.06]} pequeno>GND común</Rotulo>
-      <Rotulo position={[-1.19, 0.42, -1.03]} pequeno>D3 · D5 · D6 · D9</Rotulo>
+      <Rotulo position={[-1.19, 0.42, -1.03]} pequeno>D9 · D10 · D5 · D6</Rotulo>
       {CONEXIONES.map((c, i) => {
         const xColumna = columnas[i]
         const bisagra = -c.ancho / 2 + 0.098
@@ -408,7 +392,6 @@ function Casa({ mostrarTecho, mostrarCables, estados, alternar }) {
     { x: -2.1, y: 1.15, w: 1.3, h: 1 },
     { x: 2.1, y: 1.15, w: 1.3, h: 1 },
   ]
-  const lateral = [{ x: 0, y: 1.05, w: 2.05, h: 1.35 }]
   return (
     <group>
       <Bloque position={[0, -0.09, 0]} size={[7, 0.18, 7]} color="#becbc7" />
@@ -416,7 +399,7 @@ function Casa({ mostrarTecho, mostrarCables, estados, alternar }) {
       <Pared ancho={ANCHO + GROSOR} huecos={frente} position={[0, 0, -3.3]}
         rotation={[0, Math.PI, 0]} />
       {[-1, 1].map(s => (
-        <Pared key={s} ancho={ANCHO - GROSOR} huecos={lateral}
+        <Pared key={s} ancho={ANCHO - GROSOR} huecos={[]}
           position={[s * 3.3, 0, 0]} rotation={[0, s * Math.PI / 2, 0]} />
       ))}
       {[false, true].map(trasera => (
@@ -425,17 +408,18 @@ function Casa({ mostrarTecho, mostrarCables, estados, alternar }) {
           <Abertura position={[0, 0, 0]} ancho={1.3} alto={2.45} puerta movil
             abierta={estados[trasera ? 'trasera' : 'delantera']}
             alternar={() => alternar(trasera ? 'trasera' : 'delantera')} />
-          {[-2.1, 2.1].map(x => (
-            <Abertura key={x} position={[x, 1.15, 0]} ancho={1.3} alto={1} />
-          ))}
+          {[-2.1, 2.1].map(x => {
+            const id = x < 0 ? 'izquierda' : 'derecha'
+            const activa = !trasera
+            return (
+              <Abertura key={`${trasera}-${id}`} position={[x, 1.15, 0]}
+                ancho={1.3} alto={1} movil={activa}
+                abierta={activa && estados[id]}
+                alternar={() => alternar(id)} />
+            )
+          })}
         </group>
       ))}
-      {[-1, 1].map(s => {
-        const id = s < 0 ? 'izquierda' : 'derecha'
-        return <Abertura key={id} position={[s * 3.3, 1.05, 0]}
-          rotation={[0, s * Math.PI / 2, 0]} ancho={2.05} alto={1.35}
-          movil abierta={estados[id]} alternar={() => alternar(id)} />
-      })}
       {mostrarCables && <Electronica />}
       {mostrarTecho && <Tejado />}
       <pointLight position={[0, 2.6, 0]} intensity={8} distance={9} color="#fff6e7" />
@@ -446,82 +430,14 @@ function Casa({ mostrarTecho, mostrarCables, estados, alternar }) {
 export default function App() {
   const [mostrarTecho, setMostrarTecho] = useState(true)
   const [mostrarCables, setMostrarCables] = useState(true)
-  const [estados, setEstados] = useState(CERRADAS)
-  const [blynkToken, setBlynkToken] = useState(() => leerPreferenciaBlynk('tok', ''))
-  const [tokenBlynkBorrador, setTokenBlynkBorrador] = useState(() => leerPreferenciaBlynk('tok', ''))
-  const [servidorBlynk] = useState(() => leerPreferenciaBlynk('srv', 'https://ny3.blynk.cloud'))
-  const [estadoBlynk, setEstadoBlynk] = useState(() =>
-    leerPreferenciaBlynk('tok', '') ? 'Conectando con Blynk…' : 'Token pendiente'
-  )
-  const cambiar = (id, valor) => setEstados(actual => ({ ...actual, [id]: valor }))
-  const alternar = id => setEstados(actual => ({ ...actual, [id]: !actual[id] }))
-  const esPuertaFisica = id => id === 'delantera' || id === 'trasera'
-  const todo = valor => setEstados(actual => Object.fromEntries(PARTES.map(p => [
-    p.id, blynkToken && esPuertaFisica(p.id) ? actual[p.id] : valor,
-  ])))
-
-  useEffect(() => {
-    if (!blynkToken) return undefined
-
-    let activa = true
-    let temporizador
-    const consultarBlynk = async () => {
-      try {
-        const servidor = String(servidorBlynk || 'https://ny3.blynk.cloud').replace(/\/$/, '')
-        const url = `${servidor}/external/api/getAll?token=${encodeURIComponent(blynkToken)}`
-        const respuesta = await fetch(url, { cache: 'no-store' })
-        let datos = {}
-        try { datos = await respuesta.json() } catch { /* La respuesta puede venir vacía. */ }
-        if (!respuesta.ok || datos?.error) {
-          throw new Error(datos?.error?.message || `HTTP ${respuesta.status}`)
-        }
-
-        if (Object.hasOwn(datos, 'v5') && Object.hasOwn(datos, 'v6')) {
-          setEstados(actual => ({
-            ...actual,
-            delantera: Number(datos.v5) === 1,
-            trasera: Number(datos.v6) === 1,
-          }))
-          setEstadoBlynk('En línea · puertas sincronizadas')
-        } else {
-          setEstadoBlynk('En línea · esperando V5 y V6')
-        }
-      } catch (error) {
-        setEstadoBlynk(`Sin conexión · ${error.message}`)
-      } finally {
-        if (activa) temporizador = window.setTimeout(consultarBlynk, 3000)
-      }
-    }
-
-    consultarBlynk()
-    return () => {
-      activa = false
-      window.clearTimeout(temporizador)
-    }
-  }, [blynkToken, servidorBlynk])
-
-  const conectarBlynk = () => {
-    const token = tokenBlynkBorrador.trim()
-    if (!token) {
-      setEstadoBlynk('Pega el token de dispositivo de Blynk')
-      return
-    }
-    try {
-      window.localStorage.setItem('casa_tok', JSON.stringify(token))
-      window.localStorage.setItem('casa_srv', JSON.stringify(servidorBlynk))
-    } catch {
-      setEstadoBlynk('El navegador no permitió guardar el token')
-    }
-    setBlynkToken(token)
-    setEstadoBlynk('Conectando con Blynk…')
-  }
-
-  const desconectarBlynk = () => {
-    try { window.localStorage.removeItem('casa_tok') } catch { /* Se limpia el estado de la página igualmente. */ }
-    setBlynkToken('')
-    setTokenBlynkBorrador('')
-    setEstadoBlynk('Token pendiente · puertas en modo local')
-  }
+  const [mostrarArquitectura, setMostrarArquitectura] = useState(false)
+  const {
+    estados, token: blynkToken, tokenBorrador: tokenBlynkBorrador,
+    setTokenBorrador: setTokenBlynkBorrador, estadoConexion: estadoBlynk,
+    ordenesPendientes, conectar: conectarBlynk, desconectar: desconectarBlynk,
+    comandar, comandarTodo,
+  } = useBlynkHouse()
+  const alternar = id => comandar(id, !estados[id])
 
   const boton = { cursor: 'pointer', background: '#287d4c', color: 'white',
     border: '1px solid #54a577', padding: '8px 10px', borderRadius: 6, fontSize: 13 }
@@ -535,7 +451,7 @@ export default function App() {
         fontFamily: 'Arial, sans-serif', boxShadow: '0 5px 22px #0003' }}>
         <strong>Casa inteligente · Maqueta</strong>
         <p style={{ fontSize: 12, lineHeight: 1.5, color: '#d5ddd8' }}>
-          Dos puertas y dos ventanas laterales. Gira con el botón izquierdo,
+          Dos puertas y las dos ventanas de la fachada principal. Gira con el botón izquierdo,
           desplaza con el derecho y acerca con la rueda.
         </p>
         <section style={{ marginBottom: 14, padding: 10, borderRadius: 8,
@@ -559,28 +475,28 @@ export default function App() {
             </div>
           )}
           <p style={{ fontSize: 10, lineHeight: 1.4, color: '#cbd5ce', margin: '7px 0 0' }}>
-            La puerta delantera lee V5 y la trasera V6. Se actualizan cada 3 segundos.
+            V1–V4 envían órdenes; V5–V8 reportan estados. Consulta cada 3 segundos.
           </p>
         </section>
         <div style={{ display: 'grid', gap: 13 }}>
           {PARTES.map(p => (
             <div key={p.id}>
               <div style={{ fontSize: 13, marginBottom: 6 }}>
-                {p.nombre} · {blynkToken && esPuertaFisica(p.id)
-                  ? (estados[p.id] ? 'ABIERTA · Blynk' : 'CERRADA · Blynk')
-                  : (estados[p.id] ? 'Orden: abrir' : 'Orden: cerrar')}
+                {p.nombre} · {estados[p.id] ? 'ABIERTA' : 'CERRADA'}
+                {blynkToken ? ' · estado recibido' : ' · simulación local'}
               </div>
-              {blynkToken && esPuertaFisica(p.id)
-                ? <small style={{ color: '#cbd5ce' }}>Estado recibido de la maqueta física</small>
-                : <div style={fila}>
-                  <button style={boton} onClick={() => cambiar(p.id, true)}>Abrir</button>
-                  <button style={boton} onClick={() => cambiar(p.id, false)}>Cerrar</button>
-                </div>}
+              <div style={fila}>
+                <button style={{ ...boton, opacity: ordenesPendientes[p.id] ? 0.6 : 1 }}
+                  disabled={ordenesPendientes[p.id]} onClick={() => comandar(p.id, true)}>Abrir</button>
+                <button style={{ ...boton, background: '#266a87', opacity: ordenesPendientes[p.id] ? 0.6 : 1 }}
+                  disabled={ordenesPendientes[p.id]} onClick={() => comandar(p.id, false)}>Cerrar</button>
+              </div>
+              <small style={{ color: '#cbd5ce' }}>Servo {p.servoPin} · sensor IR {p.sensorPin}</small>
             </div>
           ))}
           <div style={{ ...fila, paddingTop: 12, borderTop: '1px solid #738079' }}>
-            <button style={boton} onClick={() => todo(true)}>Abrir todo</button>
-            <button style={boton} onClick={() => todo(false)}>Cerrar todo</button>
+            <button style={boton} onClick={() => comandarTodo(true)}>Abrir todo</button>
+            <button style={{ ...boton, background: '#266a87' }} onClick={() => comandarTodo(false)}>Cerrar todo</button>
           </div>
           <button style={boton} onClick={() => setMostrarTecho(v => !v)}>
             {mostrarTecho ? 'Ocultar techo' : 'Mostrar techo'}
@@ -588,13 +504,15 @@ export default function App() {
           <button style={boton} onClick={() => setMostrarCables(v => !v)}>
             {mostrarCables ? 'Ocultar electrónica' : 'Mostrar electrónica'}
           </button>
+          <button style={{ ...boton, background: '#46576d' }} onClick={() => setMostrarArquitectura(true)}>
+            Ver arquitecturas
+          </button>
         </div>
         <p style={{ fontSize: 11, color: '#cbd5ce', lineHeight: 1.5, marginBottom: 0 }}>
           Rojo: +5 V. Oscuro: GND. Amarillo: señal.
-          D3/D5: puertas. D6/D9: ventanas izquierda/derecha.
+          Servos: D9/D10 (puertas), D5/D6 (ventanas). Sensores IR: D2/D3/D12/D4.
           Fuente externa para servos y GND común. Arduino alimentado por USB.
-          Modelo UNO R4 simplificado, no un plano exacto de pines.
-          Señales independientes en la protoboard y cables agrupados por mecanismo. Simulación visual: no controla dispositivos reales.
+          La distribución del dibujo es ilustrativa; confirma el cableado físico con la tabla de conexiones.
         </p>
       </aside>
       <Canvas shadows camera={{ position: [11, 8, 12], fov: 45 }}>
@@ -612,6 +530,8 @@ export default function App() {
         <OrbitControls target={[0, 1.5, 0]} enableDamping minDistance={2}
           maxDistance={28} maxPolarAngle={Math.PI / 2 - 0.015} />
       </Canvas>
+
+      {mostrarArquitectura && <ArchitecturePanel onClose={() => setMostrarArquitectura(false)} />}
 
       <PlanDePruebas />
     </div>

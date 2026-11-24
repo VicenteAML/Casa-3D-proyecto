@@ -370,6 +370,9 @@ const UNIDADES = [
 let TOKEN="", SRV="https://ny3.blynk.cloud", INTERVALO=3, LAST={};
 /* Ultimo estado conocido de la conexion a Firestore: null = no se probó. */
 let fbEstado = null;
+let fbEnvioEnCurso = false;
+let fbProximoIntento = 0;
+let fbErrorAvisado = false;
 function marcarFB(conectada, texto){
   fbEstado = conectada ? {txt: texto || "conectada", clase: "ok"}
                        : {txt: texto || "con error", clase: ""};
@@ -487,18 +490,18 @@ const FB = {
   },
 
   /* Registra un evento con hora del navegador (la placa no tiene reloj) */
-  async evento(e){
-    if(!FB.listo()) return false;
-    const id = Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,8);
+  async evento(e, id=null){
+    if(!FB.listo()) throw new Error("Inicia sesión en Firebase para guardar eventos.");
+    const docId = id || Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,8);
     const campos = {
-      ts:      FB.t(new Date().toISOString()),
+      ts:      FB.t(e.ts || new Date().toISOString()),
       unidad:  FB.s(e.unidad),
       tipo:    FB.s(e.tipo),
       ciclos:  FB.i(e.ciclos||0),
       delta:   FB.i(e.delta||0),
     };
-    try{ await FB.guardar("eventos", id, campos); return true; }
-    catch(err){ console.warn("Firestore:", err.message); return false; }
+    await FB.guardar("eventos", docId, campos);
+    return true;
   }
 };
 
@@ -557,25 +560,75 @@ function explicarError(e){
   return e.message;
 }
 
-/* Detecta cambios de contadores y de obstáculos, y los registra */
+/* Persiste los eventos pendientes para poder reintentarlos tras cortes o
+   errores de autenticación/red. El ID estable evita duplicados si Firestore
+   guardó el documento pero la respuesta no alcanzó a volver al navegador. */
+const CLAVE_EVENTOS_PENDIENTES = "firestore_eventos_pendientes";
+function leerEventosPendientes(){
+  const q=LS.get(CLAVE_EVENTOS_PENDIENTES, []);
+  return Array.isArray(q) ? q : [];
+}
+function encolarEvento(e){
+  const q=leerEventosPendientes();
+  q.push({
+    id:Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,8),
+    evento:{...e, ts:new Date().toISOString()}
+  });
+  LS.set(CLAVE_EVENTOS_PENDIENTES,q);
+}
+async function enviarEventosPendientes(){
+  if(!FB.listo() || fbEnvioEnCurso || Date.now()<fbProximoIntento) return;
+  fbEnvioEnCurso=true;
+  try{
+    let q=leerEventosPendientes();
+    let guardoUno=false;
+    while(q.length){
+      const pendiente=q[0];
+      try{
+        await FB.evento(pendiente.evento,pendiente.id);
+      }catch(err){
+        fbProximoIntento=Date.now()+10000;
+        marcarFB(false,"error al guardar");
+        console.warn("Firestore: el evento queda pendiente para reintento.",err.message);
+        if(!fbErrorAvisado){
+          fbErrorAvisado=true;
+          toast("Firebase: "+explicarError(err));
+        }
+        return;
+      }
+      q=q.slice(1);
+      LS.set(CLAVE_EVENTOS_PENDIENTES,q);
+      guardoUno=true;
+    }
+    fbProximoIntento=0;
+    if(guardoUno){
+      fbErrorAvisado=false;
+      marcarFB(true,"conectada");
+    }
+  }finally{
+    fbEnvioEnCurso=false;
+  }
+}
+
+/* Detecta cambios de contadores y obstáculos, y los registra */
 function revisarYRegistrar(){
-  if(!FB.listo()) return;
   UNIDADES.forEach((u,i)=>{
     if(LS.get("act_"+i,true)===false) return;
 
     const v = Number(LAST[u.cic])||0;
     const prev = LS.get("cic_"+i, null);
     if(prev!==null && v>prev)
-      FB.evento({unidad:u.n, tipo:"ciclo", delta:v-prev, ciclos:v});
+      encolarEvento({unidad:u.n, tipo:"ciclo", delta:v-prev, ciclos:v});
     else if(prev!==null && v<prev)
-      FB.evento({unidad:u.n, tipo:"reinicio", delta:0, ciclos:v});
+      encolarEvento({unidad:u.n, tipo:"reinicio", delta:0, ciclos:v});
     LS.set("cic_"+i, v);
 
     const o = Number(LAST[u.obs])===1;
     if(o && LS.get("obs_"+i, false)===false)
-      FB.evento({unidad:u.n, tipo:"obstaculo", delta:0, ciclos:v});
+      encolarEvento({unidad:u.n, tipo:"obstaculo", delta:0, ciclos:v});
     LS.set("obs_"+i, o);
   });
+  enviarEventosPendientes();
 }
 
 /* ================= estado local ================= */
@@ -611,14 +664,16 @@ function pintar(){
     const e = estadoDe(i);
     h += `<div class="card ${activa?"":"off"}"><div class="chead">
       <h2>${u.n}</h2><span class="badge ${e.c}">${e.t}</span></div>`;
+    const detenidaPorObstaculo = Number(LAST[u.obs])===1;
     h += activa
-      ? `<div class="row">
+      ? (detenidaPorObstaculo ? `` : `<div class="row">
            <button class="b-open"  onclick="mover(${i},1)" ${e.t==="MOVIENDO"?"disabled":""}>Abrir</button>
            <button class="b-close" onclick="mover(${i},0)" ${e.t==="MOVIENDO"?"disabled":""}>Cerrar</button>
-         </div>`
+         </div>`)
       : `<p class="hint" style="margin:2px 0 0">Sin servo conectado. Se activa cuando lo instales.</p>`;
-    if(Number(LAST[u.obs])===1 && activa)
-      h += `<div class="warnbar">El sensor de obstáculos la detuvo. Revisá el camino antes de cerrar.</div>`;
+    if(detenidaPorObstaculo && activa)
+      h += `<div class="warnbar"><div>Objeto obstruye la ${u.n.toLowerCase()}. Por favor, revisa que el paso esté libre.</div>
+        <button class="b-close" style="margin-top:9px;width:100%" onclick="continuarCierre(${i})">Objeto quitado: continuar con el cierre</button></div>`;
     h += `</div>`;
   });
   $("ctl").innerHTML = h;
@@ -771,6 +826,16 @@ async function mover(i, valor){
     pintar();
     setTimeout(leer, 700);
   }catch(e){ toast("No se pudo enviar el comando"); }
+}
+async function continuarCierre(i){
+  const u = UNIDADES[i];
+  try{
+    await apiSet(u.ctrl, 1); // En estado DETENIDA, 1 confirma reanudar hacia CERRADA.
+    LS.set("mv_"+i, Date.now()+4200);
+    toast("Confirmación enviada; verificando que el paso esté libre");
+    pintar();
+    setTimeout(leer, 700);
+  }catch(e){ toast("No se pudo continuar: revisa la conexión"); }
 }
 function toggle(i, el){
   const v = !LS.get("act_"+i, true);

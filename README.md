@@ -2,9 +2,18 @@
 
 Maqueta virtual interactiva de una casa automatizada, desarrollada con React, Vite y Three.js mediante React Three Fiber.
 
-Permite recorrer la casa desde distintos ángulos, abrir y cerrar dos puertas y dos ventanas laterales, y visualizar una representación de los servomotores, el Arduino UNO R4, la protoboard y su cableado.
+Permite recorrer la casa desde distintos ángulos, simular las dos puertas y las dos ventanas de la fachada principal, y visualizar una representación de los servomotores, el Arduino UNO R4, la protoboard y su cableado. También permite conectar el visor a un dispositivo Blynk: consulta los estados V5–V8 y envía órdenes de apertura/cierre por V1–V4. El token se introduce en el navegador y se guarda en su almacenamiento local.
 
-> Es una simulación visual: no controla un Arduino real ni sustituye un plano de conexiones eléctricas.
+> El movimiento del modelo 3D es una representación visual; el movimiento físico lo ejecuta la placa mediante Blynk. El dibujo del cableado es ilustrativo y no sustituye un plano eléctrico.
+
+## Arquitectura aplicada
+
+El código muestra dos patrones integrados:
+
+- **Cliente-servidor:** el visor web y la placa UNO R4 WiFi intercambian órdenes y estados con los servicios de Blynk.
+- **Arquitectura en capas:** `src/components` y `src/App.jsx` presentan la interfaz; `src/application` coordina estado y casos de uso; `src/domain` define las unidades, pines y estados; `src/infrastructure` encapsula Blynk HTTPS y el almacenamiento de preferencias.
+
+El botón **Ver arquitecturas** muestra ambos patrones y el recorrido de sus comunicaciones. El proyecto de firmware y la aplicación estática de control están en `casa-inteligente/`.
 
 ## Requisitos
 
