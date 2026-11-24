@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'node:fs'
+import path from 'node:path'
 
 const W = 30, D = 30, T = 0.8, H = 18, BASE_T = 1.0, ROOF_T = 1.2;
 
@@ -48,8 +48,8 @@ function wall(name, axis, f0, f1, a0, a1, openings){
   }
 }
 
-wall("Pared Frontal", 'y', 0, T, 0, W, [[11.5, 18.5, 0, 10], [2.5, 6.5, 8, 12]]);
-wall("Pared Trasera", 'y', D - T, D, 0, W, [[11.5, 18.5, 0, 10], [23.5, 27.5, 8, 12]]);
+wall("Pared Frontal", 'y', 0, T, 0, W, [[11.5, 18.5, 0, 10]]);
+wall("Pared Trasera", 'y', D - T, D, 0, W, [[11.5, 18.5, 0, 10]]);
 wall("Pared Izquierda", 'x', 0, T, 0, D, [[11, 19, 6, 11]]);
 wall("Pared Derecha", 'x', D - T, D, 0, D, [[11, 19, 6, 11]]);
 
@@ -57,8 +57,6 @@ P("Hoja Puerta Principal", 11.7, 0.12, 0.15, 18.3, 0.68, 9.9);
 P("Hoja Puerta Trasera", 11.7, D - 0.68, 0.15, 18.3, D - 0.12, 9.9);
 P("Hoja Ventana Izquierda", 0.12, 11.15, 6.15, 0.68, 18.85, 10.85);
 P("Hoja Ventana Derecha", W - 0.68, 11.15, 6.15, W - 0.12, 18.85, 10.85);
-P("Vidrio Ventana Decorativa Frontal", 2.65, 0.2, 8.15, 6.35, 0.6, 11.85);
-P("Vidrio Ventana Decorativa Trasera", 23.65, D - 0.6, 8.15, 27.35, D - 0.2, 11.85);
 
 P("Servo Puerta Principal", 18.6, 1.0, 9.5, 20.9, 3.2, 11.9);
 P("Servo Puerta Trasera", 8.8, 26.8, 9.5, 11.1, 29.0, 11.9);
@@ -136,7 +134,6 @@ for(const p of parts){
   stl += "endsolid " + p.name + "\n";
 }
 
-const dir = path.dirname(module.filename === undefined ? process.argv[1] : ".");
 const out = process.argv[2] || path.join(process.cwd(), "maqueta-casa.stl");
 fs.writeFileSync(out, stl, "utf8");
 

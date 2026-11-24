@@ -187,57 +187,57 @@ solid Pared Frontal A1
   endfacet
   facet normal 0.00000 0.00000 1.00000
     outer loop
-      vertex 0.00000 0.00000 80.00000
-      vertex 115.00000 0.00000 80.00000
-      vertex 115.00000 8.00000 80.00000
+      vertex 0.00000 0.00000 100.00000
+      vertex 115.00000 0.00000 100.00000
+      vertex 115.00000 8.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 0.00000 1.00000
     outer loop
-      vertex 0.00000 0.00000 80.00000
-      vertex 115.00000 8.00000 80.00000
-      vertex 0.00000 8.00000 80.00000
+      vertex 0.00000 0.00000 100.00000
+      vertex 115.00000 8.00000 100.00000
+      vertex 0.00000 8.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 -1.00000 0.00000
     outer loop
       vertex 0.00000 0.00000 0.00000
       vertex 115.00000 0.00000 0.00000
-      vertex 115.00000 0.00000 80.00000
+      vertex 115.00000 0.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 -1.00000 0.00000
     outer loop
       vertex 0.00000 0.00000 0.00000
-      vertex 115.00000 0.00000 80.00000
-      vertex 0.00000 0.00000 80.00000
+      vertex 115.00000 0.00000 100.00000
+      vertex 0.00000 0.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 1.00000 0.00000
     outer loop
       vertex 0.00000 8.00000 0.00000
-      vertex 0.00000 8.00000 80.00000
-      vertex 115.00000 8.00000 80.00000
+      vertex 0.00000 8.00000 100.00000
+      vertex 115.00000 8.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 1.00000 0.00000
     outer loop
       vertex 0.00000 8.00000 0.00000
-      vertex 115.00000 8.00000 80.00000
+      vertex 115.00000 8.00000 100.00000
       vertex 115.00000 8.00000 0.00000
     endloop
   endfacet
   facet normal -1.00000 0.00000 0.00000
     outer loop
       vertex 0.00000 0.00000 0.00000
-      vertex 0.00000 0.00000 80.00000
-      vertex 0.00000 8.00000 80.00000
+      vertex 0.00000 0.00000 100.00000
+      vertex 0.00000 8.00000 100.00000
     endloop
   endfacet
   facet normal -1.00000 0.00000 0.00000
     outer loop
       vertex 0.00000 0.00000 0.00000
-      vertex 0.00000 8.00000 80.00000
+      vertex 0.00000 8.00000 100.00000
       vertex 0.00000 8.00000 0.00000
     endloop
   endfacet
@@ -245,18 +245,18 @@ solid Pared Frontal A1
     outer loop
       vertex 115.00000 0.00000 0.00000
       vertex 115.00000 8.00000 0.00000
-      vertex 115.00000 8.00000 80.00000
+      vertex 115.00000 8.00000 100.00000
     endloop
   endfacet
   facet normal 1.00000 0.00000 0.00000
     outer loop
       vertex 115.00000 0.00000 0.00000
-      vertex 115.00000 8.00000 80.00000
-      vertex 115.00000 0.00000 80.00000
+      vertex 115.00000 8.00000 100.00000
+      vertex 115.00000 0.00000 100.00000
     endloop
   endfacet
 endsolid Pared Frontal A1
-solid Pared Frontal A5
+solid Pared Frontal A3
   facet normal 0.00000 0.00000 -1.00000
     outer loop
       vertex 185.00000 0.00000 0.00000
@@ -273,57 +273,57 @@ solid Pared Frontal A5
   endfacet
   facet normal 0.00000 0.00000 1.00000
     outer loop
-      vertex 185.00000 0.00000 80.00000
-      vertex 300.00000 0.00000 80.00000
-      vertex 300.00000 8.00000 80.00000
+      vertex 185.00000 0.00000 100.00000
+      vertex 300.00000 0.00000 100.00000
+      vertex 300.00000 8.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 0.00000 1.00000
     outer loop
-      vertex 185.00000 0.00000 80.00000
-      vertex 300.00000 8.00000 80.00000
-      vertex 185.00000 8.00000 80.00000
+      vertex 185.00000 0.00000 100.00000
+      vertex 300.00000 8.00000 100.00000
+      vertex 185.00000 8.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 -1.00000 0.00000
     outer loop
       vertex 185.00000 0.00000 0.00000
       vertex 300.00000 0.00000 0.00000
-      vertex 300.00000 0.00000 80.00000
+      vertex 300.00000 0.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 -1.00000 0.00000
     outer loop
       vertex 185.00000 0.00000 0.00000
-      vertex 300.00000 0.00000 80.00000
-      vertex 185.00000 0.00000 80.00000
+      vertex 300.00000 0.00000 100.00000
+      vertex 185.00000 0.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 1.00000 0.00000
     outer loop
       vertex 185.00000 8.00000 0.00000
-      vertex 185.00000 8.00000 80.00000
-      vertex 300.00000 8.00000 80.00000
+      vertex 185.00000 8.00000 100.00000
+      vertex 300.00000 8.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 1.00000 0.00000
     outer loop
       vertex 185.00000 8.00000 0.00000
-      vertex 300.00000 8.00000 80.00000
+      vertex 300.00000 8.00000 100.00000
       vertex 300.00000 8.00000 0.00000
     endloop
   endfacet
   facet normal -1.00000 0.00000 0.00000
     outer loop
       vertex 185.00000 0.00000 0.00000
-      vertex 185.00000 0.00000 80.00000
-      vertex 185.00000 8.00000 80.00000
+      vertex 185.00000 0.00000 100.00000
+      vertex 185.00000 8.00000 100.00000
     endloop
   endfacet
   facet normal -1.00000 0.00000 0.00000
     outer loop
       vertex 185.00000 0.00000 0.00000
-      vertex 185.00000 8.00000 80.00000
+      vertex 185.00000 8.00000 100.00000
       vertex 185.00000 8.00000 0.00000
     endloop
   endfacet
@@ -331,533 +331,103 @@ solid Pared Frontal A5
     outer loop
       vertex 300.00000 0.00000 0.00000
       vertex 300.00000 8.00000 0.00000
-      vertex 300.00000 8.00000 80.00000
+      vertex 300.00000 8.00000 100.00000
     endloop
   endfacet
   facet normal 1.00000 0.00000 0.00000
     outer loop
       vertex 300.00000 0.00000 0.00000
-      vertex 300.00000 8.00000 80.00000
-      vertex 300.00000 0.00000 80.00000
+      vertex 300.00000 8.00000 100.00000
+      vertex 300.00000 0.00000 100.00000
     endloop
   endfacet
-endsolid Pared Frontal A5
+endsolid Pared Frontal A3
 solid Pared Frontal B1
   facet normal 0.00000 0.00000 -1.00000
     outer loop
-      vertex 0.00000 0.00000 80.00000
-      vertex 0.00000 8.00000 80.00000
-      vertex 25.00000 8.00000 80.00000
+      vertex 0.00000 0.00000 100.00000
+      vertex 0.00000 8.00000 100.00000
+      vertex 300.00000 8.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 0.00000 -1.00000
     outer loop
-      vertex 0.00000 0.00000 80.00000
-      vertex 25.00000 8.00000 80.00000
-      vertex 25.00000 0.00000 80.00000
+      vertex 0.00000 0.00000 100.00000
+      vertex 300.00000 8.00000 100.00000
+      vertex 300.00000 0.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 0.00000 1.00000
     outer loop
-      vertex 0.00000 0.00000 100.00000
-      vertex 25.00000 0.00000 100.00000
-      vertex 25.00000 8.00000 100.00000
+      vertex 0.00000 0.00000 180.00000
+      vertex 300.00000 0.00000 180.00000
+      vertex 300.00000 8.00000 180.00000
     endloop
   endfacet
   facet normal 0.00000 0.00000 1.00000
     outer loop
-      vertex 0.00000 0.00000 100.00000
-      vertex 25.00000 8.00000 100.00000
-      vertex 0.00000 8.00000 100.00000
+      vertex 0.00000 0.00000 180.00000
+      vertex 300.00000 8.00000 180.00000
+      vertex 0.00000 8.00000 180.00000
     endloop
   endfacet
   facet normal 0.00000 -1.00000 0.00000
     outer loop
-      vertex 0.00000 0.00000 80.00000
-      vertex 25.00000 0.00000 80.00000
-      vertex 25.00000 0.00000 100.00000
+      vertex 0.00000 0.00000 100.00000
+      vertex 300.00000 0.00000 100.00000
+      vertex 300.00000 0.00000 180.00000
     endloop
   endfacet
   facet normal 0.00000 -1.00000 0.00000
     outer loop
-      vertex 0.00000 0.00000 80.00000
-      vertex 25.00000 0.00000 100.00000
       vertex 0.00000 0.00000 100.00000
+      vertex 300.00000 0.00000 180.00000
+      vertex 0.00000 0.00000 180.00000
     endloop
   endfacet
   facet normal 0.00000 1.00000 0.00000
     outer loop
-      vertex 0.00000 8.00000 80.00000
       vertex 0.00000 8.00000 100.00000
-      vertex 25.00000 8.00000 100.00000
+      vertex 0.00000 8.00000 180.00000
+      vertex 300.00000 8.00000 180.00000
     endloop
   endfacet
   facet normal 0.00000 1.00000 0.00000
     outer loop
-      vertex 0.00000 8.00000 80.00000
-      vertex 25.00000 8.00000 100.00000
-      vertex 25.00000 8.00000 80.00000
+      vertex 0.00000 8.00000 100.00000
+      vertex 300.00000 8.00000 180.00000
+      vertex 300.00000 8.00000 100.00000
     endloop
   endfacet
   facet normal -1.00000 0.00000 0.00000
     outer loop
-      vertex 0.00000 0.00000 80.00000
       vertex 0.00000 0.00000 100.00000
-      vertex 0.00000 8.00000 100.00000
+      vertex 0.00000 0.00000 180.00000
+      vertex 0.00000 8.00000 180.00000
     endloop
   endfacet
   facet normal -1.00000 0.00000 0.00000
     outer loop
-      vertex 0.00000 0.00000 80.00000
+      vertex 0.00000 0.00000 100.00000
+      vertex 0.00000 8.00000 180.00000
       vertex 0.00000 8.00000 100.00000
-      vertex 0.00000 8.00000 80.00000
     endloop
   endfacet
   facet normal 1.00000 0.00000 0.00000
     outer loop
-      vertex 25.00000 0.00000 80.00000
-      vertex 25.00000 8.00000 80.00000
-      vertex 25.00000 8.00000 100.00000
+      vertex 300.00000 0.00000 100.00000
+      vertex 300.00000 8.00000 100.00000
+      vertex 300.00000 8.00000 180.00000
     endloop
   endfacet
   facet normal 1.00000 0.00000 0.00000
     outer loop
-      vertex 25.00000 0.00000 80.00000
-      vertex 25.00000 8.00000 100.00000
-      vertex 25.00000 0.00000 100.00000
+      vertex 300.00000 0.00000 100.00000
+      vertex 300.00000 8.00000 180.00000
+      vertex 300.00000 0.00000 180.00000
     endloop
   endfacet
 endsolid Pared Frontal B1
-solid Pared Frontal B3
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 65.00000 0.00000 80.00000
-      vertex 65.00000 8.00000 80.00000
-      vertex 115.00000 8.00000 80.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 65.00000 0.00000 80.00000
-      vertex 115.00000 8.00000 80.00000
-      vertex 115.00000 0.00000 80.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 65.00000 0.00000 100.00000
-      vertex 115.00000 0.00000 100.00000
-      vertex 115.00000 8.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 65.00000 0.00000 100.00000
-      vertex 115.00000 8.00000 100.00000
-      vertex 65.00000 8.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 65.00000 0.00000 80.00000
-      vertex 115.00000 0.00000 80.00000
-      vertex 115.00000 0.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 65.00000 0.00000 80.00000
-      vertex 115.00000 0.00000 100.00000
-      vertex 65.00000 0.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 65.00000 8.00000 80.00000
-      vertex 65.00000 8.00000 100.00000
-      vertex 115.00000 8.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 65.00000 8.00000 80.00000
-      vertex 115.00000 8.00000 100.00000
-      vertex 115.00000 8.00000 80.00000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 65.00000 0.00000 80.00000
-      vertex 65.00000 0.00000 100.00000
-      vertex 65.00000 8.00000 100.00000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 65.00000 0.00000 80.00000
-      vertex 65.00000 8.00000 100.00000
-      vertex 65.00000 8.00000 80.00000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 115.00000 0.00000 80.00000
-      vertex 115.00000 8.00000 80.00000
-      vertex 115.00000 8.00000 100.00000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 115.00000 0.00000 80.00000
-      vertex 115.00000 8.00000 100.00000
-      vertex 115.00000 0.00000 100.00000
-    endloop
-  endfacet
-endsolid Pared Frontal B3
-solid Pared Frontal B5
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 185.00000 0.00000 80.00000
-      vertex 185.00000 8.00000 80.00000
-      vertex 300.00000 8.00000 80.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 185.00000 0.00000 80.00000
-      vertex 300.00000 8.00000 80.00000
-      vertex 300.00000 0.00000 80.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 185.00000 0.00000 100.00000
-      vertex 300.00000 0.00000 100.00000
-      vertex 300.00000 8.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 185.00000 0.00000 100.00000
-      vertex 300.00000 8.00000 100.00000
-      vertex 185.00000 8.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 185.00000 0.00000 80.00000
-      vertex 300.00000 0.00000 80.00000
-      vertex 300.00000 0.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 185.00000 0.00000 80.00000
-      vertex 300.00000 0.00000 100.00000
-      vertex 185.00000 0.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 185.00000 8.00000 80.00000
-      vertex 185.00000 8.00000 100.00000
-      vertex 300.00000 8.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 185.00000 8.00000 80.00000
-      vertex 300.00000 8.00000 100.00000
-      vertex 300.00000 8.00000 80.00000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 185.00000 0.00000 80.00000
-      vertex 185.00000 0.00000 100.00000
-      vertex 185.00000 8.00000 100.00000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 185.00000 0.00000 80.00000
-      vertex 185.00000 8.00000 100.00000
-      vertex 185.00000 8.00000 80.00000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 300.00000 0.00000 80.00000
-      vertex 300.00000 8.00000 80.00000
-      vertex 300.00000 8.00000 100.00000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 300.00000 0.00000 80.00000
-      vertex 300.00000 8.00000 100.00000
-      vertex 300.00000 0.00000 100.00000
-    endloop
-  endfacet
-endsolid Pared Frontal B5
-solid Pared Frontal C1
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 0.00000 0.00000 100.00000
-      vertex 0.00000 8.00000 100.00000
-      vertex 25.00000 8.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 0.00000 0.00000 100.00000
-      vertex 25.00000 8.00000 100.00000
-      vertex 25.00000 0.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 0.00000 0.00000 120.00000
-      vertex 25.00000 0.00000 120.00000
-      vertex 25.00000 8.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 0.00000 0.00000 120.00000
-      vertex 25.00000 8.00000 120.00000
-      vertex 0.00000 8.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 0.00000 0.00000 100.00000
-      vertex 25.00000 0.00000 100.00000
-      vertex 25.00000 0.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 0.00000 0.00000 100.00000
-      vertex 25.00000 0.00000 120.00000
-      vertex 0.00000 0.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 0.00000 8.00000 100.00000
-      vertex 0.00000 8.00000 120.00000
-      vertex 25.00000 8.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 0.00000 8.00000 100.00000
-      vertex 25.00000 8.00000 120.00000
-      vertex 25.00000 8.00000 100.00000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 0.00000 0.00000 100.00000
-      vertex 0.00000 0.00000 120.00000
-      vertex 0.00000 8.00000 120.00000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 0.00000 0.00000 100.00000
-      vertex 0.00000 8.00000 120.00000
-      vertex 0.00000 8.00000 100.00000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 25.00000 0.00000 100.00000
-      vertex 25.00000 8.00000 100.00000
-      vertex 25.00000 8.00000 120.00000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 25.00000 0.00000 100.00000
-      vertex 25.00000 8.00000 120.00000
-      vertex 25.00000 0.00000 120.00000
-    endloop
-  endfacet
-endsolid Pared Frontal C1
-solid Pared Frontal C3
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 65.00000 0.00000 100.00000
-      vertex 65.00000 8.00000 100.00000
-      vertex 300.00000 8.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 65.00000 0.00000 100.00000
-      vertex 300.00000 8.00000 100.00000
-      vertex 300.00000 0.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 65.00000 0.00000 120.00000
-      vertex 300.00000 0.00000 120.00000
-      vertex 300.00000 8.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 65.00000 0.00000 120.00000
-      vertex 300.00000 8.00000 120.00000
-      vertex 65.00000 8.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 65.00000 0.00000 100.00000
-      vertex 300.00000 0.00000 100.00000
-      vertex 300.00000 0.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 65.00000 0.00000 100.00000
-      vertex 300.00000 0.00000 120.00000
-      vertex 65.00000 0.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 65.00000 8.00000 100.00000
-      vertex 65.00000 8.00000 120.00000
-      vertex 300.00000 8.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 65.00000 8.00000 100.00000
-      vertex 300.00000 8.00000 120.00000
-      vertex 300.00000 8.00000 100.00000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 65.00000 0.00000 100.00000
-      vertex 65.00000 0.00000 120.00000
-      vertex 65.00000 8.00000 120.00000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 65.00000 0.00000 100.00000
-      vertex 65.00000 8.00000 120.00000
-      vertex 65.00000 8.00000 100.00000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 300.00000 0.00000 100.00000
-      vertex 300.00000 8.00000 100.00000
-      vertex 300.00000 8.00000 120.00000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 300.00000 0.00000 100.00000
-      vertex 300.00000 8.00000 120.00000
-      vertex 300.00000 0.00000 120.00000
-    endloop
-  endfacet
-endsolid Pared Frontal C3
-solid Pared Frontal D1
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 0.00000 0.00000 120.00000
-      vertex 0.00000 8.00000 120.00000
-      vertex 300.00000 8.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 0.00000 0.00000 120.00000
-      vertex 300.00000 8.00000 120.00000
-      vertex 300.00000 0.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 0.00000 0.00000 180.00000
-      vertex 300.00000 0.00000 180.00000
-      vertex 300.00000 8.00000 180.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 0.00000 0.00000 180.00000
-      vertex 300.00000 8.00000 180.00000
-      vertex 0.00000 8.00000 180.00000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 0.00000 0.00000 120.00000
-      vertex 300.00000 0.00000 120.00000
-      vertex 300.00000 0.00000 180.00000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 0.00000 0.00000 120.00000
-      vertex 300.00000 0.00000 180.00000
-      vertex 0.00000 0.00000 180.00000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 0.00000 8.00000 120.00000
-      vertex 0.00000 8.00000 180.00000
-      vertex 300.00000 8.00000 180.00000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 0.00000 8.00000 120.00000
-      vertex 300.00000 8.00000 180.00000
-      vertex 300.00000 8.00000 120.00000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 0.00000 0.00000 120.00000
-      vertex 0.00000 0.00000 180.00000
-      vertex 0.00000 8.00000 180.00000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 0.00000 0.00000 120.00000
-      vertex 0.00000 8.00000 180.00000
-      vertex 0.00000 8.00000 120.00000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 300.00000 0.00000 120.00000
-      vertex 300.00000 8.00000 120.00000
-      vertex 300.00000 8.00000 180.00000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 300.00000 0.00000 120.00000
-      vertex 300.00000 8.00000 180.00000
-      vertex 300.00000 0.00000 180.00000
-    endloop
-  endfacet
-endsolid Pared Frontal D1
 solid Pared Trasera A1
   facet normal 0.00000 0.00000 -1.00000
     outer loop
@@ -875,57 +445,57 @@ solid Pared Trasera A1
   endfacet
   facet normal 0.00000 0.00000 1.00000
     outer loop
-      vertex 0.00000 292.00000 80.00000
-      vertex 115.00000 292.00000 80.00000
-      vertex 115.00000 300.00000 80.00000
+      vertex 0.00000 292.00000 100.00000
+      vertex 115.00000 292.00000 100.00000
+      vertex 115.00000 300.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 0.00000 1.00000
     outer loop
-      vertex 0.00000 292.00000 80.00000
-      vertex 115.00000 300.00000 80.00000
-      vertex 0.00000 300.00000 80.00000
+      vertex 0.00000 292.00000 100.00000
+      vertex 115.00000 300.00000 100.00000
+      vertex 0.00000 300.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 -1.00000 0.00000
     outer loop
       vertex 0.00000 292.00000 0.00000
       vertex 115.00000 292.00000 0.00000
-      vertex 115.00000 292.00000 80.00000
+      vertex 115.00000 292.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 -1.00000 0.00000
     outer loop
       vertex 0.00000 292.00000 0.00000
-      vertex 115.00000 292.00000 80.00000
-      vertex 0.00000 292.00000 80.00000
+      vertex 115.00000 292.00000 100.00000
+      vertex 0.00000 292.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 1.00000 0.00000
     outer loop
       vertex 0.00000 300.00000 0.00000
-      vertex 0.00000 300.00000 80.00000
-      vertex 115.00000 300.00000 80.00000
+      vertex 0.00000 300.00000 100.00000
+      vertex 115.00000 300.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 1.00000 0.00000
     outer loop
       vertex 0.00000 300.00000 0.00000
-      vertex 115.00000 300.00000 80.00000
+      vertex 115.00000 300.00000 100.00000
       vertex 115.00000 300.00000 0.00000
     endloop
   endfacet
   facet normal -1.00000 0.00000 0.00000
     outer loop
       vertex 0.00000 292.00000 0.00000
-      vertex 0.00000 292.00000 80.00000
-      vertex 0.00000 300.00000 80.00000
+      vertex 0.00000 292.00000 100.00000
+      vertex 0.00000 300.00000 100.00000
     endloop
   endfacet
   facet normal -1.00000 0.00000 0.00000
     outer loop
       vertex 0.00000 292.00000 0.00000
-      vertex 0.00000 300.00000 80.00000
+      vertex 0.00000 300.00000 100.00000
       vertex 0.00000 300.00000 0.00000
     endloop
   endfacet
@@ -933,14 +503,14 @@ solid Pared Trasera A1
     outer loop
       vertex 115.00000 292.00000 0.00000
       vertex 115.00000 300.00000 0.00000
-      vertex 115.00000 300.00000 80.00000
+      vertex 115.00000 300.00000 100.00000
     endloop
   endfacet
   facet normal 1.00000 0.00000 0.00000
     outer loop
       vertex 115.00000 292.00000 0.00000
-      vertex 115.00000 300.00000 80.00000
-      vertex 115.00000 292.00000 80.00000
+      vertex 115.00000 300.00000 100.00000
+      vertex 115.00000 292.00000 100.00000
     endloop
   endfacet
 endsolid Pared Trasera A1
@@ -961,57 +531,57 @@ solid Pared Trasera A3
   endfacet
   facet normal 0.00000 0.00000 1.00000
     outer loop
-      vertex 185.00000 292.00000 80.00000
-      vertex 300.00000 292.00000 80.00000
-      vertex 300.00000 300.00000 80.00000
+      vertex 185.00000 292.00000 100.00000
+      vertex 300.00000 292.00000 100.00000
+      vertex 300.00000 300.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 0.00000 1.00000
     outer loop
-      vertex 185.00000 292.00000 80.00000
-      vertex 300.00000 300.00000 80.00000
-      vertex 185.00000 300.00000 80.00000
+      vertex 185.00000 292.00000 100.00000
+      vertex 300.00000 300.00000 100.00000
+      vertex 185.00000 300.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 -1.00000 0.00000
     outer loop
       vertex 185.00000 292.00000 0.00000
       vertex 300.00000 292.00000 0.00000
-      vertex 300.00000 292.00000 80.00000
+      vertex 300.00000 292.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 -1.00000 0.00000
     outer loop
       vertex 185.00000 292.00000 0.00000
-      vertex 300.00000 292.00000 80.00000
-      vertex 185.00000 292.00000 80.00000
+      vertex 300.00000 292.00000 100.00000
+      vertex 185.00000 292.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 1.00000 0.00000
     outer loop
       vertex 185.00000 300.00000 0.00000
-      vertex 185.00000 300.00000 80.00000
-      vertex 300.00000 300.00000 80.00000
+      vertex 185.00000 300.00000 100.00000
+      vertex 300.00000 300.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 1.00000 0.00000
     outer loop
       vertex 185.00000 300.00000 0.00000
-      vertex 300.00000 300.00000 80.00000
+      vertex 300.00000 300.00000 100.00000
       vertex 300.00000 300.00000 0.00000
     endloop
   endfacet
   facet normal -1.00000 0.00000 0.00000
     outer loop
       vertex 185.00000 292.00000 0.00000
-      vertex 185.00000 292.00000 80.00000
-      vertex 185.00000 300.00000 80.00000
+      vertex 185.00000 292.00000 100.00000
+      vertex 185.00000 300.00000 100.00000
     endloop
   endfacet
   facet normal -1.00000 0.00000 0.00000
     outer loop
       vertex 185.00000 292.00000 0.00000
-      vertex 185.00000 300.00000 80.00000
+      vertex 185.00000 300.00000 100.00000
       vertex 185.00000 300.00000 0.00000
     endloop
   endfacet
@@ -1019,533 +589,103 @@ solid Pared Trasera A3
     outer loop
       vertex 300.00000 292.00000 0.00000
       vertex 300.00000 300.00000 0.00000
-      vertex 300.00000 300.00000 80.00000
+      vertex 300.00000 300.00000 100.00000
     endloop
   endfacet
   facet normal 1.00000 0.00000 0.00000
     outer loop
       vertex 300.00000 292.00000 0.00000
-      vertex 300.00000 300.00000 80.00000
-      vertex 300.00000 292.00000 80.00000
+      vertex 300.00000 300.00000 100.00000
+      vertex 300.00000 292.00000 100.00000
     endloop
   endfacet
 endsolid Pared Trasera A3
 solid Pared Trasera B1
   facet normal 0.00000 0.00000 -1.00000
     outer loop
-      vertex 0.00000 292.00000 80.00000
-      vertex 0.00000 300.00000 80.00000
-      vertex 115.00000 300.00000 80.00000
+      vertex 0.00000 292.00000 100.00000
+      vertex 0.00000 300.00000 100.00000
+      vertex 300.00000 300.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 0.00000 -1.00000
     outer loop
-      vertex 0.00000 292.00000 80.00000
-      vertex 115.00000 300.00000 80.00000
-      vertex 115.00000 292.00000 80.00000
+      vertex 0.00000 292.00000 100.00000
+      vertex 300.00000 300.00000 100.00000
+      vertex 300.00000 292.00000 100.00000
     endloop
   endfacet
   facet normal 0.00000 0.00000 1.00000
     outer loop
-      vertex 0.00000 292.00000 100.00000
-      vertex 115.00000 292.00000 100.00000
-      vertex 115.00000 300.00000 100.00000
+      vertex 0.00000 292.00000 180.00000
+      vertex 300.00000 292.00000 180.00000
+      vertex 300.00000 300.00000 180.00000
     endloop
   endfacet
   facet normal 0.00000 0.00000 1.00000
     outer loop
-      vertex 0.00000 292.00000 100.00000
-      vertex 115.00000 300.00000 100.00000
-      vertex 0.00000 300.00000 100.00000
+      vertex 0.00000 292.00000 180.00000
+      vertex 300.00000 300.00000 180.00000
+      vertex 0.00000 300.00000 180.00000
     endloop
   endfacet
   facet normal 0.00000 -1.00000 0.00000
     outer loop
-      vertex 0.00000 292.00000 80.00000
-      vertex 115.00000 292.00000 80.00000
-      vertex 115.00000 292.00000 100.00000
+      vertex 0.00000 292.00000 100.00000
+      vertex 300.00000 292.00000 100.00000
+      vertex 300.00000 292.00000 180.00000
     endloop
   endfacet
   facet normal 0.00000 -1.00000 0.00000
     outer loop
-      vertex 0.00000 292.00000 80.00000
-      vertex 115.00000 292.00000 100.00000
       vertex 0.00000 292.00000 100.00000
+      vertex 300.00000 292.00000 180.00000
+      vertex 0.00000 292.00000 180.00000
     endloop
   endfacet
   facet normal 0.00000 1.00000 0.00000
     outer loop
-      vertex 0.00000 300.00000 80.00000
       vertex 0.00000 300.00000 100.00000
-      vertex 115.00000 300.00000 100.00000
+      vertex 0.00000 300.00000 180.00000
+      vertex 300.00000 300.00000 180.00000
     endloop
   endfacet
   facet normal 0.00000 1.00000 0.00000
     outer loop
-      vertex 0.00000 300.00000 80.00000
-      vertex 115.00000 300.00000 100.00000
-      vertex 115.00000 300.00000 80.00000
+      vertex 0.00000 300.00000 100.00000
+      vertex 300.00000 300.00000 180.00000
+      vertex 300.00000 300.00000 100.00000
     endloop
   endfacet
   facet normal -1.00000 0.00000 0.00000
     outer loop
-      vertex 0.00000 292.00000 80.00000
       vertex 0.00000 292.00000 100.00000
-      vertex 0.00000 300.00000 100.00000
+      vertex 0.00000 292.00000 180.00000
+      vertex 0.00000 300.00000 180.00000
     endloop
   endfacet
   facet normal -1.00000 0.00000 0.00000
     outer loop
-      vertex 0.00000 292.00000 80.00000
+      vertex 0.00000 292.00000 100.00000
+      vertex 0.00000 300.00000 180.00000
       vertex 0.00000 300.00000 100.00000
-      vertex 0.00000 300.00000 80.00000
     endloop
   endfacet
   facet normal 1.00000 0.00000 0.00000
     outer loop
-      vertex 115.00000 292.00000 80.00000
-      vertex 115.00000 300.00000 80.00000
-      vertex 115.00000 300.00000 100.00000
+      vertex 300.00000 292.00000 100.00000
+      vertex 300.00000 300.00000 100.00000
+      vertex 300.00000 300.00000 180.00000
     endloop
   endfacet
   facet normal 1.00000 0.00000 0.00000
     outer loop
-      vertex 115.00000 292.00000 80.00000
-      vertex 115.00000 300.00000 100.00000
-      vertex 115.00000 292.00000 100.00000
+      vertex 300.00000 292.00000 100.00000
+      vertex 300.00000 300.00000 180.00000
+      vertex 300.00000 292.00000 180.00000
     endloop
   endfacet
 endsolid Pared Trasera B1
-solid Pared Trasera B3
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 185.00000 292.00000 80.00000
-      vertex 185.00000 300.00000 80.00000
-      vertex 235.00000 300.00000 80.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 185.00000 292.00000 80.00000
-      vertex 235.00000 300.00000 80.00000
-      vertex 235.00000 292.00000 80.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 185.00000 292.00000 100.00000
-      vertex 235.00000 292.00000 100.00000
-      vertex 235.00000 300.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 185.00000 292.00000 100.00000
-      vertex 235.00000 300.00000 100.00000
-      vertex 185.00000 300.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 185.00000 292.00000 80.00000
-      vertex 235.00000 292.00000 80.00000
-      vertex 235.00000 292.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 185.00000 292.00000 80.00000
-      vertex 235.00000 292.00000 100.00000
-      vertex 185.00000 292.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 185.00000 300.00000 80.00000
-      vertex 185.00000 300.00000 100.00000
-      vertex 235.00000 300.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 185.00000 300.00000 80.00000
-      vertex 235.00000 300.00000 100.00000
-      vertex 235.00000 300.00000 80.00000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 185.00000 292.00000 80.00000
-      vertex 185.00000 292.00000 100.00000
-      vertex 185.00000 300.00000 100.00000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 185.00000 292.00000 80.00000
-      vertex 185.00000 300.00000 100.00000
-      vertex 185.00000 300.00000 80.00000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 235.00000 292.00000 80.00000
-      vertex 235.00000 300.00000 80.00000
-      vertex 235.00000 300.00000 100.00000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 235.00000 292.00000 80.00000
-      vertex 235.00000 300.00000 100.00000
-      vertex 235.00000 292.00000 100.00000
-    endloop
-  endfacet
-endsolid Pared Trasera B3
-solid Pared Trasera B5
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 275.00000 292.00000 80.00000
-      vertex 275.00000 300.00000 80.00000
-      vertex 300.00000 300.00000 80.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 275.00000 292.00000 80.00000
-      vertex 300.00000 300.00000 80.00000
-      vertex 300.00000 292.00000 80.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 275.00000 292.00000 100.00000
-      vertex 300.00000 292.00000 100.00000
-      vertex 300.00000 300.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 275.00000 292.00000 100.00000
-      vertex 300.00000 300.00000 100.00000
-      vertex 275.00000 300.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 275.00000 292.00000 80.00000
-      vertex 300.00000 292.00000 80.00000
-      vertex 300.00000 292.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 275.00000 292.00000 80.00000
-      vertex 300.00000 292.00000 100.00000
-      vertex 275.00000 292.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 275.00000 300.00000 80.00000
-      vertex 275.00000 300.00000 100.00000
-      vertex 300.00000 300.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 275.00000 300.00000 80.00000
-      vertex 300.00000 300.00000 100.00000
-      vertex 300.00000 300.00000 80.00000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 275.00000 292.00000 80.00000
-      vertex 275.00000 292.00000 100.00000
-      vertex 275.00000 300.00000 100.00000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 275.00000 292.00000 80.00000
-      vertex 275.00000 300.00000 100.00000
-      vertex 275.00000 300.00000 80.00000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 300.00000 292.00000 80.00000
-      vertex 300.00000 300.00000 80.00000
-      vertex 300.00000 300.00000 100.00000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 300.00000 292.00000 80.00000
-      vertex 300.00000 300.00000 100.00000
-      vertex 300.00000 292.00000 100.00000
-    endloop
-  endfacet
-endsolid Pared Trasera B5
-solid Pared Trasera C1
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 0.00000 292.00000 100.00000
-      vertex 0.00000 300.00000 100.00000
-      vertex 235.00000 300.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 0.00000 292.00000 100.00000
-      vertex 235.00000 300.00000 100.00000
-      vertex 235.00000 292.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 0.00000 292.00000 120.00000
-      vertex 235.00000 292.00000 120.00000
-      vertex 235.00000 300.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 0.00000 292.00000 120.00000
-      vertex 235.00000 300.00000 120.00000
-      vertex 0.00000 300.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 0.00000 292.00000 100.00000
-      vertex 235.00000 292.00000 100.00000
-      vertex 235.00000 292.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 0.00000 292.00000 100.00000
-      vertex 235.00000 292.00000 120.00000
-      vertex 0.00000 292.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 0.00000 300.00000 100.00000
-      vertex 0.00000 300.00000 120.00000
-      vertex 235.00000 300.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 0.00000 300.00000 100.00000
-      vertex 235.00000 300.00000 120.00000
-      vertex 235.00000 300.00000 100.00000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 0.00000 292.00000 100.00000
-      vertex 0.00000 292.00000 120.00000
-      vertex 0.00000 300.00000 120.00000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 0.00000 292.00000 100.00000
-      vertex 0.00000 300.00000 120.00000
-      vertex 0.00000 300.00000 100.00000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 235.00000 292.00000 100.00000
-      vertex 235.00000 300.00000 100.00000
-      vertex 235.00000 300.00000 120.00000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 235.00000 292.00000 100.00000
-      vertex 235.00000 300.00000 120.00000
-      vertex 235.00000 292.00000 120.00000
-    endloop
-  endfacet
-endsolid Pared Trasera C1
-solid Pared Trasera C5
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 275.00000 292.00000 100.00000
-      vertex 275.00000 300.00000 100.00000
-      vertex 300.00000 300.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 275.00000 292.00000 100.00000
-      vertex 300.00000 300.00000 100.00000
-      vertex 300.00000 292.00000 100.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 275.00000 292.00000 120.00000
-      vertex 300.00000 292.00000 120.00000
-      vertex 300.00000 300.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 275.00000 292.00000 120.00000
-      vertex 300.00000 300.00000 120.00000
-      vertex 275.00000 300.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 275.00000 292.00000 100.00000
-      vertex 300.00000 292.00000 100.00000
-      vertex 300.00000 292.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 275.00000 292.00000 100.00000
-      vertex 300.00000 292.00000 120.00000
-      vertex 275.00000 292.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 275.00000 300.00000 100.00000
-      vertex 275.00000 300.00000 120.00000
-      vertex 300.00000 300.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 275.00000 300.00000 100.00000
-      vertex 300.00000 300.00000 120.00000
-      vertex 300.00000 300.00000 100.00000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 275.00000 292.00000 100.00000
-      vertex 275.00000 292.00000 120.00000
-      vertex 275.00000 300.00000 120.00000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 275.00000 292.00000 100.00000
-      vertex 275.00000 300.00000 120.00000
-      vertex 275.00000 300.00000 100.00000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 300.00000 292.00000 100.00000
-      vertex 300.00000 300.00000 100.00000
-      vertex 300.00000 300.00000 120.00000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 300.00000 292.00000 100.00000
-      vertex 300.00000 300.00000 120.00000
-      vertex 300.00000 292.00000 120.00000
-    endloop
-  endfacet
-endsolid Pared Trasera C5
-solid Pared Trasera D1
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 0.00000 292.00000 120.00000
-      vertex 0.00000 300.00000 120.00000
-      vertex 300.00000 300.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 0.00000 292.00000 120.00000
-      vertex 300.00000 300.00000 120.00000
-      vertex 300.00000 292.00000 120.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 0.00000 292.00000 180.00000
-      vertex 300.00000 292.00000 180.00000
-      vertex 300.00000 300.00000 180.00000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 0.00000 292.00000 180.00000
-      vertex 300.00000 300.00000 180.00000
-      vertex 0.00000 300.00000 180.00000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 0.00000 292.00000 120.00000
-      vertex 300.00000 292.00000 120.00000
-      vertex 300.00000 292.00000 180.00000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 0.00000 292.00000 120.00000
-      vertex 300.00000 292.00000 180.00000
-      vertex 0.00000 292.00000 180.00000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 0.00000 300.00000 120.00000
-      vertex 0.00000 300.00000 180.00000
-      vertex 300.00000 300.00000 180.00000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 0.00000 300.00000 120.00000
-      vertex 300.00000 300.00000 180.00000
-      vertex 300.00000 300.00000 120.00000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 0.00000 292.00000 120.00000
-      vertex 0.00000 292.00000 180.00000
-      vertex 0.00000 300.00000 180.00000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 0.00000 292.00000 120.00000
-      vertex 0.00000 300.00000 180.00000
-      vertex 0.00000 300.00000 120.00000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 300.00000 292.00000 120.00000
-      vertex 300.00000 300.00000 120.00000
-      vertex 300.00000 300.00000 180.00000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 300.00000 292.00000 120.00000
-      vertex 300.00000 300.00000 180.00000
-      vertex 300.00000 292.00000 180.00000
-    endloop
-  endfacet
-endsolid Pared Trasera D1
 solid Pared Izquierda A1
   facet normal 0.00000 0.00000 -1.00000
     outer loop
@@ -2578,178 +1718,6 @@ solid Hoja Ventana Derecha
     endloop
   endfacet
 endsolid Hoja Ventana Derecha
-solid Vidrio Ventana Decorativa Frontal
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 26.50000 2.00000 81.50000
-      vertex 26.50000 6.00000 81.50000
-      vertex 63.50000 6.00000 81.50000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 26.50000 2.00000 81.50000
-      vertex 63.50000 6.00000 81.50000
-      vertex 63.50000 2.00000 81.50000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 26.50000 2.00000 118.50000
-      vertex 63.50000 2.00000 118.50000
-      vertex 63.50000 6.00000 118.50000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 26.50000 2.00000 118.50000
-      vertex 63.50000 6.00000 118.50000
-      vertex 26.50000 6.00000 118.50000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 26.50000 2.00000 81.50000
-      vertex 63.50000 2.00000 81.50000
-      vertex 63.50000 2.00000 118.50000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 26.50000 2.00000 81.50000
-      vertex 63.50000 2.00000 118.50000
-      vertex 26.50000 2.00000 118.50000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 26.50000 6.00000 81.50000
-      vertex 26.50000 6.00000 118.50000
-      vertex 63.50000 6.00000 118.50000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 26.50000 6.00000 81.50000
-      vertex 63.50000 6.00000 118.50000
-      vertex 63.50000 6.00000 81.50000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 26.50000 2.00000 81.50000
-      vertex 26.50000 2.00000 118.50000
-      vertex 26.50000 6.00000 118.50000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 26.50000 2.00000 81.50000
-      vertex 26.50000 6.00000 118.50000
-      vertex 26.50000 6.00000 81.50000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 63.50000 2.00000 81.50000
-      vertex 63.50000 6.00000 81.50000
-      vertex 63.50000 6.00000 118.50000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 63.50000 2.00000 81.50000
-      vertex 63.50000 6.00000 118.50000
-      vertex 63.50000 2.00000 118.50000
-    endloop
-  endfacet
-endsolid Vidrio Ventana Decorativa Frontal
-solid Vidrio Ventana Decorativa Trasera
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 236.50000 294.00000 81.50000
-      vertex 236.50000 298.00000 81.50000
-      vertex 273.50000 298.00000 81.50000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 -1.00000
-    outer loop
-      vertex 236.50000 294.00000 81.50000
-      vertex 273.50000 298.00000 81.50000
-      vertex 273.50000 294.00000 81.50000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 236.50000 294.00000 118.50000
-      vertex 273.50000 294.00000 118.50000
-      vertex 273.50000 298.00000 118.50000
-    endloop
-  endfacet
-  facet normal 0.00000 0.00000 1.00000
-    outer loop
-      vertex 236.50000 294.00000 118.50000
-      vertex 273.50000 298.00000 118.50000
-      vertex 236.50000 298.00000 118.50000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 236.50000 294.00000 81.50000
-      vertex 273.50000 294.00000 81.50000
-      vertex 273.50000 294.00000 118.50000
-    endloop
-  endfacet
-  facet normal 0.00000 -1.00000 0.00000
-    outer loop
-      vertex 236.50000 294.00000 81.50000
-      vertex 273.50000 294.00000 118.50000
-      vertex 236.50000 294.00000 118.50000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 236.50000 298.00000 81.50000
-      vertex 236.50000 298.00000 118.50000
-      vertex 273.50000 298.00000 118.50000
-    endloop
-  endfacet
-  facet normal 0.00000 1.00000 0.00000
-    outer loop
-      vertex 236.50000 298.00000 81.50000
-      vertex 273.50000 298.00000 118.50000
-      vertex 273.50000 298.00000 81.50000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 236.50000 294.00000 81.50000
-      vertex 236.50000 294.00000 118.50000
-      vertex 236.50000 298.00000 118.50000
-    endloop
-  endfacet
-  facet normal -1.00000 0.00000 0.00000
-    outer loop
-      vertex 236.50000 294.00000 81.50000
-      vertex 236.50000 298.00000 118.50000
-      vertex 236.50000 298.00000 81.50000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 273.50000 294.00000 81.50000
-      vertex 273.50000 298.00000 81.50000
-      vertex 273.50000 298.00000 118.50000
-    endloop
-  endfacet
-  facet normal 1.00000 0.00000 0.00000
-    outer loop
-      vertex 273.50000 294.00000 81.50000
-      vertex 273.50000 298.00000 118.50000
-      vertex 273.50000 294.00000 118.50000
-    endloop
-  endfacet
-endsolid Vidrio Ventana Decorativa Trasera
 solid Servo Puerta Principal
   facet normal 0.00000 0.00000 -1.00000
     outer loop

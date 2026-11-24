@@ -21,7 +21,6 @@ const dimensiones = [
   ['Altura total desde la cara superior de la base', [4.7], 'Hasta la parte más alta del techo'],
   ['Hueco de cada puerta', [1.3, 2.45], 'Ancho × alto; no es el tamaño de la hoja'],
   ['Hueco de cada ventana lateral', [2.05, 1.35], 'Ancho × alto; no es el tamaño de la hoja'],
-  ['Hueco de cada ventana fija', [1.3, 1], 'Ancho × alto; no es el tamaño de la hoja'],
 ]
 
 export default function PlanDePruebas() {

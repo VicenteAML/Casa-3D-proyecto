@@ -387,20 +387,21 @@ function Electronica() {
 }
 
 function Casa({ mostrarTecho, mostrarCables, estados, alternar }) {
-  const frente = [
-    { x: 0, y: 0, w: 1.3, h: 2.45 },
-    { x: -2.1, y: 1.15, w: 1.3, h: 1 },
-    { x: 2.1, y: 1.15, w: 1.3, h: 1 },
-  ]
+  const puerta = [{ x: 0, y: 0, w: 1.3, h: 2.45 }]
+  const ventana = [{ x: 0, y: 1.15, w: 2.05, h: 1.35 }]
   return (
     <group>
       <Bloque position={[0, -0.09, 0]} size={[7, 0.18, 7]} color="#becbc7" />
-      <Pared ancho={ANCHO + GROSOR} huecos={frente} position={[0, 0, 3.3]} />
-      <Pared ancho={ANCHO + GROSOR} huecos={frente} position={[0, 0, -3.3]}
+      <Pared ancho={ANCHO + GROSOR} huecos={puerta} position={[0, 0, 3.3]} />
+      <Pared ancho={ANCHO + GROSOR} huecos={puerta} position={[0, 0, -3.3]}
         rotation={[0, Math.PI, 0]} />
       {[-1, 1].map(s => (
-        <Pared key={s} ancho={ANCHO - GROSOR} huecos={[]}
-          position={[s * 3.3, 0, 0]} rotation={[0, s * Math.PI / 2, 0]} />
+        <group key={s} position={[s * 3.3, 0, 0]} rotation={[0, s * Math.PI / 2, 0]}>
+          <Pared ancho={ANCHO - GROSOR} huecos={ventana} />
+          <Abertura position={[0, 1.15, 0]} ancho={2.05} alto={1.35} movil
+            abierta={estados[s < 0 ? 'izquierda' : 'derecha']}
+            alternar={() => alternar(s < 0 ? 'izquierda' : 'derecha')} />
+        </group>
       ))}
       {[false, true].map(trasera => (
         <group key={String(trasera)} position={[0, 0, trasera ? -3.3 : 3.3]}
@@ -408,16 +409,6 @@ function Casa({ mostrarTecho, mostrarCables, estados, alternar }) {
           <Abertura position={[0, 0, 0]} ancho={1.3} alto={2.45} puerta movil
             abierta={estados[trasera ? 'trasera' : 'delantera']}
             alternar={() => alternar(trasera ? 'trasera' : 'delantera')} />
-          {[-2.1, 2.1].map(x => {
-            const id = x < 0 ? 'izquierda' : 'derecha'
-            const activa = !trasera
-            return (
-              <Abertura key={`${trasera}-${id}`} position={[x, 1.15, 0]}
-                ancho={1.3} alto={1} movil={activa}
-                abierta={activa && estados[id]}
-                alternar={() => alternar(id)} />
-            )
-          })}
         </group>
       ))}
       {mostrarCables && <Electronica />}
@@ -451,7 +442,7 @@ export default function App() {
         fontFamily: 'Arial, sans-serif', boxShadow: '0 5px 22px #0003' }}>
         <strong>Casa inteligente · Maqueta</strong>
         <p style={{ fontSize: 12, lineHeight: 1.5, color: '#d5ddd8' }}>
-          Dos puertas y las dos ventanas de la fachada principal. Gira con el botón izquierdo,
+          Dos puertas y una ventana en cada lado de la casa. Gira con el botón izquierdo,
           desplaza con el derecho y acerca con la rueda.
         </p>
         <section style={{ marginBottom: 14, padding: 10, borderRadius: 8,

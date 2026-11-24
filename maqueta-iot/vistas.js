@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'node:fs'
 
 function cargar(ruta){
   const lineas = fs.readFileSync(ruta, 'utf8').split('\n').map(l => l.trim());
