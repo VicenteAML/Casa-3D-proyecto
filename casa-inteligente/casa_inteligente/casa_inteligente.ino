@@ -62,6 +62,14 @@ const uint8_t P_CERRADA = 0;
 const uint8_t P_ABIERTA = 1;
 const uint8_t P_OBSTACULO = 2;          // se detuvo por obstáculo
 const uint8_t P_MOVIENDO = 3;
+const uint8_t FASE_REPOSO = 0;
+const uint8_t FASE_ABRIENDO = 1;
+const uint8_t FASE_ESPERA_ABIERTA = 2;
+const uint8_t FASE_CERRANDO = 3;
+const uint8_t FASE_DETENIDA = 4;
+const uint8_t SOLICITUD_CIERRE = 0;
+const uint8_t SOLICITUD_APERTURA = 1;
+const uint8_t SIN_UNIDAD = 255;
 
 // ------------------------------------------------------------------
 // ESTRUCTURA DE CADA UNIDAD (puerta o ventana)
@@ -93,6 +101,8 @@ struct Unidad {
   unsigned long ultimoIR;
   int irLectura;
   uint16_t ciclos;
+  uint8_t fase;
+  bool enCola;
 };
 
 Unidad unidades[] = {
@@ -102,6 +112,17 @@ Unidad unidades[] = {
   { "ventana_derecha",    6, PIN_NO_INSTALADO, 4, 90, 0, 6, V4, V8, V12, V16 }, // servo D6, sensor IR OUT D4
 };
 const size_t NUM_UNIDADES = sizeof(unidades) / sizeof(unidades[0]);
+
+struct Solicitud {
+  uint8_t indice;
+  uint8_t tipo;
+};
+
+// Una única cola y un único actuador activo para las cuatro hojas.
+Solicitud colaSolicitudes[NUM_UNIDADES];
+uint8_t colaCabeza = 0;
+uint8_t colaCantidad = 0;
+uint8_t unidadActiva = SIN_UNIDAD;
 
 void ejecutarControl(Unidad& u, int valor);
 
@@ -114,7 +135,10 @@ uint8_t intentosBlynk = 0;      // reintentos sobre la MISMA red sin entrar a Bl
 // FUNCIONES AUXILIARES
 // ------------------------------------------------------------------
 void syncloud(Unidad& u) {
-  Blynk.virtualWrite(u.vsAbierta, (u.posicion == P_ABIERTA) ? 1 : 0);
+  // V5–V8 significan "no está completamente cerrada". Así la interfaz 3D
+  // comienza a abrir al mismo tiempo que el servo y conserva el estado si
+  // el cierre queda detenido por un obstáculo.
+  Blynk.virtualWrite(u.vsAbierta, (u.posicion == P_CERRADA) ? 0 : 1);
   Blynk.virtualWrite(u.vsObstaculo, (u.posicion == P_OBSTACULO) ? 1 : 0);
   Blynk.virtualWrite(u.vsCiclos, u.ciclos);
 }
@@ -175,21 +199,71 @@ void guardarCiclos(Unidad& u) {
   EEPROM.update(u.eepromCiclos + 1, u.ciclos & 0xFF);
 }
 
-// Traduce el valor que llega de la app a un destino y arranca el movimiento
-void comandar(Unidad& u, uint8_t destino) {
-  if (u.posicion == P_MOVIENDO) return;   // ya está en movimiento
-  if (u.posicion == destino) return;      // ya está en ese lado: no hacer nada
-
+void iniciarMovimiento(Unidad& u, uint8_t destino, uint8_t fase) {
   u.posicionObjetivo = destino;
   u.posicion = P_MOVIENDO;
+  u.fase = fase;
   u.ultimoPaso = millis();
-  Blynk.virtualWrite(u.vsObstaculo, 0);
   if (destino == P_CERRADA) u.ultimoIR = millis();
+  Blynk.virtualWrite(u.vsObstaculo, 0);
+  syncloud(u);
 }
 
-// Desde DETENIDA, el valor 1 se reserva para la confirmación web "continuar cierre".
+bool encolarSolicitud(Unidad& u, uint8_t tipo) {
+  const uint8_t indice = (uint8_t)(&u - unidades);
+  if (unidadActiva == indice || u.enCola) return false;
+  if (colaCantidad >= NUM_UNIDADES) {
+    Serial.println(F("[COLA] llena; orden rechazada"));
+    return false;
+  }
+
+  const uint8_t lugar = (colaCabeza + colaCantidad) % NUM_UNIDADES;
+  colaSolicitudes[lugar].indice = indice;
+  colaSolicitudes[lugar].tipo = tipo;
+  colaCantidad++;
+  u.enCola = true;
+  Serial.print(F("[COLA] solicitud para "));
+  Serial.print(u.nombre);
+  Serial.print(F(". Esperando: "));
+  Serial.println(colaCantidad);
+  return true;
+}
+
+void iniciarSiguienteSolicitud() {
+  if (unidadActiva != SIN_UNIDAD) return;
+
+  while (colaCantidad > 0) {
+    const Solicitud solicitud = colaSolicitudes[colaCabeza];
+    colaCabeza = (colaCabeza + 1) % NUM_UNIDADES;
+    colaCantidad--;
+
+    Unidad& u = unidades[solicitud.indice];
+    u.enCola = false;
+    if (u.posicion == P_OBSTACULO || u.posicion == P_MOVIENDO) continue;
+
+    if (solicitud.tipo == SOLICITUD_APERTURA && u.posicion == P_CERRADA) {
+      unidadActiva = solicitud.indice;
+      Serial.print(F("[SECUENCIA] abriendo "));
+      Serial.println(u.nombre);
+      iniciarMovimiento(u, P_ABIERTA, FASE_ABRIENDO);
+      return;
+    }
+
+    // Un cierre en cola se procesa cuando no hay otra hoja usando el servo.
+    if (solicitud.tipo == SOLICITUD_CIERRE && u.posicion == P_ABIERTA) {
+      unidadActiva = solicitud.indice;
+      Serial.print(F("[SECUENCIA] cerrando "));
+      Serial.println(u.nombre);
+      iniciarMovimiento(u, P_CERRADA, FASE_CERRANDO);
+      return;
+    }
+  }
+}
+
+// Desde DETENIDA, el valor 1 confirma que se retiró el obstáculo.
 void reanudarCierre(Unidad& u) {
-  if (u.posicion != P_OBSTACULO) return;
+  const uint8_t indice = (uint8_t)(&u - unidades);
+  if (u.posicion != P_OBSTACULO || unidadActiva != indice || u.fase != FASE_DETENIDA) return;
 
   // No mover mientras la salida del sensor siga indicando obstáculo.
   if (u.pinIR != PIN_NO_INSTALADO && digitalRead(u.pinIR) == IR_DETECTA_NIVEL) {
@@ -200,28 +274,56 @@ void reanudarCierre(Unidad& u) {
     return;
   }
 
-  u.posicionObjetivo = P_CERRADA;
-  u.posicion = P_MOVIENDO;
-  u.ultimoPaso = millis();
-  u.ultimoIR = millis();
   Serial.print(u.nombre);
   Serial.println(" -> confirmacion recibida; continuando cierre");
   Blynk.virtualWrite(u.vsControl, 0);   // restablece el control a "cerrar"
-  Blynk.virtualWrite(u.vsObstaculo, 0);
+  iniciarMovimiento(u, P_CERRADA, FASE_CERRANDO);
 }
 
-// Valores normales de la app: 1 = abrir, 0 = cerrar, 2 = invertir.
+void solicitarCierre(Unidad& u) {
+  const uint8_t indice = (uint8_t)(&u - unidades);
+  if (u.posicion == P_OBSTACULO) return;
+
+  // Cerrar sobre una apertura que aún espera en cola cancela esa solicitud.
+  if (u.enCola) {
+    for (uint8_t offset = 0; offset < colaCantidad; offset++) {
+      const uint8_t slot = (colaCabeza + offset) % NUM_UNIDADES;
+      if (colaSolicitudes[slot].indice != indice) continue;
+      for (uint8_t mover = offset; mover + 1 < colaCantidad; mover++) {
+        const uint8_t destino = (colaCabeza + mover) % NUM_UNIDADES;
+        const uint8_t origen = (colaCabeza + mover + 1) % NUM_UNIDADES;
+        colaSolicitudes[destino] = colaSolicitudes[origen];
+      }
+      colaCantidad--;
+      u.enCola = false;
+      Serial.print(F("[COLA] apertura cancelada: "));
+      Serial.println(u.nombre);
+      return;
+    }
+  }
+  if (u.posicion == P_CERRADA) return;
+
+  if (unidadActiva == indice) {
+    // El cierre manual libera el servo al terminar; nunca habilita otro
+    // actuador mientras esta hoja aún se mueve.
+    if (u.fase == FASE_ESPERA_ABIERTA) iniciarMovimiento(u, P_CERRADA, FASE_CERRANDO);
+    return;
+  }
+  encolarSolicitud(u, SOLICITUD_CIERRE);
+}
+
+// Abrir deja la hoja abierta; cerrar la mueve a cerrada. El valor 1 también
+// confirma que se retiró un obstáculo cuando la unidad quedó detenida.
 void ejecutarControl(Unidad& u, int valor) {
   if (u.posicion == P_OBSTACULO) {
     if (valor == 1) reanudarCierre(u);
+    Blynk.virtualWrite(u.vsControl, 0);
     return; // no abrir ni cerrar sin confirmación mientras está detenida
   }
 
-  if (valor == 2) {
-    comandar(u, (u.posicion == P_ABIERTA) ? P_CERRADA : P_ABIERTA);
-    return;
-  }
-  comandar(u, (valor != 0) ? P_ABIERTA : P_CERRADA);
+  if (valor == 1) encolarSolicitud(u, SOLICITUD_APERTURA);
+  else if (valor == 0) solicitarCierre(u);
+  Blynk.virtualWrite(u.vsControl, 0); // hace que Abrir sea un pulso repetible
 }
 
 // Anti-rebote opcional del reed. Solo se ejecuta si esa entrada está instalada.
@@ -235,9 +337,9 @@ void manejarReed(Unidad& u) {
   if (lectura == u.reedEstable) return;                  // no cambió nada
   u.reedEstable = lectura;
 
-  // Mientras el servo se mueve, el imán pasa por delante del reed y dispararía
-  // cambios falsos a mitad del recorrido. Se ignora hasta que termine.
-  if (u.posicion == P_MOVIENDO) return;
+  // Mientras una hoja se mueve o la cola tiene trabajo, no dejar que el reed
+  // ordene otro servo en paralelo.
+  if (unidadActiva != SIN_UNIDAD || colaCantidad > 0 || u.posicion == P_MOVIENDO) return;
 
   uint8_t nueva = (lectura == LOW) ? P_CERRADA : P_ABIERTA;
   if (nueva == u.posicion) return;
@@ -259,8 +361,16 @@ void manejarReed(Unidad& u) {
   syncloud(u);
 }
 
-// Mueve el servo 1° por vez; al cerrar revisa el IR por obstáculos
-void manejarMovimiento(Unidad& u) {
+// Ejecuta una sola solicitud activa: abrir y mantener, o cerrar.
+void manejarMovimiento() {
+  if (unidadActiva == SIN_UNIDAD) iniciarSiguienteSolicitud();
+  if (unidadActiva == SIN_UNIDAD) return;
+
+  Unidad& u = unidades[unidadActiva];
+  // La placa conserva el bloqueo mientras está abierta. Solo el botón Cerrar
+  // libera esta hoja para que empiece la siguiente solicitud.
+  if (u.fase == FASE_ESPERA_ABIERTA) return;
+  if (u.fase != FASE_ABRIENDO && u.fase != FASE_CERRANDO) return;
   if (u.posicion != P_MOVIENDO) return;
   if ((millis() - u.ultimoPaso) < PASO_MS) return;
 
@@ -268,12 +378,13 @@ void manejarMovimiento(Unidad& u) {
                                                        : u.anguloCerrado;
 
   // Al cerrar: frente a obstáculo, detenerse
-  if (u.pinIR != PIN_NO_INSTALADO && u.posicionObjetivo == P_CERRADA &&
+  if (u.fase == FASE_CERRANDO && u.pinIR != PIN_NO_INSTALADO &&
       (millis() - u.ultimoIR) >= IR_MS) {
     u.ultimoIR = millis();
     u.irLectura = digitalRead(u.pinIR);
     if (u.irLectura == IR_DETECTA_NIVEL) {
       u.posicion = P_OBSTACULO;          // se detiene donde está ahora
+      u.fase = FASE_DETENIDA;
       Serial.print(u.nombre);
       Serial.println(" -> se detuvo por OBSTACULO");
       syncloud(u);
@@ -289,15 +400,23 @@ void manejarMovimiento(Unidad& u) {
 
   // ¿Llegó al destino?
   if (u.anguloActual == objetivo) {
-    u.posicion = u.posicionObjetivo;
-    if (u.posicion == P_CERRADA) {
+    if (u.fase == FASE_ABRIENDO) {
+      u.posicion = P_ABIERTA;
+      u.fase = FASE_ESPERA_ABIERTA;
+      Serial.print(F("[SECUENCIA] abierta; esperando cierre manual: "));
+      Serial.println(u.nombre);
+      syncloud(u);
+    } else {
+      u.posicion = P_CERRADA;
+      u.fase = FASE_REPOSO;
       u.ciclos++;                        // ciclo = una apertura + un cierre
       guardarCiclos(u);
       Serial.print(u.nombre);
       Serial.print(" -> CERRADA. Ciclos: ");
       Serial.println(u.ciclos);
+      syncloud(u);
+      unidadActiva = SIN_UNIDAD;
     }
-    syncloud(u);
   }
 }
 
@@ -438,10 +557,8 @@ void loop() {
   Blynk.run();
   mantenerConexion();
 
-  for (size_t i = 0; i < NUM_UNIDADES; i++) {
-    manejarReed(unidades[i]);
-    manejarMovimiento(unidades[i]);
-  }
+  for (size_t i = 0; i < NUM_UNIDADES; i++) manejarReed(unidades[i]);
+  manejarMovimiento();
 
   actualizarAnimacionLCD();
 }

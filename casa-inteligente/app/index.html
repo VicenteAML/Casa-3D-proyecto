@@ -383,6 +383,14 @@ const LS = {
   get:(k,d)=>{ try{ const v=localStorage.getItem(LLAVE(k)); return v===null?d:JSON.parse(v);}catch(e){return d;} },
   set:(k,v)=>{ try{ localStorage.setItem(LLAVE(k),JSON.stringify(v)); }catch(e){} }
 };
+if(LS.get("controlFlowVersion",0)!==2){
+  UNIDADES.forEach((_,i)=>{
+    LS.set("mv_"+i,0);
+    LS.set("pend_"+i,false);
+    LS.set("accion_"+i,"");
+  });
+  LS.set("controlFlowVersion",2);
+}
 
 function toast(msg){
   const t=$("toast"); t.textContent=msg; t.classList.add("on");
@@ -633,11 +641,18 @@ function revisarYRegistrar(){
 
 /* ================= estado local ================= */
 function moviendoHasta(i){ return Date.now() < LS.get("mv_"+i, 0); }
+function tiempoEstimado(){
+  return Date.now() + 2400; // movimiento estimado del servo; la placa conserva el estado real
+}
 function estadoDe(i){
   if(LS.get("act_"+i,true)===false) return {t:"SIN INSTALAR", c:"b-mo"};
   if(Number(LAST[UNIDADES[i].obs])===1) return {t:"DETENIDA", c:"b-ob"};
-  if(moviendoHasta(i)) return {t:"MOVIENDO", c:"b-mo"};
-  return Number(LAST[UNIDADES[i].est])===1 ? {t:"ABIERTA",c:"b-ab"} : {t:"CERRADA",c:"b-ce"};
+  if(Number(LAST[UNIDADES[i].est])===1){
+    if(moviendoHasta(i)) return {t:LS.get("accion_"+i)==="cerrar"?"CERRANDO":"ABRIENDO",c:"b-mo"};
+    return {t:"ABIERTA",c:"b-ab"};
+  }
+  if(LS.get("pend_"+i,false)) return {t:"EN ESPERA", c:"b-mo"};
+  return {t:"CERRADA",c:"b-ce"};
 }
 
 /* ================= lectura periódica ================= */
@@ -645,6 +660,21 @@ async function leer(){
   try{
     const d = await apiGetAll();
     LAST = d || {};
+    UNIDADES.forEach((u,i)=>{
+      const abierta = Number(LAST[u.est])===1;
+      const obstaculo = Number(LAST[u.obs])===1;
+      if(LS.get("pend_"+i,false) && (abierta || obstaculo)){
+        LS.set("pend_"+i,false);
+        if(abierta && !moviendoHasta(i)){
+          LS.set("accion_"+i,"abrir");
+          LS.set("mv_"+i,Date.now()+2400);
+        }
+      }
+      if(!abierta && !obstaculo && LS.get("accion_"+i)==="cerrar"){
+        LS.set("accion_"+i,"");
+        LS.set("mv_"+i,0);
+      }
+    });
     $("dot").classList.add("on");
     $("sub").textContent = "En línea · "+new Date().toLocaleTimeString("es-CL",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
     revisarYRegistrar();
@@ -658,17 +688,19 @@ async function leer(){
 
 /* ================= pintado ================= */
 function pintar(){
-  let h="";
+  let h=`<p class="hint">Abrir deja la puerta o ventana abierta hasta que pulses Cerrar. La placa atiende una hoja a la vez; las demás solicitudes esperan su turno. Puedes cancelar una solicitud en espera con Cerrar. Si detecta un obstáculo al cerrar, se detiene hasta que confirmes que el paso está libre.</p>`;
   UNIDADES.forEach((u,i)=>{
     const activa = LS.get("act_"+i,true)!==false;
     const e = estadoDe(i);
     h += `<div class="card ${activa?"":"off"}"><div class="chead">
       <h2>${u.n}</h2><span class="badge ${e.c}">${e.t}</span></div>`;
     const detenidaPorObstaculo = Number(LAST[u.obs])===1;
+    const enEspera = e.t==="EN ESPERA";
+    const moviendo = e.t==="ABRIENDO" || e.t==="CERRANDO";
     h += activa
       ? (detenidaPorObstaculo ? `` : `<div class="row">
-           <button class="b-open"  onclick="mover(${i},1)" ${e.t==="MOVIENDO"?"disabled":""}>Abrir</button>
-           <button class="b-close" onclick="mover(${i},0)" ${e.t==="MOVIENDO"?"disabled":""}>Cerrar</button>
+           <button class="b-open"  onclick="mover(${i},1)" ${(enEspera||moviendo||e.t==="ABIERTA")?"disabled":""}>Abrir</button>
+           <button class="b-close" onclick="mover(${i},0)" ${(moviendo||e.t==="CERRADA")?"disabled":""}>${enEspera?"Cancelar":"Cerrar"}</button>
          </div>`)
       : `<p class="hint" style="margin:2px 0 0">Sin servo conectado. Se activa cuando lo instales.</p>`;
     if(detenidaPorObstaculo && activa)
@@ -819,10 +851,25 @@ function tablaEventos(evs){
 /* ================= acciones ================= */
 async function mover(i, valor){
   const u = UNIDADES[i];
+  const cancelarEspera = valor===0 && LS.get("pend_"+i,false);
   try{
     await apiSet(u.ctrl, valor);
-    LS.set("mv_"+i, Date.now()+4200);
-    toast(valor===1 ? u.n+": abriendo" : u.n+": cerrando");
+    if(valor===1){
+      LS.set("pend_"+i,true);
+      LS.set("accion_"+i,"abrir");
+      LS.set("mv_"+i,tiempoEstimado(i, valor));
+      toast(u.n+": apertura solicitada; quedará abierta hasta que pulses Cerrar");
+    }else if(cancelarEspera){
+      LS.set("pend_"+i,false);
+      LS.set("accion_"+i,"");
+      LS.set("mv_"+i,0);
+      toast(u.n+": solicitud cancelada");
+    }else{
+      LS.set("pend_"+i,false);
+      LS.set("accion_"+i,"cerrar");
+      LS.set("mv_"+i,tiempoEstimado(i, valor));
+      toast(u.n+": cierre solicitado");
+    }
     pintar();
     setTimeout(leer, 700);
   }catch(e){ toast("No se pudo enviar el comando"); }
@@ -831,7 +878,8 @@ async function continuarCierre(i){
   const u = UNIDADES[i];
   try{
     await apiSet(u.ctrl, 1); // En estado DETENIDA, 1 confirma reanudar hacia CERRADA.
-    LS.set("mv_"+i, Date.now()+4200);
+    LS.set("accion_"+i,"cerrar");
+    LS.set("mv_"+i, Date.now()+3000);
     toast("Confirmación enviada; verificando que el paso esté libre");
     pintar();
     setTimeout(leer, 700);

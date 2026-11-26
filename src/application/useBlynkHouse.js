@@ -95,7 +95,9 @@ export function useBlynkHouse() {
       setEstados(Object.fromEntries(PARTES.map(({ id }) => [id, abrir])))
       return
     }
-    await Promise.all(PARTES.map(({ id }) => comandar(id, abrir)))
+    // Mantiene un orden determinista; la placa además serializa cualquier
+    // orden que llegue desde otro cliente Blynk.
+    for (const { id } of PARTES) await comandar(id, abrir)
   }, [comandar, token])
 
   return {
